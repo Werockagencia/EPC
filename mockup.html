@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EPC Cajicá — Mockup móvil · Versión 1</title>
+<style>
+  :root{
+    --azul-oscuro:#0b2c52;
+    --azul-boton:#1857a4;
+    --verde:#7cb143;
+    --verde-texto:#8dc63f;
+    --naranja:#ef923b;
+    --gris-texto:#9db0c4;
+    --fondo:#081c33;
+    --panel:#0e2c4d;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:"Segoe UI",Roboto,Arial,Helvetica,sans-serif;
+    background:
+      radial-gradient(circle at 12% 8%, rgba(124,177,67,.16), transparent 40%),
+      radial-gradient(circle at 88% 92%, rgba(239,146,59,.14), transparent 42%),
+      var(--fondo);
+    color:#fff;
+    min-height:100vh;
+    padding:56px 24px 80px;
+  }
+  .cabecera{
+    max-width:760px;
+    margin:0 auto 52px;
+    text-align:center;
+  }
+  .etiqueta{
+    display:inline-block;
+    background:rgba(124,177,67,.15);
+    color:var(--verde-texto);
+    font-weight:700;
+    font-size:12.5px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    padding:6px 16px;
+    border-radius:999px;
+    margin-bottom:18px;
+  }
+  .cabecera h1{
+    font-size:clamp(26px,4vw,38px);
+    line-height:1.2;
+    font-weight:800;
+  }
+  .cabecera h1 span{ color: var(--verde-texto); }
+  .cabecera p{
+    margin-top:14px;
+    color:var(--gris-texto);
+    font-size:15.5px;
+    max-width:560px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .enlaces-top{
+    margin-top:26px;
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .enlaces-top a{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    text-decoration:none;
+    font-weight:700;
+    font-size:14px;
+    padding:11px 22px;
+    border-radius:999px;
+  }
+  .enlace-primario{ background:var(--azul-boton); color:#fff; }
+  .enlace-secundario{ background:transparent; color:#fff; border:1.5px solid rgba(255,255,255,.28); }
+
+  .galeria{
+    max-width:1180px;
+    margin:0 auto;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    gap:44px;
+    flex-wrap:wrap;
+  }
+
+  .telefono-bloque{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .telefono{
+    width:328px;
+    max-width:86vw;
+    background:linear-gradient(160deg,#1b1f26,#0a0c10);
+    border-radius:46px;
+    padding:14px;
+    box-shadow:
+      0 40px 80px rgba(0,0,0,.55),
+      0 0 0 1px rgba(255,255,255,.06) inset;
+    position:relative;
+  }
+
+  .pantalla{
+    position:relative;
+    width:100%;
+    aspect-ratio:9/19.5;
+    background:#fff;
+    border-radius:32px;
+    overflow:hidden;
+    box-shadow:0 0 0 2px #000 inset;
+  }
+
+  .notch{
+    position:absolute;
+    top:0; left:50%;
+    transform:translateX(-50%);
+    width:38%;
+    height:26px;
+    background:#0a0c10;
+    border-radius:0 0 16px 16px;
+    z-index:5;
+  }
+
+  .pantalla iframe{
+    position:absolute;
+    inset:0;
+    width:390px;
+    height:calc(390px * 19.5 / 9);
+    border:0;
+    transform-origin:top left;
+    /* escala el iframe (renderizado a 390px de ancho real, viewport móvil)
+       para que quepa en el marco del teléfono manteniendo el layout responsive real */
+  }
+
+  .boton-lateral{
+    position:absolute;
+    right:-2px;
+    top:120px;
+    width:3px;
+    height:60px;
+    background:#2a2f38;
+    border-radius:2px 0 0 2px;
+  }
+
+  .etiqueta-telefono{
+    margin-top:22px;
+    text-align:center;
+  }
+  .etiqueta-telefono .num{
+    display:inline-flex;
+    width:24px;height:24px;
+    border-radius:50%;
+    background:var(--verde);
+    color:#08210f;
+    font-weight:800;
+    font-size:12.5px;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:8px;
+  }
+  .etiqueta-telefono h3{
+    font-size:15px;
+    font-weight:700;
+  }
+  .etiqueta-telefono p{
+    margin-top:4px;
+    font-size:13px;
+    color:var(--gris-texto);
+  }
+
+  .pie-nota{
+    max-width:640px;
+    margin:64px auto 0;
+    text-align:center;
+    font-size:13px;
+    color:var(--gris-texto);
+    line-height:1.7;
+  }
+  .pie-nota a{ color:var(--verde-texto); font-weight:700; }
+
+  @media (max-width:720px){
+    .galeria{ gap:52px; }
+    body{ padding:40px 16px 60px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="cabecera">
+    <span class="etiqueta">EPC Cajicá · Propuesta Gráfica</span>
+    <h1>Versión 1 <span>lista para presentar</span></h1>
+    <p>Vista del home en formato móvil, el dispositivo donde la mayoría de usuarios de la EPC consultará facturas, trámites y noticias.</p>
+    <div class="enlaces-top">
+      <a class="enlace-primario" href="index.html" target="_blank">Ver sitio completo →</a>
+      <a class="enlace-secundario" href="v2/index.html" target="_blank">Ver versión 2 (nueva propuesta visual) →</a>
+    </div>
+  </div>
+
+  <div class="galeria">
+
+    <div class="telefono-bloque">
+      <div class="telefono">
+        <div class="pantalla">
+          <div class="notch"></div>
+          <iframe id="f1" src="index.html" title="EPC — Inicio" scrolling="no"></iframe>
+        </div>
+        <div class="boton-lateral"></div>
+      </div>
+      <div class="etiqueta-telefono">
+        <span class="num">1</span>
+        <h3>Inicio</h3>
+        <p>Hero, accesos rápidos y pago de factura</p>
+      </div>
+    </div>
+
+    <div class="telefono-bloque">
+      <div class="telefono">
+        <div class="pantalla">
+          <div class="notch"></div>
+          <iframe id="f2" src="index.html" title="EPC — Trámites" scrolling="no"></iframe>
+        </div>
+        <div class="boton-lateral"></div>
+      </div>
+      <div class="etiqueta-telefono">
+        <span class="num">2</span>
+        <h3>Trámites y programas</h3>
+        <p>Programas ambientales, trámites EPC y encuesta</p>
+      </div>
+    </div>
+
+    <div class="telefono-bloque">
+      <div class="telefono">
+        <div class="pantalla">
+          <div class="notch"></div>
+          <iframe id="f3" src="index.html" title="EPC — Noticias y contacto" scrolling="no"></iframe>
+        </div>
+        <div class="boton-lateral"></div>
+      </div>
+      <div class="etiqueta-telefono">
+        <span class="num">3</span>
+        <h3>Noticias y contacto</h3>
+        <p>Noticias, cifras, entidades aliadas y pie de página</p>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="pie-nota">
+    Cada teléfono carga el sitio real (<code>index.html</code>) en un viewport móvil de 390px de ancho,
+    por lo que el diseño responsive que ves aquí es exactamente el que verá cualquier ciudadano desde su celular.
+    Explora el sitio completo en <a href="index.html" target="_blank">werockagencia.github.io/EPC</a>.
+  </p>
+
+<script>
+  // Escala el iframe (renderizado a un viewport móvil real de 390px)
+  // para que quepa dentro del marco del teléfono, y desplaza cada uno
+  // a una sección distinta del home para mostrar más contenido de un vistazo.
+  function ajustarTelefono(iframe, scrollDestino){
+    const pantalla = iframe.parentElement;
+    function escalar(){
+      const escala = pantalla.clientWidth / 390;
+      iframe.style.transform = 'scale(' + escala + ')';
+    }
+    escalar();
+    window.addEventListener('resize', escalar);
+
+    iframe.addEventListener('load', function(){
+      try{
+        iframe.contentWindow.scrollTo(0, scrollDestino);
+      }catch(e){ /* mismo origen, no debería fallar */ }
+    });
+  }
+
+  ajustarTelefono(document.getElementById('f1'), 0);
+  ajustarTelefono(document.getElementById('f2'), 1900);
+  ajustarTelefono(document.getElementById('f3'), 4200);
+</script>
+
+</body>
+</html>
