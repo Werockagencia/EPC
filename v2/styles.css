@@ -58,6 +58,40 @@ h1, h2, h3, h4, h5 { font-family: var(--fuente-titulo); font-weight: 700; }
 button { font-family: inherit; cursor: pointer; border: none; }
 
 /* ---------------------------------------------------------
+   Encabezado único del Estado colombiano (GOV.CO)
+   Requerido por la Política de Gobierno Digital (Decreto 1008/2018)
+--------------------------------------------------------- */
+.gov-bar {
+  background: var(--azul-oscuro);
+  font-size: 12px;
+}
+.gov-bar-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.gov-logo { display: flex; align-items: center; gap: 8px; }
+.gov-tricolor { display: flex; width: 18px; height: 12px; border-radius: 2px; overflow: hidden; }
+.gov-tricolor i { flex: 1; display: block; }
+.gov-tricolor i:nth-child(1) { background: #FDC300; }
+.gov-tricolor i:nth-child(2) { background: #0033A0; }
+.gov-tricolor i:nth-child(3) { background: #C8102E; }
+.gov-wordmark { color: var(--blanco); font-weight: 800; letter-spacing: .04em; font-size: 13px; }
+.gov-actions { display: flex; align-items: center; gap: 20px; }
+.gov-actions a { color: rgba(255,255,255,.75); font-weight: 500; display: flex; align-items: center; }
+.gov-actions a:hover { color: var(--blanco); }
+.gov-actions svg { width: 15px; height: 15px; }
+.gov-accesibilidad { border: 1px solid rgba(255,255,255,.3); border-radius: 50%; width: 20px; height: 20px; justify-content: center; }
+@media (max-width: 560px) {
+  .gov-bar-inner { padding: 0 18px; }
+  .gov-actions a:not(.gov-accesibilidad):not(:last-child) { display: none; }
+}
+
+/* ---------------------------------------------------------
    Barra superior
 --------------------------------------------------------- */
 .barra-superior {
@@ -939,8 +973,27 @@ button { font-family: inherit; cursor: pointer; border: none; }
 .pie-contacto li { display: flex; align-items: flex-start; gap: 8px; }
 .pie-contacto svg { width: 16px; height: 16px; margin-top: 3px; flex-shrink: 0; color: var(--verde); }
 
+.pie-transparencia {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,.12);
+  position: relative;
+  z-index: 2;
+}
+.pie-transparencia h5 { margin-bottom: 14px; }
+.pie-transparencia-links { display: flex; flex-wrap: wrap; gap: 8px 10px; list-style: none; }
+.pie-transparencia-links li a {
+  display: inline-block;
+  font-size: 12.5px;
+  padding: 6px 14px;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 999px;
+  color: #cfd9e6;
+}
+.pie-transparencia-links li a:hover { color: var(--blanco); border-color: rgba(255,255,255,.4); }
+
 .pie-inferior {
-  margin-top: 48px;
+  margin-top: 24px;
   border-top: 1px solid rgba(255,255,255,.12);
   padding: 20px 0;
   display: flex;
