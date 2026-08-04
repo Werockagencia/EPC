@@ -4,13 +4,18 @@
    ========================================================= */
 
 :root {
-  --azul-oscuro: #0b2c52;
-  --azul-oscuro-2: #0e3763;
-  --azul-medio: #14487f;
-  --azul-boton: #1857a4;
-  --verde: #7cb143;
-  --verde-oscuro: #5e9a34;
+  /* Paleta oficial del Manual de Imagen Corporativa ADCMMA-01:
+     azul = acueducto, verde = aseo, naranja = alcantarillado,
+     azul oscuro = administración municipal */
+  --azul-oscuro: #043956;
+  --azul-oscuro-2: #0a5478;
+  --azul-medio: #0e6b8f;
+  --azul-boton: #2484c6;
+  --verde: #8dc63f;
+  --verde-oscuro: #6ba82c;
   --verde-texto: #8dc63f;
+  --naranja: #ef923b;
+  --naranja-oscuro: #d97b22;
   --gris-texto: #5b6572;
   --gris-claro: #f4f6f8;
   --gris-borde: #e3e7ec;
@@ -18,14 +23,17 @@
   --radio-s: 8px;
   --radio-m: 14px;
   --radio-l: 20px;
-  --sombra: 0 10px 30px rgba(11, 44, 82, 0.08);
-  --fuente-base: "Segoe UI", Roboto, Arial, Helvetica, sans-serif;
-  --fuente-script: "Brush Script MT", "Segoe Script", cursive;
+  --sombra: 0 10px 30px rgba(4, 57, 86, 0.08);
+  --fuente-titulo: "Work Sans", "Segoe UI", Arial, Helvetica, sans-serif;
+  --fuente-base: "Inter", "Segoe UI", Arial, Helvetica, sans-serif;
+  --fuente-script: var(--fuente-titulo);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; }
+
+h1, h2, h3, h4, h5 { font-family: var(--fuente-titulo); }
 
 body {
   font-family: var(--fuente-base);
@@ -212,7 +220,7 @@ button { font-family: inherit; cursor: pointer; border: none; }
   display: flex;
   align-items: center;
   color: var(--blanco);
-  background: linear-gradient(180deg, rgba(6,20,38,.35), rgba(6,20,38,.55)), var(--azul-oscuro);
+  background: linear-gradient(180deg, rgba(4,57,86,.35), rgba(4,57,86,.6)), var(--azul-oscuro);
   overflow: hidden;
 }
 
@@ -228,7 +236,7 @@ button { font-family: inherit; cursor: pointer; border: none; }
 .hero::after {
   content: "";
   position: absolute; inset: 0;
-  background: linear-gradient(90deg, rgba(6,20,38,.55) 0%, rgba(6,20,38,.15) 55%, rgba(6,20,38,0) 75%);
+  background: linear-gradient(90deg, rgba(4,57,86,.62) 0%, rgba(4,57,86,.2) 55%, rgba(4,57,86,0) 75%);
   z-index: 1;
 }
 
@@ -248,10 +256,10 @@ button { font-family: inherit; cursor: pointer; border: none; }
 .hero-contenido .script {
   display: block;
   font-family: var(--fuente-script);
-  font-style: italic;
+  font-style: normal;
   color: var(--verde-texto);
-  font-size: 46px;
-  font-weight: 400;
+  font-size: 44px;
+  font-weight: 800;
   margin-top: 2px;
 }
 
@@ -300,26 +308,6 @@ button { font-family: inherit; cursor: pointer; border: none; }
 
 .btn-primario .flecha { background: rgba(255,255,255,.25); }
 
-.hero-puntos {
-  position: absolute;
-  right: 28px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  z-index: 2;
-}
-
-.hero-puntos span {
-  width: 9px; height: 9px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(255,255,255,.7);
-  display: block;
-}
-
-.hero-puntos span.activo { background: var(--blanco); }
-
 /* ---------------------------------------------------------
    Barra de accesos con íconos (Quiénes somos, Acueducto...)
 --------------------------------------------------------- */
@@ -342,10 +330,10 @@ button { font-family: inherit; cursor: pointer; border: none; }
     max-width:1140px;
     margin:0 auto;
 
-    background:linear-gradient(90deg,#0b2c52 0%,#14487f 100%);
+    background:linear-gradient(90deg,var(--azul-oscuro) 0%,var(--azul-medio) 100%);
     border-radius:22px;
 
-    box-shadow:0 18px 40px rgba(11,44,82,.28);
+    box-shadow:0 18px 40px rgba(4,57,86,.28);
 
     padding:28px 12px;
 }
@@ -397,7 +385,14 @@ button { font-family: inherit; cursor: pointer; border: none; }
     height:30px;
     stroke:#fff;
     fill:none;
+    opacity:.85;
 }
+
+/* Los 3 servicios centrales de la EPC llevan su color institucional;
+   el resto (trámites administrativos) queda en blanco neutro */
+.barra-iconos .item:nth-child(2) svg{ stroke:var(--azul-boton); opacity:1; }
+.barra-iconos .item:nth-child(3) svg{ stroke:var(--naranja); opacity:1; }
+.barra-iconos .item:nth-child(4) svg{ stroke:var(--verde-texto); opacity:1; }
 
 /* ---------------------------------------------------------
    Simplifica tu pago
@@ -421,7 +416,7 @@ button { font-family: inherit; cursor: pointer; border: none; }
 
 .pago-izquierda{
     background:
-    linear-gradient(rgba(11,44,82,.15),rgba(11,44,82,.15)),
+    linear-gradient(rgba(4,57,86,.55),rgba(4,57,86,.55)),
     url("images/fondo-pagos.jpg");
 
     background-size:cover;
@@ -673,8 +668,8 @@ button { font-family: inherit; cursor: pointer; border: none; }
   font-weight: 700; font-size: 13.5px; color: var(--azul-boton);
 }
 
-.tarjeta-tramite:nth-child(2) .ver { color: var(--verde-oscuro); }
-.tarjeta-tramite:nth-child(3) .ver { color: var(--azul-boton); }
+.tarjeta-tramite:nth-child(2) .ver { color: var(--naranja-oscuro); }
+.tarjeta-tramite:nth-child(3) .ver { color: var(--verde-oscuro); }
 
 /* ---------------------------------------------------------
    Banner encuesta
@@ -757,14 +752,14 @@ button { font-family: inherit; cursor: pointer; border: none; }
   font-size: 11px;
   font-weight: 700;
   color: var(--blanco);
-  background: var(--verde-oscuro);
+  background: var(--azul-oscuro);
   padding: 3px 10px;
   border-radius: 4px;
   margin-top: 12px;
 }
 
-.etiqueta.ambiental { background: #5b8a3a; }
-.etiqueta.servicio { background: #2e5e8c; }
+.etiqueta.ambiental { background: var(--verde-oscuro); }
+.etiqueta.servicio { background: var(--naranja-oscuro); }
 
 .fecha-noticia {
   font-size: 12px; color: var(--gris-texto); margin-left: 8px;
@@ -784,15 +779,15 @@ button { font-family: inherit; cursor: pointer; border: none; }
   background: linear-gradient(160deg, var(--azul-oscuro) 0%, var(--azul-medio) 100%);
   color: var(--blanco);
   border-radius: var(--radio-l);
-  padding: 28px 26px;
+  padding: 32px 28px;
 }
 
 .cifras-header {
   display: flex; align-items: center; justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
-.cifras-header h3 { font-size: 18px; }
+.cifras-header h3 { font-size: 19px; }
 
 .cifras-header .ver-mas {
   font-size: 12.5px; font-weight: 700; color: var(--verde-texto);
@@ -802,13 +797,19 @@ button { font-family: inherit; cursor: pointer; border: none; }
 .cifras-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 22px 16px;
+  gap: 26px 18px;
 }
 
-.cifra-item { display: flex; flex-direction: column; gap: 6px; }
-.cifra-item .icono { width: 26px; height: 26px; color: var(--verde-texto); }
-.cifra-item .valor { font-size: 21px; font-weight: 800; }
-.cifra-item .etiqueta-cifra { font-size: 12px; color: #cdd8e6; }
+.cifra-item { display: flex; flex-direction: column; gap: 10px; }
+.cifra-item .icono {
+  width: 40px; height: 40px;
+  padding: 9px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.12);
+  color: var(--verde-texto);
+}
+.cifra-item .valor { font-family: var(--fuente-titulo); font-size: 24px; font-weight: 800; }
+.cifra-item .etiqueta-cifra { font-size: 12.5px; color: #cdd8e6; }
 
 /* ---------------------------------------------------------
    Entidades / enlaces de interés
@@ -816,45 +817,50 @@ button { font-family: inherit; cursor: pointer; border: none; }
 .entidades {
   display: flex;
   align-items: center;
-  gap: 30px;
-  padding: 30px 0;
-  border-top: 1px solid var(--gris-borde);
+  gap: 36px;
+  padding: 44px 40px;
+  background: var(--gris-claro);
+  border-radius: var(--radio-l);
+  border-top: none;
 }
 
 .entidades .flecha-carrusel {
-  width: 34px; height: 34px;
+  width: 38px; height: 38px;
   border-radius: 50%;
   border: 1px solid var(--gris-borde);
+  background: var(--blanco);
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
-  color: var(--gris-texto);
+  color: var(--azul-oscuro);
 }
 
 .entidades-titulo {
+  font-family: var(--fuente-titulo);
   font-weight: 700;
-  font-size: 15px;
+  font-size: 16px;
   color: var(--azul-oscuro);
-  max-width: 140px;
+  max-width: 150px;
   flex-shrink: 0;
 }
 
 .entidades-logos {
   display: flex;
   align-items: center;
-  gap: 50px;
+  gap: 56px;
   flex: 1;
   justify-content: space-around;
   flex-wrap: wrap;
-  opacity: .9;
 }
 
-.entidades-logos img { height: 40px; width: auto; object-fit: contain; }
+.entidades-logos img { height: 56px; width: auto; object-fit: contain; }
 
 /* ---------------------------------------------------------
    Footer
 --------------------------------------------------------- */
 .pie{
-    background-image:url("images/fondo-footer.jpg");
+    background-image:
+        linear-gradient(180deg, rgba(4,57,86,.93), rgba(4,57,86,.97)),
+        url("images/fondo-footer.jpg");
     background-size:cover;
     background-position:right bottom;
     background-repeat:no-repeat;
