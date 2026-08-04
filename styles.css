@@ -944,7 +944,8 @@ button { font-family: inherit; cursor: pointer; border: none; }
   .tramites { flex-direction: column; }
   .tramites-tarjetas { grid-template-columns: 1fr; width: 100%; }
   .noticias-lista { grid-template-columns: 1fr; }
-  .encuesta { justify-content: center; text-align: center; }
+  .encuesta { flex-direction: column; justify-content: center; text-align: center; }
+  .encuesta img.persona { width: 160px; height: 160px; }
   .encuesta .btn-verde-claro { margin-left: 0; }
   .encuesta .separador { display: none; }
 }
@@ -957,4 +958,7 @@ button { font-family: inherit; cursor: pointer; border: none; }
   .pie-grid { grid-template-columns: 1fr; }
   .entidades { flex-direction: column; text-align: center; }
   .entidades-logos { gap: 26px; }
+  .encuesta { padding: 30px 24px; }
+  .encuesta img.persona { width: 130px; height: 130px; }
+  .encuesta p { max-width: 100%; }
 }
