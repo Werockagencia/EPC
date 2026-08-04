@@ -385,14 +385,7 @@ button { font-family: inherit; cursor: pointer; border: none; }
     height:30px;
     stroke:#fff;
     fill:none;
-    opacity:.85;
 }
-
-/* Los 3 servicios centrales de la EPC llevan su color institucional;
-   el resto (trámites administrativos) queda en blanco neutro */
-.barra-iconos .item:nth-child(2) svg{ stroke:var(--azul-boton); opacity:1; }
-.barra-iconos .item:nth-child(3) svg{ stroke:var(--naranja); opacity:1; }
-.barra-iconos .item:nth-child(4) svg{ stroke:var(--verde-texto); opacity:1; }
 
 /* ---------------------------------------------------------
    Simplifica tu pago
