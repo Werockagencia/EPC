@@ -3,504 +3,674 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EPC Cajicá — Mockup móvil interactivo · V1 vs V2</title>
+<title>EPC Cajicá · Las dos propuestas en el celular</title>
+<meta name="description" content="Empresa de Servicios Públicos de Cajicá — las dos propuestas gráficas del sitio, en vivo, dentro de un teléfono real.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#071B2C">
+<link rel="icon" href="images/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Poppins:ital,wght@0,400;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
 <style>
+
   :root{
-    --azul:#2484c6;
+    /* paleta oficial EPC Cajicá */
+    --azul:#2484C6;
+    --azul-h:#1C6BA3;
     --azul-oscuro:#043956;
-    --verde:#8dc63f;
-    --naranja:#ef923b;
-    --gris-texto:#9fb4c2;
-    --fondo:#071b2c;
-    --borde:rgba(255,255,255,.08);
+    --verde:#8DC63F;
+    --verde-oscuro:#6BA82C;
+    --naranja:#EF923B;
+    --fondo:#071B2C;
+    --fondo-2:#050F1A;
+    --cream:#F4F8FB;
+    --cream-70:rgba(244,248,251,.72);
+    --cream-45:rgba(244,248,251,.46);
+    --line:rgba(244,248,251,.14);
+
+    --serif:'Poppins',"Segoe UI",sans-serif;
+    --sans:'Manrope',"Segoe UI",sans-serif;
+    /* arco de la propuesta 2, esquinas redondeadas coherentes con su sistema de pills */
+    --arch:50% 50% 16px 16px / 30% 30% 2.5% 2.5%;
   }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
+
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
   body{
-    font-family:"Manrope","Segoe UI",Roboto,Arial,sans-serif;
-    background:
-      radial-gradient(circle at 10% 0%, rgba(36,132,198,.20), transparent 42%),
-      radial-gradient(circle at 92% 12%, rgba(141,198,63,.14), transparent 40%),
-      radial-gradient(circle at 50% 100%, rgba(239,146,59,.10), transparent 45%),
-      var(--fondo);
-    color:#fff;
+    font-family:var(--sans);
+    font-size:16.5px;line-height:1.72;letter-spacing:.002em;
+    color:var(--cream);
+    background:var(--fondo);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
     min-height:100vh;
-    padding:64px 24px 90px;
   }
-  h1,h2,h3{ font-family:"Poppins","Segoe UI",Arial,sans-serif; }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
 
-  /* ---------------- Cabecera ---------------- */
-  .cabecera{
-    max-width:820px;
-    margin:0 auto 30px;
-    text-align:center;
+  /* Luz de escenario: tres focos, los tres colores institucionales */
+  .glow{
+    position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(58% 46% at 18% 6%,  rgba(36,132,198,.38), transparent 68%),
+      radial-gradient(52% 44% at 84% 22%, rgba(141,198,63,.24), transparent 70%),
+      radial-gradient(70% 50% at 50% 108%,rgba(239,146,59,.16), transparent 72%);
   }
-  .etiqueta{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    background:rgba(141,198,63,.14);
+  .wrap{position:relative;z-index:1}
+
+  /* ---------- utilidades tipográficas ---------- */
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--serif);
+    font-size:11.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
     color:var(--verde);
-    font-weight:700;
-    font-size:12px;
-    letter-spacing:.09em;
-    text-transform:uppercase;
-    padding:7px 18px;
-    border-radius:999px;
-    margin-bottom:20px;
   }
-  .etiqueta::before{
-    content:"";
-    width:7px; height:7px;
-    border-radius:50%;
-    background:var(--verde);
-    box-shadow:0 0 0 4px rgba(141,198,63,.18);
+  .eyebrow::before{
+    content:'';width:7px;height:7px;border-radius:50%;
+    background:var(--verde);box-shadow:0 0 0 4px rgba(141,198,63,.2);
   }
-  .cabecera h1{
-    font-size:clamp(28px,4.2vw,42px);
-    line-height:1.2;
-    font-weight:800;
+  .display{
+    font-family:var(--serif);font-weight:800;line-height:1.08;
+    letter-spacing:-.01em;color:var(--cream);
   }
-  .cabecera h1 span{
-    background:linear-gradient(90deg,var(--azul),var(--verde));
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
+  .display em{font-style:normal;background:linear-gradient(90deg,var(--azul),var(--verde));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{font-size:17px;line-height:1.75;color:var(--cream-70);max-width:56ch}
+
+  /* ---------- scroll reveal ---------- */
+  .rv{opacity:0;transform:translateY(26px);transition:opacity 1s cubic-bezier(.2,.7,.3,1),transform 1s cubic-bezier(.2,.7,.3,1)}
+  .rv.in{opacity:1;transform:none}
+  .rv.d1{transition-delay:.10s}
+  .rv.d2{transition-delay:.20s}
+  .rv.d3{transition-delay:.30s}
+  .rv.d4{transition-delay:.42s}
+
+  /* ================= CABECERA ================= */
+  .intro{
+    max-width:1240px;margin:0 auto;
+    padding:clamp(48px,6.5vh,86px) clamp(20px,5vw,64px) 0;
+    text-align:center;
   }
-  .cabecera p{
-    margin-top:16px;
-    color:var(--gris-texto);
-    font-size:16px;
-    line-height:1.6;
-    max-width:600px;
-    margin-left:auto;
-    margin-right:auto;
+  .lockup{height:42px;width:auto;margin:0 auto 28px;opacity:.96}
+  .intro .eyebrow{margin-bottom:20px}
+  .intro h1{font-size:clamp(36px,5.2vw,68px)}
+  .intro .lead{margin:24px auto 0;text-align:center}
+
+  .links{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:34px}
+  .links a{
+    display:inline-flex;align-items:center;gap:9px;
+    font-family:var(--serif);
+    font-size:12px;font-weight:700;letter-spacing:.08em;
+    padding:14px 26px;border-radius:999px;border:1.5px solid var(--line);
+    color:var(--cream-70);
+    transition:color .3s,border-color .3s,background .3s,transform .3s;
   }
-  .enlaces-top{
-    margin-top:28px;
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    flex-wrap:wrap;
+  .links a:hover{color:var(--cream);border-color:var(--cream-45);background:rgba(244,248,251,.06);transform:translateY(-2px)}
+  .links a.solid{background:var(--azul);border-color:var(--azul);color:#fff}
+  .links a.solid:hover{background:var(--azul-h);border-color:var(--azul-h)}
+
+  /* ================= ESCENARIO ================= */
+  .stage{
+    position:relative;
+    max-width:1420px;margin:0 auto;
+    padding:clamp(34px,4.4vw,58px) clamp(16px,4vw,56px) clamp(30px,5vw,60px);
   }
-  .enlaces-top a{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    text-decoration:none;
-    font-weight:700;
-    font-size:13.5px;
-    padding:11px 20px;
-    border-radius:999px;
-    border:1.5px solid var(--borde);
+
+  .controls{
+    display:flex;justify-content:center;align-items:center;gap:14px;
+    flex-wrap:wrap;margin-bottom:clamp(34px,5vw,58px);
+  }
+  .seg{
+    display:inline-flex;gap:4px;padding:5px;border-radius:999px;
+    background:rgba(244,248,251,.07);border:1px solid var(--line);
+    backdrop-filter:blur(8px);
+  }
+  .seg button{
+    font-family:var(--serif);font-size:12px;font-weight:700;
+    letter-spacing:.05em;
+    color:var(--cream-70);background:none;border:0;
+    padding:11px 22px;border-radius:999px;cursor:pointer;white-space:nowrap;
+    transition:background .3s,color .3s;
+  }
+  .seg button:hover{color:var(--cream)}
+  .seg button[aria-pressed="true"]{background:var(--cream);color:var(--azul-oscuro)}
+  .ghost{
+    font-family:var(--serif);font-size:12px;font-weight:700;
+    letter-spacing:.05em;
+    color:var(--cream-45);background:none;border:1.5px solid var(--line);
+    padding:12px 20px;border-radius:999px;cursor:pointer;
+    transition:color .3s,border-color .3s;
+  }
+  .ghost:hover{color:var(--cream);border-color:var(--cream-45)}
+
+  .phones{
+    display:flex;justify-content:center;align-items:flex-start;
+    gap:clamp(40px,7vw,120px);
+    perspective:2400px;perspective-origin:50% 42%;
+  }
+  .phones[data-view="a"] .slot-b,
+  .phones[data-view="b"] .slot-a{display:none}
+  .phones[data-view="a"] .slot-a .phone,
+  .phones[data-view="b"] .slot-b .phone{--w:min(388px,84vw)}
+  .phones[data-view="a"] .slot-a .phone,
+  .phones[data-view="b"] .slot-b .phone{transform:none}
+
+  .slot{
+    position:relative;
+    display:flex;flex-direction:column;align-items:center;
+    transform-style:preserve-3d;
+  }
+
+  /* Halo del color dominante de cada propuesta, detrás de su teléfono */
+  .halo{
+    position:absolute;z-index:0;pointer-events:none;
+    width:150%;height:80%;left:-25%;top:6%;
+    filter:blur(54px);opacity:.62;
+    transition:opacity .6s ease,transform .6s ease;
+  }
+  .slot-a .halo{background:radial-gradient(50% 50% at 50% 50%,rgba(36,132,198,.85),transparent 72%);border-radius:6px}
+  .slot-b .halo{background:radial-gradient(50% 50% at 50% 50%,rgba(141,198,63,.72),transparent 72%);border-radius:var(--arch)}
+  .slot:hover .halo{opacity:.85;transform:scale(1.04)}
+
+  /* Etiqueta de propuesta */
+  .tag{position:relative;z-index:2;text-align:center;margin-bottom:26px}
+  .tag .letter{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:40px;height:40px;margin-bottom:14px;
+    font-family:var(--serif);font-size:18px;font-weight:800;line-height:1;
     color:#fff;
-    transition:.2s;
   }
-  .enlaces-top a:hover{ border-color:rgba(255,255,255,.3); background:rgba(255,255,255,.05); }
-  .enlaces-top a.principal{ background:var(--azul); border-color:var(--azul); }
-  .enlaces-top a.principal:hover{ background:#1c6ba3; }
-
-  /* ---------------- Secciones ---------------- */
-  .seccion-titulo{
-    max-width:1180px;
-    margin:76px auto 8px;
-    display:flex;
-    align-items:baseline;
-    justify-content:space-between;
-    gap:16px;
-    flex-wrap:wrap;
-    padding:0 4px;
-  }
-  .seccion-titulo h2{ font-size:22px; font-weight:800; }
-  .seccion-titulo p{ font-size:13.5px; color:var(--gris-texto); }
-
-  /* ---------------- Comparación (2 teléfonos) ---------------- */
-  .comparacion{
-    max-width:1180px;
-    margin:26px auto 0;
-    display:flex;
-    justify-content:center;
-    align-items:flex-start;
-    gap:64px;
-    flex-wrap:wrap;
+  .slot-a .tag .letter{background:var(--azul);border-radius:8px}
+  .slot-b .tag .letter{background:var(--verde);color:#08240a;border-radius:50%}
+  .tag h2{font-family:var(--serif);font-weight:800;font-size:clamp(24px,2.4vw,32px);line-height:1.1}
+  .tag .kicker{
+    display:block;margin-top:8px;
+    font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--cream-45);
   }
 
-  .columna-telefono{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    animation:aparecer .7s ease both;
+  /* ---------- MARCO DE TELÉFONO ---------- */
+  .tilt{
+    position:relative;z-index:2;
+    transform-style:preserve-3d;
+    transition:transform .7s cubic-bezier(.2,.7,.3,1);
+    will-change:transform;
   }
-  .columna-telefono:nth-child(2){ animation-delay:.12s; }
-
-  @keyframes aparecer{
-    from{ opacity:0; transform:translateY(18px); }
-    to{ opacity:1; transform:translateY(0); }
-  }
-
-  .badge-version{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    font-family:"Poppins",sans-serif;
-    font-weight:700;
-    font-size:13px;
-    padding:7px 16px 7px 10px;
-    border-radius:999px;
-    margin-bottom:18px;
-  }
-  .badge-version .punto{ width:8px; height:8px; border-radius:50%; }
-  .badge-v1{ background:rgba(255,255,255,.08); color:#dce7ee; }
-  .badge-v1 .punto{ background:#8ea4b3; }
-  .badge-v2{ background:linear-gradient(90deg, rgba(36,132,198,.22), rgba(141,198,63,.22)); color:#fff; }
-  .badge-v2 .punto{ background:linear-gradient(90deg,var(--azul),var(--verde)); }
-
-  /* ---------------- Marco de teléfono ---------------- */
-  .telefono{
-    --ancho:300px;
-    width:var(--ancho);
-    background:linear-gradient(160deg,#20242c,#08090c);
-    border-radius:44px;
-    padding:12px;
+  .phone{
+    --w:min(322px,82vw);
+    position:relative;width:var(--w);padding:11px;
+    border-radius:46px;
+    background:linear-gradient(150deg,#2C3B47 0%,#0F1A22 26%,#060B0E 62%,#1B2830 100%);
     box-shadow:
-      0 40px 90px rgba(0,0,0,.55),
-      0 0 0 1px rgba(255,255,255,.07) inset;
-    position:relative;
+      0 0 0 1px rgba(244,248,251,.13) inset,
+      0 2px 3px rgba(0,0,0,.5),
+      0 44px 90px -24px rgba(0,0,0,.75),
+      0 90px 120px -60px rgba(0,0,0,.9);
+    transition:transform .8s cubic-bezier(.2,.7,.3,1),box-shadow .8s ease;
   }
+  .slot-a .phone{transform:rotateY(9deg) rotateX(1.5deg)}
+  .slot-b .phone{transform:rotateY(-9deg) rotateX(1.5deg)}
+  .phones[data-tilt="off"] .phone{transform:none!important}
+  .slot:hover .phone{
+    transform:rotateY(0deg) rotateX(0deg) translateY(-10px) scale(1.015);
+    box-shadow:
+      0 0 0 1px rgba(244,248,251,.2) inset,
+      0 2px 3px rgba(0,0,0,.5),
+      0 60px 110px -26px rgba(0,0,0,.8),
+      0 110px 140px -60px rgba(0,0,0,.95);
+  }
+  .phones[data-tilt="off"] .slot:hover .phone{transform:translateY(-10px) scale(1.015)!important}
 
-  .telefono .boton-lateral{
-    position:absolute; right:-2px; top:118px;
-    width:3px; height:56px;
-    background:#2a2f38; border-radius:2px 0 0 2px;
-  }
-  .telefono .boton-volumen{
-    position:absolute; left:-2px; top:100px;
-    width:3px; height:34px;
-    background:#2a2f38; border-radius:0 2px 2px 0;
-  }
-  .telefono .boton-volumen.b2{ top:145px; height:60px; }
+  /* botones laterales */
+  .phone i{position:absolute;background:linear-gradient(90deg,#2C3B47,#0F1A22);display:block}
+  .phone i.vol1{left:-2.5px;top:132px;width:3px;height:34px;border-radius:2px 0 0 2px}
+  .phone i.vol2{left:-2.5px;top:176px;width:3px;height:56px;border-radius:2px 0 0 2px}
+  .phone i.pwr {right:-2.5px;top:158px;width:3px;height:74px;border-radius:0 2px 2px 0}
 
-  .pantalla{
-    position:relative;
-    width:100%;
-    aspect-ratio:9/19.5;
-    background:#fff;
-    border-radius:32px;
-    overflow:hidden;
-    box-shadow:0 0 0 2px #000 inset;
+  .screen{
+    --s:.8;
+    position:relative;width:100%;aspect-ratio:9/19.5;
+    border-radius:36px;overflow:hidden;background:#fff;
+    box-shadow:0 0 0 2.5px #060B0E inset;
+    isolation:isolate;
   }
-
+  .screen iframe{
+    position:absolute;left:0;top:0;
+    width:390px;height:calc(390px * 19.5 / 9);
+    border:0;transform-origin:top left;background:#fff;
+  }
   .notch{
-    position:absolute;
-    top:0; left:50%;
-    transform:translateX(-50%);
-    width:26%;
-    height:16px;
-    background:#08090c;
-    border-radius:0 0 12px 12px;
-    z-index:9;
+    position:absolute;z-index:7;top:0;left:50%;transform:translateX(-50%);
+    width:calc(120px * var(--s));height:calc(24px * var(--s));
+    background:#060B0E;border-radius:0 0 16px 16px;pointer-events:none;
+  }
+  .home{
+    position:absolute;z-index:7;bottom:calc(9px * var(--s));left:50%;transform:translateX(-50%);
+    width:33%;height:calc(5px * var(--s));border-radius:4px;background:rgba(4,57,86,.28);
     pointer-events:none;
   }
-
-  .home-indicator{
-    position:absolute;
-    bottom:8px; left:50%;
-    transform:translateX(-50%);
-    width:34%;
-    height:5px;
-    border-radius:4px;
-    background:rgba(0,0,0,.22);
-    z-index:9;
-    pointer-events:none;
+  /* reflejo de vidrio: se apaga al pasar el cursor para no estorbar la lectura */
+  .glass{
+    position:absolute;inset:0;z-index:5;pointer-events:none;
+    background:linear-gradient(118deg,rgba(255,255,255,.30) 0%,rgba(255,255,255,.05) 22%,transparent 40%);
+    opacity:.7;transition:opacity .6s ease;
   }
+  .slot:hover .glass,.detail-phone:hover .glass{opacity:.12}
 
-  .pantalla iframe{
-    position:absolute;
-    top:0; left:0;
-    width:390px;
-    height:calc(390px * 19.5 / 9);
-    border:0;
-    transform-origin:top left;
-  }
-
+  /* pista de scroll */
   .hint{
-    position:absolute;
-    inset:0;
-    z-index:7;
-    pointer-events:none;
-    display:flex;
-    align-items:flex-end;
-    justify-content:center;
-    padding-bottom:20%;
-    background:linear-gradient(180deg, transparent 60%, rgba(0,0,0,.35) 100%);
-    animation:ocultarHint .9s ease forwards;
-    animation-delay:2.6s;
+    position:absolute;inset:0;z-index:7;pointer-events:none;
+    display:flex;align-items:flex-end;justify-content:center;padding-bottom:16%;
+    background:linear-gradient(180deg,transparent 62%,rgba(4,57,86,.4) 100%);
+    animation:hintOut .8s ease forwards;animation-delay:4.2s;
   }
-  .hint .globo{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    background:rgba(0,0,0,.55);
-    backdrop-filter:blur(6px);
-    color:#fff;
-    font-size:12.5px;
-    font-weight:700;
-    padding:9px 16px;
-    border-radius:999px;
-    animation:flotar 1.6s ease-in-out infinite;
+  .hint span{
+    font-family:var(--serif);
+    font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:#fff;background:rgba(4,57,86,.78);backdrop-filter:blur(6px);
+    padding:9px 18px;border-radius:999px;animation:float 2.2s ease-in-out infinite;
   }
-  @keyframes flotar{
-    0%,100%{ transform:translateY(0); }
-    50%{ transform:translateY(-6px); }
-  }
-  @keyframes ocultarHint{
-    to{ opacity:0; visibility:hidden; }
-  }
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+  @keyframes hintOut{to{opacity:0;visibility:hidden}}
 
-  .pie-telefono{
-    margin-top:20px;
-    text-align:center;
-    max-width:280px;
+  .caption{
+    position:relative;z-index:2;
+    margin-top:30px;max-width:330px;text-align:center;
+    font-size:14.5px;line-height:1.7;color:var(--cream-70);
   }
-  .pie-telefono h3{ font-size:15.5px; font-weight:700; }
-  .pie-telefono p{ margin-top:6px; font-size:13px; color:var(--gris-texto); line-height:1.55; }
+  .caption a{
+    display:inline-block;margin-top:14px;
+    font-family:var(--serif);
+    font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--cream);border-bottom:1px solid var(--cream-45);padding-bottom:4px;
+    transition:border-color .3s}
+  .caption a:hover{border-color:var(--cream)}
 
-  /* ---------------- Vista de cerca (teléfono grande + toggle) ---------------- */
-  .cerca-wrap{
-    max-width:1180px;
-    margin:26px auto 0;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+  /* ================= VISTA DE CERCA ================= */
+  .detail{
+    max-width:1240px;margin:0 auto;
+    padding:clamp(60px,8vw,120px) clamp(20px,5vw,64px) 0;
   }
+  .detail-head{text-align:center;margin-bottom:clamp(34px,5vw,56px)}
+  .detail-head .eyebrow{margin-bottom:16px}
+  .detail-head h2{font-family:var(--serif);font-weight:800;font-size:clamp(28px,3.2vw,44px);line-height:1.1}
+  .detail-head p{margin-top:14px;font-size:15px;color:var(--cream-70)}
 
-  .toggle{
-    display:inline-flex;
-    background:rgba(255,255,255,.06);
-    border:1px solid var(--borde);
-    border-radius:999px;
-    padding:5px;
-    gap:4px;
-    margin-bottom:30px;
+  .detail-grid{
+    display:grid;grid-template-columns:minmax(0,auto) minmax(280px,420px);
+    gap:clamp(40px,6vw,88px);align-items:center;justify-content:center;
   }
-  .toggle button{
-    font-family:"Poppins",sans-serif;
-    border:0;
-    background:transparent;
-    color:var(--gris-texto);
-    font-weight:700;
-    font-size:13.5px;
-    padding:10px 22px;
-    border-radius:999px;
-    cursor:pointer;
-    transition:.2s;
-  }
-  .toggle button.activo{
-    background:#fff;
-    color:var(--azul-oscuro);
-  }
+  .detail-phone{position:relative;display:flex;justify-content:center}
+  .detail-phone .phone{--w:min(376px,82vw)}
+  .detail-phone .phone{transition:box-shadow .8s ease}
 
-  .cerca-telefono{ --ancho:380px; }
+  .id-card{position:relative}
+  .id-card .seg{margin-bottom:30px}
+  .id-card h3{font-family:var(--serif);font-weight:800;font-size:clamp(26px,2.8vw,36px);line-height:1.15}
+  .id-card .desc{margin-top:16px;font-size:15.5px;line-height:1.75;color:var(--cream-70)}
 
-  .cerca-caption{
-    margin-top:22px;
-    text-align:center;
-    max-width:460px;
-  }
-  .cerca-caption h3{ font-size:17px; font-weight:700; }
-  .cerca-caption p{ margin-top:8px; font-size:13.5px; color:var(--gris-texto); line-height:1.6; }
-  .cerca-caption .chips{
-    margin-top:14px;
-    display:flex;
-    gap:8px;
-    justify-content:center;
-    flex-wrap:wrap;
-  }
-  .cerca-caption .chip{
-    font-size:11.5px;
-    font-weight:700;
-    padding:5px 12px;
-    border-radius:999px;
-    background:rgba(255,255,255,.07);
-    color:#dce7ee;
-  }
+  .swatches{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+  .sw{text-align:center}
+  .sw .chip{width:52px;height:52px;border-radius:8px;box-shadow:0 0 0 1px rgba(244,248,251,.28)}
+  .sw.round .chip{border-radius:50%}
+  .sw small{display:block;margin-top:9px;font-size:9.5px;letter-spacing:.08em;color:var(--cream-45);font-weight:700}
 
-  .pie-nota{
-    max-width:640px;
-    margin:80px auto 0;
-    text-align:center;
-    font-size:13px;
-    color:var(--gris-texto);
-    line-height:1.7;
+  .traits{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
+  .traits span{
+    font-family:var(--serif);
+    font-size:11px;font-weight:700;letter-spacing:.04em;
+    color:var(--cream-70);border:1.5px solid var(--line);border-radius:999px;padding:8px 15px;
   }
-  .pie-nota a{ color:var(--verde); font-weight:700; }
+  .typeline{
+    margin-top:28px;padding-top:22px;border-top:1px solid var(--line);
+    font-size:13px;color:var(--cream-45);letter-spacing:.02em;
+  }
+  .typeline b{font-family:var(--serif);font-weight:700;font-size:15.5px;color:var(--cream);letter-spacing:0}
 
-  @media (max-width:720px){
-    body{ padding:48px 16px 70px; }
-    .comparacion{ gap:48px; }
-    .telefono{ --ancho:270px; }
-    .cerca-telefono{ --ancho:300px; }
+  /* ================= PIE ================= */
+  .foot{
+    max-width:760px;margin:0 auto;text-align:center;
+    padding:clamp(70px,9vw,130px) 24px clamp(56px,7vw,90px);
+    font-size:13.5px;line-height:1.8;color:var(--cream-45);
+  }
+  .foot strong{color:var(--cream-70);font-weight:700}
+  .foot .rule{width:52px;height:1px;background:var(--line);margin:0 auto 26px}
+  .foot .sign{margin-top:22px;font-family:var(--serif);font-weight:700;font-size:17px;color:var(--verde)}
+
+  /* ================= RESPONSIVE ================= */
+  @media(min-width:1400px){
+    .phone{--w:352px}
+    .phones[data-view="a"] .slot-a .phone,
+    .phones[data-view="b"] .slot-b .phone{--w:420px}
+    .detail-phone .phone{--w:400px}
+  }
+  @media(max-width:1080px){
+    .phones{flex-direction:column;align-items:center;gap:76px}
+    .detail-grid{grid-template-columns:1fr;gap:48px}
+    .id-card{text-align:center}
+    .id-card .seg{display:inline-flex}
+    .swatches,.traits{justify-content:center}
+    .id-card .desc{margin-left:auto;margin-right:auto;max-width:52ch}
+  }
+  @media(max-width:640px){
+    .phone{--w:min(300px,86vw)}
+    .detail-phone .phone{--w:min(300px,86vw)}
+    .phones[data-view="a"] .slot-a .phone,
+    .phones[data-view="b"] .slot-b .phone{--w:min(320px,88vw)}
+    .seg button{padding:10px 15px;font-size:10.5px}
+    .links a{padding:12px 18px;font-size:10.5px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .rv{opacity:1!important;transform:none!important;transition:none!important}
+    .hint{animation:none;opacity:0}
+    .phone,.tilt{transition:none!important}
+    html{scroll-behavior:auto}
   }
 </style>
 </head>
 <body>
 
-  <div class="cabecera">
-    <span class="etiqueta">EPC Cajicá · Propuestas gráficas</span>
-    <h1>Mockup móvil <span>interactivo</span></h1>
-    <p>Dos propuestas gráficas, ninguna en producción todavía. Cada teléfono carga el diseño real y se navega tal cual lo haría un ciudadano desde su celular: desliza, haz scroll, explora los trámites.</p>
-    <div class="enlaces-top">
-      <a class="principal" href="index.html" target="_blank">Ver Propuesta 1 completa ↗</a>
-      <a href="v2/index.html" target="_blank">Ver Propuesta 2 completa ↗</a>
+<div class="glow" aria-hidden="true"></div>
+
+<div class="wrap">
+
+  <!-- ===================== CABECERA ===================== -->
+  <header class="intro">
+    <img class="lockup rv in" src="images/logo.png" alt="EPC — Empresa de Servicios Públicos de Cajicá">
+    <span class="eyebrow rv d1">Dos propuestas · una en vivo en cada teléfono</span>
+    <h1 class="display rv d2">Tu sitio, <em>en el bolsillo</em><br>de cada ciudadano</h1>
+    <p class="lead rv d3">
+      La mayoría de los ciudadanos va a entrar a pagar su factura o hacer un trámite desde el
+      celular. Estos dos teléfonos no son imágenes: cargan el sitio real, con los datos y trámites
+      reales de la EPC. Desliza dentro de cada pantalla y navégalo tal cual lo hará él.
+    </p>
+    <nav class="links rv d4">
+      <a class="solid" href="index.html" target="_blank" rel="noopener">Ver Propuesta 1 completa ↗</a>
+      <a href="v2/index.html" target="_blank" rel="noopener">Ver Propuesta 2 completa ↗</a>
+    </nav>
+  </header>
+
+  <!-- ===================== ESCENARIO ===================== -->
+  <section class="stage">
+
+    <div class="controls rv">
+      <div class="seg" role="group" aria-label="Qué propuesta mostrar">
+        <button type="button" data-view="both" aria-pressed="true">Las dos</button>
+        <button type="button" data-view="a" aria-pressed="false">Sólo 1</button>
+        <button type="button" data-view="b" aria-pressed="false">Sólo 2</button>
+      </div>
+      <button type="button" class="ghost" id="btnTilt" aria-pressed="false">Poner de frente</button>
     </div>
-  </div>
 
-  <!-- ===================== COMPARACIÓN LADO A LADO ===================== -->
-  <div class="seccion-titulo">
-    <h2>Comparación en vivo</h2>
-    <p>Ambos teléfonos son 100% navegables — usa el scroll sobre cada uno</p>
-  </div>
+    <div class="phones rv d1" id="phones" data-view="both" data-tilt="on">
 
-  <div class="comparacion">
+      <!-- ---------- Propuesta 1 ---------- -->
+      <article class="slot slot-a">
+        <span class="halo" aria-hidden="true"></span>
+        <div class="tag">
+          <span class="letter">1</span>
+          <h2>Corporativa institucional</h2>
+          <span class="kicker">Azul oficial · esquinas rectas</span>
+        </div>
+        <div class="tilt">
+          <div class="phone">
+            <i class="vol1"></i><i class="vol2"></i><i class="pwr"></i>
+            <div class="screen">
+              <iframe src="index.html" title="EPC — Propuesta 1 en móvil"></iframe>
+              <div class="notch" aria-hidden="true"></div>
+              <div class="glass" aria-hidden="true"></div>
+              <div class="hint" aria-hidden="true"><span>Desliza aquí ↕</span></div>
+            </div>
+          </div>
+        </div>
+        <p class="caption">
+          Colores oficiales del manual, tipografía Work Sans + Inter, bordes rectos y sobrios.
+          Se siente firme y de entidad pública seria.
+          <a href="index.html" target="_blank" rel="noopener">Abrir a pantalla completa ↗</a>
+        </p>
+      </article>
 
-    <div class="columna-telefono">
-      <span class="badge-version badge-v1"><span class="punto"></span>Propuesta gráfica 1</span>
-      <div class="telefono">
-        <div class="boton-volumen"></div>
-        <div class="boton-volumen b2"></div>
-        <div class="boton-lateral"></div>
-        <div class="pantalla">
-          <div class="notch"></div>
-          <iframe src="index.html" title="EPC — Propuesta gráfica 1"></iframe>
-          <div class="home-indicator"></div>
-          <div class="hint"><span class="globo">↕ desliza para navegar</span></div>
+      <!-- ---------- Propuesta 2 ---------- -->
+      <article class="slot slot-b">
+        <span class="halo" aria-hidden="true"></span>
+        <div class="tag">
+          <span class="letter">2</span>
+          <h2>Cercana y redondeada</h2>
+          <span class="kicker">Verde oficial · arcos y pills</span>
+        </div>
+        <div class="tilt">
+          <div class="phone">
+            <i class="vol1"></i><i class="vol2"></i><i class="pwr"></i>
+            <div class="screen">
+              <iframe src="v2/index.html" title="EPC — Propuesta 2 en móvil"></iframe>
+              <div class="notch" aria-hidden="true"></div>
+              <div class="glass" aria-hidden="true"></div>
+              <div class="hint" aria-hidden="true"><span>Desliza aquí ↕</span></div>
+            </div>
+          </div>
+        </div>
+        <p class="caption">
+          Mismos colores oficiales del manual, tipografía Poppins + Manrope, bordes curvos y pills.
+          Se siente cercana y fácil de usar.
+          <a href="v2/index.html" target="_blank" rel="noopener">Abrir a pantalla completa ↗</a>
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===================== VISTA DE CERCA ===================== -->
+  <section class="detail">
+    <div class="detail-head rv">
+      <span class="eyebrow">De cerca</span>
+      <h2 class="display">El detalle, una por una</h2>
+      <p>Para revisar con calma durante la reunión: cambia de propuesta y el teléfono se recarga en vivo.</p>
+    </div>
+
+    <div class="detail-grid rv d1">
+      <div class="detail-phone">
+        <div class="phone">
+          <i class="vol1"></i><i class="vol2"></i><i class="pwr"></i>
+          <div class="screen">
+            <iframe id="fDetail" src="index.html" title="EPC — vista de cerca" loading="lazy"></iframe>
+            <div class="notch" aria-hidden="true"></div>
+            <div class="glass" aria-hidden="true"></div>
+          </div>
         </div>
       </div>
-      <div class="pie-telefono">
-        <h3>Estilo corporativo e institucional</h3>
-        <p>Colores oficiales del manual, tipografía Work Sans + Inter, bordes rectos y sobrios.</p>
-      </div>
-    </div>
 
-    <div class="columna-telefono">
-      <span class="badge-version badge-v2"><span class="punto"></span>Propuesta gráfica 2</span>
-      <div class="telefono">
-        <div class="boton-volumen"></div>
-        <div class="boton-volumen b2"></div>
-        <div class="boton-lateral"></div>
-        <div class="pantalla">
-          <div class="notch"></div>
-          <iframe src="v2/index.html" title="EPC — Propuesta gráfica 2"></iframe>
-          <div class="home-indicator"></div>
-          <div class="hint"><span class="globo">↕ desliza para navegar</span></div>
+      <div class="id-card">
+        <div class="seg" role="group" aria-label="Propuesta en vista de cerca">
+          <button type="button" data-dir="a" aria-pressed="true">Propuesta 1</button>
+          <button type="button" data-dir="b" aria-pressed="false">Propuesta 2</button>
         </div>
-      </div>
-      <div class="pie-telefono">
-        <h3>Estilo cercano y redondeado</h3>
-        <p>Mismos colores oficiales del manual, tipografía Poppins + Manrope, bordes curvos y pills.</p>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ===================== VISTA DE CERCA CON TOGGLE ===================== -->
-  <div class="seccion-titulo">
-    <h2>Vista de cerca</h2>
-    <p>Para revisar el detalle de cada versión durante la reunión</p>
-  </div>
-
-  <div class="cerca-wrap">
-    <div class="toggle">
-      <button type="button" class="activo" data-src="index.html" data-target="1">Propuesta 1</button>
-      <button type="button" data-src="v2/index.html" data-target="2">Propuesta 2</button>
-    </div>
-
-    <div class="telefono cerca-telefono">
-      <div class="boton-volumen"></div>
-      <div class="boton-volumen b2"></div>
-      <div class="boton-lateral"></div>
-      <div class="pantalla">
-        <div class="notch"></div>
-        <iframe id="fCerca" src="index.html" title="EPC — Vista de cerca"></iframe>
-        <div class="home-indicator"></div>
-        <div class="hint"><span class="globo">↕ desliza para navegar</span></div>
+        <h3 id="dTitle">Corporativa institucional</h3>
+        <p class="desc" id="dDesc">
+          Azul y verde oficiales del manual de marca, bordes rectos y contraste alto. Retícula
+          sobria de entidad pública: se ve firme, confiable y con oficio.
+        </p>
+        <div class="swatches" id="dSwatches"></div>
+        <div class="traits" id="dTraits"></div>
+        <p class="typeline" id="dType">
+          <b>Work Sans</b> para los titulares, Inter para la lectura.
+        </p>
       </div>
     </div>
+  </section>
 
-    <div class="cerca-caption">
-      <h3 id="cercaTitulo">Propuesta gráfica 1 · estilo corporativo</h3>
-      <p id="cercaTexto">Colores oficiales del manual con tipografía Work Sans + Inter, bordes rectos y sobrios.</p>
-      <div class="chips" id="cercaChips">
-        <span class="chip">Work Sans / Inter</span>
-        <span class="chip">Azul #2484c6</span>
-        <span class="chip">Verde #8dc63f</span>
-        <span class="chip">Naranja #ef923b</span>
-      </div>
-    </div>
-  </div>
+  <!-- ===================== PIE ===================== -->
+  <footer class="foot rv">
+    <div class="rule"></div>
+    <p>
+      Los tres teléfonos cargan <strong>index.html</strong> y <strong>v2/index.html</strong> en un
+      viewport móvil real de 390&nbsp;px, así que lo que ves aquí es exactamente lo que verá
+      cualquier ciudadano desde su celular. Nada de esto es una imagen.
+    </p>
+    <p class="sign">EPC Cajicá · Servicios Públicos</p>
+  </footer>
 
-  <p class="pie-nota">
-    Los tres teléfonos cargan <code>index.html</code> / <code>v2/index.html</code> en un viewport móvil real de 390px de ancho,
-    así que lo que ves aquí es exactamente el diseño responsive que verá cualquier ciudadano desde su celular.
-    Propuesta completa: <a href="index.html" target="_blank">Propuesta 1</a> · <a href="v2/index.html" target="_blank">Propuesta 2</a>.
-  </p>
+</div>
 
 <script>
-  // Escala cada iframe (renderizado a un viewport móvil real de 390px)
-  // para que quepa en el marco del teléfono, sin perder la interactividad:
-  // el scroll y los clics siguen llegando al documento real dentro del iframe.
-  function escalarTelefono(iframe){
-    const pantalla = iframe.closest('.pantalla');
-    function ajustar(){
-      const escala = pantalla.clientWidth / 390;
-      iframe.style.transform = 'scale(' + escala + ')';
-    }
-    ajustar();
-    window.addEventListener('resize', ajustar);
+(function(){
+  'use strict';
+
+  /* --- Escala cada iframe: se renderiza a un viewport móvil real de 390px
+         y se reduce con transform para caber en el marco. El scroll y los
+         clics siguen llegando al documento real dentro del iframe. --- */
+  var pantallas = [].slice.call(document.querySelectorAll('.screen'));
+
+  function ajustar(pantalla){
+    var f = pantalla.querySelector('iframe');
+    if(!f || !pantalla.clientWidth) return;   /* oculto: se recalcula al volver */
+    var s = pantalla.clientWidth / 390;
+    f.style.transform = 'scale(' + s + ')';
+    pantalla.style.setProperty('--s', s);  /* notch a escala */
   }
-  document.querySelectorAll('.pantalla iframe').forEach(escalarTelefono);
+  function ajustarTodo(){ pantallas.forEach(ajustar); }
 
-  // Toggle de la vista de cerca
-  const fCerca = document.getElementById('fCerca');
-  const cercaTitulo = document.getElementById('cercaTitulo');
-  const cercaTexto = document.getElementById('cercaTexto');
-  const cercaChips = document.getElementById('cercaChips');
+  var ro = window.ResizeObserver
+    ? new ResizeObserver(function(es){ es.forEach(function(e){ ajustar(e.target); }); })
+    : null;
+  pantallas.forEach(function(p){ ajustar(p); if(ro) ro.observe(p); });
+  window.addEventListener('resize', ajustarTodo);
 
-  const datos = {
-    '1': {
-      titulo: 'Propuesta gráfica 1 · estilo corporativo',
-      texto: 'Colores oficiales del manual con tipografía Work Sans + Inter, bordes rectos y sobrios.',
-      chips: ['Work Sans / Inter', 'Azul #2484c6', 'Verde #8dc63f', 'Naranja #ef923b']
+  /* --- Un teléfono real no muestra barra de scroll: se inyecta una regla
+         dentro del iframe (mismo origen) para ocultarla. --- */
+  function sinBarra(iframe){
+    function inyectar(){
+      try{
+        var d = iframe.contentDocument;
+        if(!d || d.getElementById('epc-sin-barra')) return;
+        var st = d.createElement('style');
+        st.id = 'epc-sin-barra';
+        st.textContent = 'html{scrollbar-width:none;-ms-overflow-style:none;overscroll-behavior:contain}' +
+                         'html::-webkit-scrollbar,body::-webkit-scrollbar{width:0;height:0;display:none}';
+        (d.head || d.documentElement).appendChild(st);
+      }catch(e){ /* si algún día se sirve cruzado, simplemente no se oculta */ }
+    }
+    iframe.addEventListener('load', inyectar);
+    inyectar();
+  }
+
+  document.querySelectorAll('.screen iframe').forEach(sinBarra);
+
+  /* --- Scroll reveal --- */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:.12, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+
+  function revisar(){
+    document.querySelectorAll('.rv:not(.in)').forEach(function(el){
+      var r = el.getBoundingClientRect();
+      if(r.top < window.innerHeight * 0.92 && r.bottom > 0) el.classList.add('in');
+    });
+  }
+  window.addEventListener('scroll', revisar, {passive:true});
+  window.addEventListener('load', revisar);
+  setTimeout(revisar, 500);
+
+  /* --- Conmutador del escenario: las dos / sólo 1 / sólo 2 --- */
+  var phones = document.getElementById('phones');
+  var segStage = document.querySelectorAll('.controls .seg button');
+  segStage.forEach(function(b){
+    b.addEventListener('click', function(){
+      phones.dataset.view = b.dataset.view;
+      segStage.forEach(function(o){ o.setAttribute('aria-pressed', String(o === b)); });
+      setTimeout(ajustarTodo, 0);
+      setTimeout(ajustarTodo, 450);
+    });
+  });
+
+  /* --- Poner de frente / devolver la inclinación --- */
+  var btnTilt = document.getElementById('btnTilt');
+  btnTilt.addEventListener('click', function(){
+    var off = phones.dataset.tilt === 'off';
+    phones.dataset.tilt = off ? 'on' : 'off';
+    btnTilt.textContent = off ? 'Poner de frente' : 'Devolver perspectiva';
+    btnTilt.setAttribute('aria-pressed', String(!off));
+  });
+
+  /* --- Parallax suave del escenario --- */
+  var stage = document.querySelector('.stage');
+  var tilts = document.querySelectorAll('.tilt');
+  var reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(!reduce){
+    stage.addEventListener('mousemove', function(e){
+      var r = stage.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width  - .5;
+      var y = (e.clientY - r.top)  / r.height - .5;
+      tilts.forEach(function(t){
+        t.style.transform = 'translate3d(' + (-x*16).toFixed(2) + 'px,' + (-y*10).toFixed(2) + 'px,0)';
+      });
+    });
+    stage.addEventListener('mouseleave', function(){
+      tilts.forEach(function(t){ t.style.transform = 'translate3d(0,0,0)'; });
+    });
+  }
+
+  /* --- Vista de cerca: ficha de identidad de cada propuesta --- */
+  var datos = {
+    a:{
+      titulo:'Corporativa institucional',
+      desc:'Azul y verde oficiales del manual de marca, bordes rectos y contraste alto. Retícula sobria de entidad pública: se ve firme, confiable y con oficio.',
+      src:'index.html',
+      round:false,
+      swatches:[['#2484C6','Azul'],['#043956','Azul oscuro'],['#8DC63F','Verde'],['#EF923B','Naranja']],
+      traits:['Esquinas rectas','Work Sans + Inter','Contraste alto','Tono institucional'],
+      tipo:'<b>Work Sans</b> para los titulares, Inter para la lectura.'
     },
-    '2': {
-      titulo: 'Propuesta gráfica 2 · estilo cercano',
-      texto: 'Mismos colores oficiales del manual, con tipografía Poppins + Manrope, bordes curvos y pills.',
-      chips: ['Poppins / Manrope', 'Azul #2484c6', 'Verde #8dc63f', 'Naranja #ef923b']
+    b:{
+      titulo:'Cercana y redondeada',
+      desc:'Los mismos colores oficiales, pero mandando el verde con arcos, círculos y pills. El trámite se siente más simple y menos burocrático.',
+      src:'v2/index.html',
+      round:true,
+      swatches:[['#8DC63F','Verde'],['#2484C6','Azul'],['#EF923B','Naranja'],['#043956','Azul oscuro']],
+      traits:['Arcos y pills','Poppins + Manrope','Contraste suave','Tono cercano'],
+      tipo:'<b>Poppins</b> para los titulares, Manrope para la lectura.'
     }
   };
 
-  document.querySelectorAll('.toggle button').forEach(btn=>{
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.toggle button').forEach(b => b.classList.remove('activo'));
-      btn.classList.add('activo');
+  var fDetail   = document.getElementById('fDetail');
+  var dTitle    = document.getElementById('dTitle');
+  var dDesc     = document.getElementById('dDesc');
+  var dSwatches = document.getElementById('dSwatches');
+  var dTraits   = document.getElementById('dTraits');
+  var dType     = document.getElementById('dType');
 
-      const pantalla = fCerca.closest('.pantalla');
-      pantalla.style.opacity = '0';
-      setTimeout(() => {
-        fCerca.src = btn.dataset.src;
-        pantalla.style.transition = 'opacity .25s ease';
-        pantalla.style.opacity = '1';
-      }, 180);
+  function pintar(k){
+    var d = datos[k];
+    dTitle.textContent = d.titulo;
+    dDesc.textContent = d.desc;
+    dSwatches.innerHTML = d.swatches.map(function(s){
+      return '<div class="sw' + (d.round ? ' round' : '') + '">' +
+             '<div class="chip" style="background:' + s[0] + '"></div>' +
+             '<small>' + s[1] + '</small></div>';
+    }).join('');
+    dTraits.innerHTML = d.traits.map(function(t){ return '<span>' + t + '</span>'; }).join('');
+    dType.innerHTML = d.tipo;
+  }
+  pintar('a');
 
-      const info = datos[btn.dataset.target];
-      cercaTitulo.textContent = info.titulo;
-      cercaTexto.textContent = info.texto;
-      cercaChips.innerHTML = info.chips.map(c => '<span class="chip">' + c + '</span>').join('');
+  var segDetail = document.querySelectorAll('.id-card .seg button');
+  segDetail.forEach(function(b){
+    b.addEventListener('click', function(){
+      if(b.getAttribute('aria-pressed') === 'true') return;
+      segDetail.forEach(function(o){ o.setAttribute('aria-pressed', String(o === b)); });
+      var k = b.dataset.dir, sc = fDetail.closest('.screen');
+      sc.style.transition = 'opacity .3s ease';
+      sc.style.opacity = '0';
+      setTimeout(function(){
+        fDetail.src = datos[k].src;
+        sc.style.opacity = '1';
+      }, 220);
+      pintar(k);
     });
   });
+})();
 </script>
 
 </body>
