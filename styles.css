@@ -1020,6 +1020,92 @@ button { font-family: inherit; cursor: pointer; border: none; }
 .pie-inferior .enlaces { display: flex; gap: 20px; flex-wrap: wrap; }
 
 /* ---------------------------------------------------------
+   Páginas internas — hero compacto + migas de pan
+--------------------------------------------------------- */
+.pagina-hero {
+  background:
+    linear-gradient(135deg, rgba(4,57,86,.92) 0%, rgba(10,84,120,.85) 50%, rgba(13,107,88,.72) 100%),
+    url("images/hero-tanque-panoramica.jpg");
+  background-size: cover; background-position: center 55%;
+  color: var(--blanco);
+  padding: 58px 0 50px;
+}
+.migas-pub { font-size: 12.5px; color: rgba(255,255,255,.7); margin-bottom: 16px; }
+.migas-pub a { color: var(--blanco); font-weight: 700; }
+.pagina-hero h1 { font-size: clamp(28px,3.6vw,42px); line-height: 1.15; }
+.pagina-hero p.lead { margin-top: 14px; max-width: 640px; color: rgba(255,255,255,.85); font-size: 15px; line-height: 1.7; }
+.pagina-hero .badge-red { margin-bottom: 16px; }
+
+/* ---------------------------------------------------------
+   Bloques de contenido de páginas internas
+--------------------------------------------------------- */
+.contenido-prosa { max-width: 780px; font-size: 15px; line-height: 1.8; color: var(--gris-texto); }
+.contenido-prosa p { margin-bottom: 16px; }
+.contenido-prosa h2 { font-size: 22px; color: var(--azul-oscuro); margin: 34px 0 14px; }
+.contenido-prosa h2:first-child { margin-top: 0; }
+
+.info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.info-grid.dos { grid-template-columns: repeat(2, 1fr); }
+.tarjeta-info {
+  background: var(--blanco); border: 1px solid var(--gris-borde); border-top: 4px solid var(--azul);
+  border-radius: var(--radio-m); padding: 28px 26px; box-shadow: var(--sombra);
+}
+.tarjeta-info:nth-child(2) { border-top-color: var(--naranja); }
+.tarjeta-info:nth-child(3) { border-top-color: var(--verde-oscuro); }
+.tarjeta-info .icono { width: 46px; height: 46px; border-radius: 50%; background: var(--gris-claro); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; color: var(--azul); }
+.tarjeta-info .icono svg { width: 22px; height: 22px; }
+.tarjeta-info h3 { font-family: var(--fuente-titulo); font-size: 17px; color: var(--azul-oscuro); margin-bottom: 10px; }
+.tarjeta-info p { font-size: 13.5px; color: var(--gris-texto); line-height: 1.65; }
+.tarjeta-info ul { margin-top: 12px; }
+.tarjeta-info ul li { font-size: 13px; color: var(--gris-texto); padding: 5px 0 5px 18px; position: relative; }
+.tarjeta-info ul li::before { content: '→'; position: absolute; left: 0; color: var(--azul); font-weight: 700; }
+
+.mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.mv-card { background: var(--blanco); border-radius: var(--radio-l); padding: 34px; box-shadow: var(--sombra); position: relative; overflow: hidden; }
+.mv-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; background: var(--azul); }
+.mv-card:nth-child(2)::before { background: var(--verde-oscuro); }
+.mv-card .eyebrow { font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--azul); }
+.mv-card:nth-child(2) .eyebrow { color: var(--verde-oscuro); }
+.mv-card p { margin-top: 14px; font-size: 15px; line-height: 1.75; color: var(--azul-oscuro); font-weight: 500; }
+
+.acordeon-pub { border: 1px solid var(--gris-borde); border-radius: var(--radio-m); margin-bottom: 12px; overflow: hidden; background: var(--blanco); }
+.acordeon-pub-btn { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 20px 26px; font-family: var(--fuente-titulo); font-weight: 700; font-size: 15.5px; color: var(--azul-oscuro); background: none; border: none; cursor: pointer; text-align: left; }
+.acordeon-pub-btn .mas { width: 26px; height: 26px; border-radius: 50%; background: var(--gris-claro); color: var(--azul); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; transition: transform .2s; }
+.acordeon-pub.abierto .acordeon-pub-btn .mas { transform: rotate(45deg); }
+.acordeon-pub-body { padding: 0 26px 24px; display: none; font-size: 14px; color: var(--gris-texto); line-height: 1.75; }
+.acordeon-pub-body ul li { padding: 4px 0 4px 18px; position: relative; }
+.acordeon-pub-body ul li::before { content: '•'; position: absolute; left: 2px; color: var(--azul); }
+.acordeon-pub.abierto .acordeon-pub-body { display: block; }
+
+.contacto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start; }
+.campo-pub { margin-bottom: 18px; }
+.campo-pub label { display: block; font-size: 12.5px; font-weight: 700; color: var(--azul-oscuro); margin-bottom: 7px; }
+.campo-pub input, .campo-pub select, .campo-pub textarea {
+  width: 100%; padding: 12px 14px; border-radius: var(--radio-s); border: 1.5px solid var(--gris-borde);
+  font-family: var(--fuente-base); font-size: 14px; color: var(--azul-oscuro);
+}
+.campo-pub input:focus, .campo-pub select:focus, .campo-pub textarea:focus { outline: none; border-color: var(--azul); }
+.campo-fila-pub { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.btn-enviar { display: inline-flex; align-items: center; gap: 10px; background: var(--naranja); color: var(--blanco); font-family: var(--fuente-titulo); font-weight: 700; font-size: 14px; padding: 13px 28px; border-radius: var(--radio-full); border: none; cursor: pointer; }
+.btn-enviar:hover { background: var(--naranja-h); }
+
+.mapa-caja { border-radius: var(--radio-m); overflow: hidden; box-shadow: var(--sombra); border: 1px solid var(--gris-borde); }
+.mapa-caja iframe { width: 100%; height: 320px; border: 0; display: block; }
+
+.stat-mini-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.stat-mini { background: var(--gris-claro); border-radius: var(--radio-m); padding: 22px; text-align: center; }
+.stat-mini .valor { font-family: var(--fuente-titulo); font-size: 24px; font-weight: 800; color: var(--azul-oscuro); }
+.stat-mini .lbl { font-size: 12px; color: var(--gris-texto); margin-top: 4px; }
+
+@media (max-width: 900px) {
+  .info-grid, .info-grid.dos { grid-template-columns: 1fr; }
+  .mv-grid { grid-template-columns: 1fr; }
+  .contacto-grid { grid-template-columns: 1fr; }
+  .stat-mini-grid { grid-template-columns: 1fr 1fr; }
+  .campo-fila-pub { grid-template-columns: 1fr; }
+}
+
+/* ---------------------------------------------------------
    Chat flotante (WhatsApp)
 --------------------------------------------------------- */
 .chat-flotante {
