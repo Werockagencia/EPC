@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Historial de consumo — Portal del Ciudadano · EPC Cajicá</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="panel.css">
+</head>
+<body>
+
+<div class="gov-bar">
+  <div class="gov-bar-inner">
+    <a href="https://www.gov.co" class="gov-logo" target="_blank" rel="noopener">
+      <span class="gov-tricolor"><i></i><i></i><i></i></span>
+      <span class="gov-wordmark">GOV.CO</span>
+    </a>
+  </div>
+</div>
+
+<header class="panel-header">
+  <div class="panel-header-inner">
+    <div style="display:flex;align-items:center;gap:14px">
+      <button class="panel-menu-btn" aria-label="Abrir menú">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <a href="../index.html" class="panel-logo"><img src="../images/logo.png" alt="EPC — Empresa de Servicios Públicos de Cajicá"></a>
+    </div>
+    <div class="panel-header-acciones">
+      <div class="panel-usuario">
+        <div class="panel-usuario-avatar">CG</div>
+        <div class="panel-usuario-info">
+          <div class="panel-usuario-nombre">Carlos Gómez</div>
+          <div class="panel-usuario-cuenta">Cuenta N.° 1608353</div>
+        </div>
+      </div>
+      <a href="../login.html" class="panel-salir">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>
+        Salir
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="panel-nav-overlay"></div>
+
+<div class="panel-layout">
+
+  <nav class="panel-nav">
+    <div class="panel-bienvenida">
+      <div class="hola">Bienvenido</div>
+      <div class="nombre">Carlos Gómez</div>
+    </div>
+    <a href="perfil.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
+      Perfil
+    </a>
+    <a href="mis-cuentas.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11l8-7 8 7"/><path d="M6 9v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V9"/></svg>
+      Mis cuentas
+    </a>
+    <a href="facturacion.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3h7l4 4v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M9 12h6M9 16h6"/></svg>
+      Historial de facturación
+    </a>
+    <a href="consumo.html" class="activo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V12M10 20V6M16 20v-6M4 20h16"/></svg>
+      Historial de consumo
+    </a>
+    <a href="pagos.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16l-3-2-3 2-3-2-3 2-4-2V4z"/><path d="M8 9h8M8 13h5"/></svg>
+      Historial de pagos
+    </a>
+    <div class="separador"></div>
+    <a href="pagar-factura.html" class="destacado">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M16 12h3M3 10h18"/></svg>
+      Pagar factura
+    </a>
+    <a href="pqrs.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v11H8l-4 4V5z"/><path d="M8 10h8M8 13h5"/></svg>
+      Radicar PQRS
+    </a>
+    <a href="tramites.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6v3H9z"/><path d="M9 13l2 2 4-4"/></svg>
+      Trámites en línea
+    </a>
+  </nav>
+
+  <main class="panel-contenido">
+
+    <div class="panel-card">
+      <div class="panel-card-header">
+        <h1>Historial de consumo</h1>
+        <p>Metros cúbicos (m³) de agua registrados por tu medidor mes a mes.</p>
+      </div>
+
+      <span class="badge-cuenta"><span class="punto"></span>Medidor MED-04471 · Cuenta N.° 1608353</span>
+
+      <div class="stat-grid" style="margin-top:22px">
+        <div class="stat"><div class="valor">9 m³</div><div class="lbl">Consumo mes actual</div></div>
+        <div class="stat"><div class="valor">13,5 m³</div><div class="lbl">Promedio 12 meses</div></div>
+        <div class="stat"><div class="valor acento">22 m³</div><div class="lbl">Mayor consumo (jun 2026)</div></div>
+        <div class="stat"><div class="valor" style="color:var(--verde-oscuro)">-33%</div><div class="lbl">Frente al mes anterior</div></div>
+      </div>
+
+      <div class="grafico-consumo">
+        <div class="grafico-barra"><span class="valor-barra">14</span><div class="barra" style="--h:64%"></div><span class="mes-barra">09-25</span></div>
+        <div class="grafico-barra"><span class="valor-barra">15</span><div class="barra" style="--h:68%"></div><span class="mes-barra">10-25</span></div>
+        <div class="grafico-barra"><span class="valor-barra">9</span><div class="barra" style="--h:41%"></div><span class="mes-barra">11-25</span></div>
+        <div class="grafico-barra"><span class="valor-barra">11</span><div class="barra" style="--h:50%"></div><span class="mes-barra">12-25</span></div>
+        <div class="grafico-barra"><span class="valor-barra">8</span><div class="barra" style="--h:36%"></div><span class="mes-barra">01-26</span></div>
+        <div class="grafico-barra"><span class="valor-barra">12</span><div class="barra" style="--h:55%"></div><span class="mes-barra">02-26</span></div>
+        <div class="grafico-barra"><span class="valor-barra">15</span><div class="barra" style="--h:68%"></div><span class="mes-barra">03-26</span></div>
+        <div class="grafico-barra"><span class="valor-barra">12</span><div class="barra" style="--h:55%"></div><span class="mes-barra">04-26</span></div>
+        <div class="grafico-barra"><span class="valor-barra">18</span><div class="barra" style="--h:82%"></div><span class="mes-barra">05-26</span></div>
+        <div class="grafico-barra pico"><span class="valor-barra">22</span><div class="barra" style="--h:100%"></div><span class="mes-barra">06-26</span></div>
+        <div class="grafico-barra"><span class="valor-barra">16</span><div class="barra" style="--h:73%"></div><span class="mes-barra">07-26</span></div>
+        <div class="grafico-barra"><span class="valor-barra">9</span><div class="barra" style="--h:41%"></div><span class="mes-barra">08-26</span></div>
+      </div>
+    </div>
+
+    <div class="alerta aviso">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01"/><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+      <div>Junio 2026 tuvo un consumo 63% más alto que tu promedio — si no reconoces el motivo, puedes <a href="pqrs.html" style="font-weight:800;text-decoration:underline">radicar una PQRS</a> para solicitar revisión del medidor.</div>
+    </div>
+
+  </main>
+</div>
+
+<a class="chat-flotante" href="https://wa.me/573163476418?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20mi%20consumo" target="_blank" rel="noopener" aria-label="Chatear por WhatsApp">
+  <span class="punto"></span>
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.14-1.31A10 10 0 1 0 12 2zm5.62 14.24c-.24.68-1.4 1.3-1.94 1.36-.5.06-1.12.09-1.8-.11a14.4 14.4 0 0 1-1.65-.6 11.5 11.5 0 0 1-4.5-3.98 5.3 5.3 0 0 1-1.1-2.8c0-.9.47-1.34.65-1.53.17-.18.37-.23.5-.23h.35c.13 0 .3-.02.46.35.17.4.57 1.4.62 1.5.05.1.08.22.02.36-.06.14-.09.22-.18.34-.1.12-.2.27-.28.36-.1.1-.2.21-.08.4.11.2.5.83 1.08 1.34.75.66 1.37.86 1.57.96.2.1.32.08.44-.05.13-.13.53-.62.67-.83.14-.21.28-.18.47-.1.2.07 1.25.6 1.46.7.22.11.36.16.42.25.05.1.05.55-.19 1.23z"/></svg>
+</a>
+
+<script src="panel.js"></script>
+</body>
+</html>

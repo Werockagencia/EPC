@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trámites en línea — Portal del Ciudadano · EPC Cajicá</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="panel.css">
+<style>
+  .chat-primero {
+    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+    background: linear-gradient(120deg, var(--verde-oscuro) 0%, #4c7d1e 100%);
+    color: var(--blanco); border-radius: var(--radio-m); padding: 26px 28px; margin-bottom: 26px;
+  }
+  .chat-primero .icono-chat {
+    width: 56px; height: 56px; border-radius: 50%; background: rgba(255,255,255,.16);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .chat-primero .icono-chat svg { width: 28px; height: 28px; }
+  .chat-primero .txt { flex: 1; min-width: 220px; }
+  .chat-primero .txt .etq { font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.75); }
+  .chat-primero .txt h2 { font-size: 19px; margin-top: 4px; }
+  .chat-primero .txt p { font-size: 13.5px; color: rgba(255,255,255,.82); margin-top: 5px; }
+  .chat-primero .btn { background: var(--blanco); color: var(--verde-oscuro); flex-shrink: 0; }
+  .chat-primero .btn:hover { background: rgba(255,255,255,.9); }
+</style>
+</head>
+<body>
+
+<div class="gov-bar">
+  <div class="gov-bar-inner">
+    <a href="https://www.gov.co" class="gov-logo" target="_blank" rel="noopener">
+      <span class="gov-tricolor"><i></i><i></i><i></i></span>
+      <span class="gov-wordmark">GOV.CO</span>
+    </a>
+  </div>
+</div>
+
+<header class="panel-header">
+  <div class="panel-header-inner">
+    <div style="display:flex;align-items:center;gap:14px">
+      <button class="panel-menu-btn" aria-label="Abrir menú">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <a href="../index.html" class="panel-logo"><img src="../images/logo.png" alt="EPC — Empresa de Servicios Públicos de Cajicá"></a>
+    </div>
+    <div class="panel-header-acciones">
+      <div class="panel-usuario">
+        <div class="panel-usuario-avatar">CG</div>
+        <div class="panel-usuario-info">
+          <div class="panel-usuario-nombre">Carlos Gómez</div>
+          <div class="panel-usuario-cuenta">Cuenta N.° 1608353</div>
+        </div>
+      </div>
+      <a href="../login.html" class="panel-salir">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>
+        Salir
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="panel-nav-overlay"></div>
+
+<div class="panel-layout">
+
+  <nav class="panel-nav">
+    <div class="panel-bienvenida">
+      <div class="hola">Bienvenido</div>
+      <div class="nombre">Carlos Gómez</div>
+    </div>
+    <a href="perfil.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
+      Perfil
+    </a>
+    <a href="mis-cuentas.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11l8-7 8 7"/><path d="M6 9v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V9"/></svg>
+      Mis cuentas
+    </a>
+    <a href="facturacion.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3h7l4 4v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M9 12h6M9 16h6"/></svg>
+      Historial de facturación
+    </a>
+    <a href="consumo.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V12M10 20V6M16 20v-6M4 20h16"/></svg>
+      Historial de consumo
+    </a>
+    <a href="pagos.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16l-3-2-3 2-3-2-3 2-4-2V4z"/><path d="M8 9h8M8 13h5"/></svg>
+      Historial de pagos
+    </a>
+    <div class="separador"></div>
+    <a href="pagar-factura.html" class="destacado">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M16 12h3M3 10h18"/></svg>
+      Pagar factura
+    </a>
+    <a href="pqrs.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v11H8l-4 4V5z"/><path d="M8 10h8M8 13h5"/></svg>
+      Radicar PQRS
+    </a>
+    <a href="tramites.html" class="activo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6v3H9z"/><path d="M9 13l2 2 4-4"/></svg>
+      Trámites en línea
+    </a>
+  </nav>
+
+  <main class="panel-contenido">
+
+    <div class="panel-card">
+      <div class="panel-card-header">
+        <h1>Trámites en línea</h1>
+        <p>Gestiona tus solicitudes sobre el servicio sin tener que ir a un punto de atención.</p>
+      </div>
+
+      <a class="chat-primero" href="https://wa.me/573163476418?text=Hola%2C%20quiero%20hacer%20un%20tr%C3%A1mite" target="_blank" rel="noopener">
+        <div class="icono-chat">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.14-1.31A10 10 0 1 0 12 2zm5.62 14.24c-.24.68-1.4 1.3-1.94 1.36-.5.06-1.12.09-1.8-.11a14.4 14.4 0 0 1-1.65-.6 11.5 11.5 0 0 1-4.5-3.98 5.3 5.3 0 0 1-1.1-2.8c0-.9.47-1.34.65-1.53.17-.18.37-.23.5-.23h.35c.13 0 .3-.02.46.35.17.4.57 1.4.62 1.5.05.1.08.22.02.36-.06.14-.09.22-.18.34-.1.12-.2.27-.28.36-.1.1-.2.21-.08.4.11.2.5.83 1.08 1.34.75.66 1.37.86 1.57.96.2.1.32.08.44-.05.13-.13.53-.62.67-.83.14-.21.28-.18.47-.1.2.07 1.25.6 1.46.7.22.11.36.16.42.25.05.1.05.55-.19 1.23z"/></svg>
+        </div>
+        <div class="txt">
+          <div class="etq">La forma más rápida</div>
+          <h2>¿Prefieres hacerlo por chat?</h2>
+          <p>Cuéntale a nuestro asistente qué necesitas y te guía paso a paso — disponible las 24 horas.</p>
+        </div>
+        <span class="btn">
+          Chatear ahora
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+
+      <h2 style="font-size:16px;margin-bottom:4px">O radica el formulario directamente</h2>
+      <p style="font-size:13px;color:var(--gris-texto);margin-bottom:18px">Cada trámite se radica con los soportes que la normatividad exige, y queda con número de seguimiento.</p>
+
+      <div class="tramite-grid">
+        <div class="tramite-card">
+          <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/><path d="M9 12h6"/></svg></div>
+          <h3>Solicitud de reconexión</h3>
+          <p>Reconexión del servicio tras suspensión, previo pago de la tarifa vigente.</p>
+          <a class="enlace" href="#">Iniciar solicitud →</a>
+        </div>
+        <div class="tramite-card">
+          <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="7" r="3"/><path d="M3 21v-2a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v2"/><path d="M17 8l3 3-3 3"/></svg></div>
+          <h3>Cambio de suscriptor</h3>
+          <p>Transferencia de la titularidad de la cuenta a un nuevo propietario o arrendatario.</p>
+          <a class="enlace" href="#">Iniciar solicitud →</a>
+        </div>
+        <div class="tramite-card">
+          <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 12h6"/></svg></div>
+          <h3>Suspensión temporal</h3>
+          <p>Suspensión voluntaria del servicio por ausencia prolongada del predio.</p>
+          <a class="enlace" href="#">Iniciar solicitud →</a>
+        </div>
+        <div class="tramite-card">
+          <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/></svg></div>
+          <h3>Actualización de estrato</h3>
+          <p>Modifica la tarifa facturada cuando cambia la estratificación oficial del predio.</p>
+          <a class="enlace" href="#">Iniciar solicitud →</a>
+        </div>
+        <div class="tramite-card">
+          <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+          <h3>Actualización de nomenclatura</h3>
+          <p>Actualiza la dirección del predio cuando el municipio cambia la nomenclatura oficial.</p>
+          <a class="enlace" href="#">Iniciar solicitud →</a>
+        </div>
+        <div class="tramite-card">
+          <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div>
+          <h3>¿No encuentras tu trámite?</h3>
+          <p>Radica una PQRS y nuestro equipo te orienta sobre el proceso correcto.</p>
+          <a class="enlace" href="pqrs.html">Ir a Radicar PQRS →</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<a class="chat-flotante" href="https://wa.me/573163476418?text=Hola%2C%20quiero%20hacer%20un%20tr%C3%A1mite" target="_blank" rel="noopener" aria-label="Chatear por WhatsApp">
+  <span class="punto"></span>
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.14-1.31A10 10 0 1 0 12 2zm5.62 14.24c-.24.68-1.4 1.3-1.94 1.36-.5.06-1.12.09-1.8-.11a14.4 14.4 0 0 1-1.65-.6 11.5 11.5 0 0 1-4.5-3.98 5.3 5.3 0 0 1-1.1-2.8c0-.9.47-1.34.65-1.53.17-.18.37-.23.5-.23h.35c.13 0 .3-.02.46.35.17.4.57 1.4.62 1.5.05.1.08.22.02.36-.06.14-.09.22-.18.34-.1.12-.2.27-.28.36-.1.1-.2.21-.08.4.11.2.5.83 1.08 1.34.75.66 1.37.86 1.57.96.2.1.32.08.44-.05.13-.13.53-.62.67-.83.14-.21.28-.18.47-.1.2.07 1.25.6 1.46.7.22.11.36.16.42.25.05.1.05.55-.19 1.23z"/></svg>
+</a>
+
+<script src="panel.js"></script>
+</body>
+</html>
