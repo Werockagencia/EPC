@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iniciar sesión — Portal del Ciudadano · EPC Cajicá</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="panel/panel.css">
+</head>
+<body>
+
+<div class="gov-bar">
+  <div class="gov-bar-inner">
+    <a href="https://www.gov.co" class="gov-logo" target="_blank" rel="noopener">
+      <span class="gov-tricolor"><i></i><i></i><i></i></span>
+      <span class="gov-wordmark">GOV.CO</span>
+    </a>
+  </div>
+</div>
+
+<div class="login-wrap">
+
+  <div class="login-visual">
+    <h2>Tu cuenta, tu servicio, tu ciudad.</h2>
+    <p>Consulta tus facturas, tu consumo y tus pagos, radica PQRS y gestiona tus trámites desde un solo lugar — el Portal del Ciudadano de la Empresa de Servicios Públicos de Cajicá.</p>
+  </div>
+
+  <div class="login-form-wrap">
+    <form class="login-form" action="panel/perfil.html" onsubmit="return true;">
+      <img class="logo" src="images/logo.png" alt="EPC — Empresa de Servicios Públicos de Cajicá">
+      <h1>Inicia sesión</h1>
+      <p class="sub">Ingresa con el número de cuenta o el documento del titular del servicio.</p>
+
+      <div class="campo">
+        <label for="usuario">Número de cuenta o documento <span class="req">*</span></label>
+        <input type="text" id="usuario" name="usuario" placeholder="Ej. 1608353 o 1070010122" value="1608353" required>
+      </div>
+      <div class="campo">
+        <label for="clave">Contraseña <span class="req">*</span></label>
+        <input type="password" id="clave" name="clave" placeholder="••••••••" value="••••••••" required>
+      </div>
+
+      <div class="login-links">
+        <label class="campo-check"><input type="checkbox" checked> Recuérdame</label>
+        <a href="#">¿Olvidaste tu contraseña?</a>
+      </div>
+
+      <button type="submit" class="btn btn-azul" style="width:100%;justify-content:center;margin-top:26px;padding:14px">
+        Iniciar sesión
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+
+      <div class="login-divisor">o</div>
+
+      <p class="login-registro">¿Todavía no tienes cuenta en el portal? <a href="#">Regístrate con tu número de cuenta</a></p>
+    </form>
+  </div>
+
+</div>
+
+</body>
+</html>
