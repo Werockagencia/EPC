@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EPC — Empresa de Servicios Públicos de Cajicá</title>
+<title>EPC — Empresa de Servicios Públicos de Cajicá · Versión 2</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Work+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -34,8 +34,6 @@
 <!-- ===================== BARRA SUPERIOR ===================== -->
 <div class="barra-superior">
   <div class="contenedor">
-    <span class="item">📞 Línea de atención <span class="num">(601) 879 5356</span></span>
-    <span class="item">📞 Emergencias <span class="num">316 347 6418</span></span>
     <div class="redes">
       <a href="#" aria-label="Facebook">f</a>
       <a href="#" aria-label="Instagram">◎</a>
@@ -71,16 +69,25 @@
 <!-- ===================== HERO ===================== -->
 <section class="hero">
   <!-- Reemplaza esta imagen por la tuya: paisaje del embalse / planta de tratamiento -->
-  <img class="hero-fondo" src="images/hero.jpg" alt="Embalse y planta de tratamiento de Cajicá">
+  <div class="hero-foto">
+    <img src="images/hero-tanque-detalle.jpg" alt="Nuevo tanque de abastecimiento de agua de Cajicá">
+    <div class="hero-badge">
+      <span class="hero-badge-num">27</span>
+      <span class="hero-badge-texto">años sirviendo a los cajiqueños</span>
+    </div>
+  </div>
   <div class="contenedor" style="position:relative; z-index:2;">
     <div class="hero-contenido">
       <h1>Agua que nos conecta,<span class="script">futuro que construimos</span></h1>
       <p>Trabajamos cada día para ofrecerte servicios públicos eficientes, sostenibles y de calidad.</p>
       <div class="hero-botones">
-        <a href="#" class="btn btn-primario">Reporta una falla <span class="flecha">→</span></a>
+        <a href="#" class="btn btn-primario">Paga tu factura aquí <span class="flecha">→</span></a>
         <a href="#" class="btn btn-contorno">Servicios en línea <span class="flecha">→</span></a>
       </div>
     </div>
+  </div>
+  <div class="hero-puntos">
+    <span></span><span></span><span class="activo"></span><span></span>
   </div>
 </section>
 
@@ -164,25 +171,22 @@
       <img class="fondo" src="images/ambiental.jpg" alt="Programas ambientales">
       <div class="ambientales-contenido">
         <div class="ambientales-texto">
-          <h2>Programas<span class="verde">ambientales 🌿</span></h2>
+          <h2>Programas<span class="verde">Ambientales 🌿</span></h2>
           <p>Comprometidos con el cuidado del agua y nuestro entorno.</p>
           <a href="#" class="btn-verde-claro">Conoce más →</a>
         </div>
         <div class="ambientales-items">
           <div class="ambiental-item">
-            <div class="icono"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M7 3l4 4-4 4"/><path d="M17 21l-4-4 4-4"/><path d="M3 12h6M15 12h6"/></svg></div>
-            <h4>PGIRS</h4>
+            <div class="programa-badge"><img src="images/logo-pgirs.png" alt="PGIRS"></div>
             <p>Plan de Gestión Integral de Residuos Sólidos</p>
           </div>
           <div class="ambiental-item">
-            <div class="icono"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M12 21c-4-3-7-6-7-10a7 7 0 0 1 14 0c0 4-3 7-7 10z"/></svg></div>
-            <h4>PUEAA</h4>
+            <div class="programa-badge"><img src="images/logo-pueaa.jpg" alt="PUEAA"></div>
             <p>Plan de Uso Eficiente y Ahorro del Agua</p>
           </div>
           <div class="ambiental-item">
-            <div class="icono"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M12 3s5 5.5 5 9.5a5 5 0 0 1-10 0C7 8.5 12 3 12 3z"/></svg></div>
-            <h4>Plan de saneamiento</h4>
-            <p>Comprometidos con la calidad de vida y el entorno.</p>
+            <div class="programa-badge"><img src="images/logo-psmv.png" alt="PSMV"></div>
+            <p>Plan de Saneamiento y Manejo de Vertimientos</p>
           </div>
         </div>
       </div>
@@ -201,19 +205,19 @@
       </div>
       <div class="tramites-tarjetas">
         <div class="tarjeta-tramite">
-          <div class="icono"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2484c6" stroke-width="1.6"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/></svg></div>
+          <div class="icono"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1857a4" stroke-width="1.6"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/></svg></div>
           <h3>Trámites en línea</h3>
           <p>Realiza tus trámites desde la comodidad de tu hogar.</p>
           <a href="#" class="ver">Ir ahora →</a>
         </div>
         <div class="tarjeta-tramite">
-          <div class="icono"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ef923b" stroke-width="1.6"><path d="M5 21V10l7-6 7 6v11"/><path d="M9 21v-6h6v6"/></svg></div>
+          <div class="icono"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#5e9a34" stroke-width="1.6"><path d="M5 21V10l7-6 7 6v11"/><path d="M9 21v-6h6v6"/></svg></div>
           <h3>Trámites presenciales</h3>
           <p>Conoce los puntos de atención y horarios disponibles.</p>
           <a href="#" class="ver">Ver puntos →</a>
         </div>
         <div class="tarjeta-tramite">
-          <div class="icono"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#6ba82c" stroke-width="1.6"><path d="M4 5h16v10H8l-4 4V5z"/></svg></div>
+          <div class="icono"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1857a4" stroke-width="1.6"><path d="M4 5h16v10H8l-4 4V5z"/></svg></div>
           <h3>PQRS</h3>
           <p>Peticiones, quejas, reclamos y sugerencias.</p>
           <a href="#" class="ver">Radicar PQRS →</a>

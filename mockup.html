@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EPC Cajicá · Las dos propuestas en el celular</title>
-<meta name="description" content="Empresa de Servicios Públicos de Cajicá — las dos propuestas gráficas del sitio, en vivo, dentro de un teléfono real.">
+<title>EPC Cajicá · El sitio en el celular</title>
+<meta name="description" content="Empresa de Servicios Públicos de Cajicá — el sitio real, en vivo, dentro de un teléfono.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#071B2C">
 <link rel="icon" href="images/logo.png">
@@ -30,8 +30,6 @@
 
     --serif:'Poppins',"Segoe UI",sans-serif;
     --sans:'Manrope',"Segoe UI",sans-serif;
-    /* arco de la propuesta 2, esquinas redondeadas coherentes con su sistema de pills */
-    --arch:50% 50% 16px 16px / 30% 30% 2.5% 2.5%;
   }
 
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -120,20 +118,6 @@
     display:flex;justify-content:center;align-items:center;gap:14px;
     flex-wrap:wrap;margin-bottom:clamp(34px,5vw,58px);
   }
-  .seg{
-    display:inline-flex;gap:4px;padding:5px;border-radius:999px;
-    background:rgba(244,248,251,.07);border:1px solid var(--line);
-    backdrop-filter:blur(8px);
-  }
-  .seg button{
-    font-family:var(--serif);font-size:12px;font-weight:700;
-    letter-spacing:.05em;
-    color:var(--cream-70);background:none;border:0;
-    padding:11px 22px;border-radius:999px;cursor:pointer;white-space:nowrap;
-    transition:background .3s,color .3s;
-  }
-  .seg button:hover{color:var(--cream)}
-  .seg button[aria-pressed="true"]{background:var(--cream);color:var(--azul-oscuro)}
   .ghost{
     font-family:var(--serif);font-size:12px;font-weight:700;
     letter-spacing:.05em;
@@ -145,15 +129,9 @@
 
   .phones{
     display:flex;justify-content:center;align-items:flex-start;
-    gap:clamp(40px,7vw,120px);
     perspective:2400px;perspective-origin:50% 42%;
   }
-  .phones[data-view="a"] .slot-b,
-  .phones[data-view="b"] .slot-a{display:none}
-  .phones[data-view="a"] .slot-a .phone,
-  .phones[data-view="b"] .slot-b .phone{--w:min(388px,84vw)}
-  .phones[data-view="a"] .slot-a .phone,
-  .phones[data-view="b"] .slot-b .phone{transform:none}
+  .phones[data-tilt="off"] .phone{transform:none!important}
 
   .slot{
     position:relative;
@@ -161,27 +139,25 @@
     transform-style:preserve-3d;
   }
 
-  /* Halo del color dominante de cada propuesta, detrás de su teléfono */
+  /* Halo detrás del teléfono, colores institucionales */
   .halo{
     position:absolute;z-index:0;pointer-events:none;
     width:150%;height:80%;left:-25%;top:6%;
     filter:blur(54px);opacity:.62;
     transition:opacity .6s ease,transform .6s ease;
+    background:radial-gradient(50% 50% at 50% 50%,rgba(141,198,63,.72),transparent 72%);
+    border-radius:50% 50% 16px 16px / 30% 30% 2.5% 2.5%;
   }
-  .slot-a .halo{background:radial-gradient(50% 50% at 50% 50%,rgba(36,132,198,.85),transparent 72%);border-radius:6px}
-  .slot-b .halo{background:radial-gradient(50% 50% at 50% 50%,rgba(141,198,63,.72),transparent 72%);border-radius:var(--arch)}
   .slot:hover .halo{opacity:.85;transform:scale(1.04)}
 
-  /* Etiqueta de propuesta */
+  /* Etiqueta */
   .tag{position:relative;z-index:2;text-align:center;margin-bottom:26px}
   .tag .letter{
     display:inline-flex;align-items:center;justify-content:center;
     width:40px;height:40px;margin-bottom:14px;
     font-family:var(--serif);font-size:18px;font-weight:800;line-height:1;
-    color:#fff;
+    color:#08240a;background:var(--verde);border-radius:50%;
   }
-  .slot-a .tag .letter{background:var(--azul);border-radius:8px}
-  .slot-b .tag .letter{background:var(--verde);color:#08240a;border-radius:50%}
   .tag h2{font-family:var(--serif);font-weight:800;font-size:clamp(24px,2.4vw,32px);line-height:1.1}
   .tag .kicker{
     display:block;margin-top:8px;
@@ -197,7 +173,7 @@
     will-change:transform;
   }
   .phone{
-    --w:min(322px,82vw);
+    --w:min(376px,86vw);
     position:relative;width:var(--w);padding:11px;
     border-radius:46px;
     background:linear-gradient(150deg,#2C3B47 0%,#0F1A22 26%,#060B0E 62%,#1B2830 100%);
@@ -208,18 +184,14 @@
       0 90px 120px -60px rgba(0,0,0,.9);
     transition:transform .8s cubic-bezier(.2,.7,.3,1),box-shadow .8s ease;
   }
-  .slot-a .phone{transform:rotateY(9deg) rotateX(1.5deg)}
-  .slot-b .phone{transform:rotateY(-9deg) rotateX(1.5deg)}
-  .phones[data-tilt="off"] .phone{transform:none!important}
   .slot:hover .phone{
-    transform:rotateY(0deg) rotateX(0deg) translateY(-10px) scale(1.015);
+    transform:translateY(-10px) scale(1.015);
     box-shadow:
       0 0 0 1px rgba(244,248,251,.2) inset,
       0 2px 3px rgba(0,0,0,.5),
       0 60px 110px -26px rgba(0,0,0,.8),
       0 110px 140px -60px rgba(0,0,0,.95);
   }
-  .phones[data-tilt="off"] .slot:hover .phone{transform:translateY(-10px) scale(1.015)!important}
 
   /* botones laterales */
   .phone i{position:absolute;background:linear-gradient(90deg,#2C3B47,#0F1A22);display:block}
@@ -255,7 +227,7 @@
     background:linear-gradient(118deg,rgba(255,255,255,.30) 0%,rgba(255,255,255,.05) 22%,transparent 40%);
     opacity:.7;transition:opacity .6s ease;
   }
-  .slot:hover .glass,.detail-phone:hover .glass{opacity:.12}
+  .slot:hover .glass{opacity:.12}
 
   /* pista de scroll */
   .hint{
@@ -286,7 +258,7 @@
     transition:border-color .3s}
   .caption a:hover{border-color:var(--cream)}
 
-  /* ================= VISTA DE CERCA ================= */
+  /* ================= IDENTIDAD ================= */
   .detail{
     max-width:1240px;margin:0 auto;
     padding:clamp(60px,8vw,120px) clamp(20px,5vw,64px) 0;
@@ -296,26 +268,16 @@
   .detail-head h2{font-family:var(--serif);font-weight:800;font-size:clamp(28px,3.2vw,44px);line-height:1.1}
   .detail-head p{margin-top:14px;font-size:15px;color:var(--cream-70)}
 
-  .detail-grid{
-    display:grid;grid-template-columns:minmax(0,auto) minmax(280px,420px);
-    gap:clamp(40px,6vw,88px);align-items:center;justify-content:center;
-  }
-  .detail-phone{position:relative;display:flex;justify-content:center}
-  .detail-phone .phone{--w:min(376px,82vw)}
-  .detail-phone .phone{transition:box-shadow .8s ease}
-
-  .id-card{position:relative}
-  .id-card .seg{margin-bottom:30px}
+  .id-card{position:relative;max-width:640px;margin:0 auto;text-align:center}
   .id-card h3{font-family:var(--serif);font-weight:800;font-size:clamp(26px,2.8vw,36px);line-height:1.15}
   .id-card .desc{margin-top:16px;font-size:15.5px;line-height:1.75;color:var(--cream-70)}
 
-  .swatches{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+  .swatches{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap;justify-content:center}
   .sw{text-align:center}
-  .sw .chip{width:52px;height:52px;border-radius:8px;box-shadow:0 0 0 1px rgba(244,248,251,.28)}
-  .sw.round .chip{border-radius:50%}
+  .sw .chip{width:52px;height:52px;border-radius:50%;box-shadow:0 0 0 1px rgba(244,248,251,.28)}
   .sw small{display:block;margin-top:9px;font-size:9.5px;letter-spacing:.08em;color:var(--cream-45);font-weight:700}
 
-  .traits{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
+  .traits{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px;justify-content:center}
   .traits span{
     font-family:var(--serif);
     font-size:11px;font-weight:700;letter-spacing:.04em;
@@ -339,25 +301,10 @@
 
   /* ================= RESPONSIVE ================= */
   @media(min-width:1400px){
-    .phone{--w:352px}
-    .phones[data-view="a"] .slot-a .phone,
-    .phones[data-view="b"] .slot-b .phone{--w:420px}
-    .detail-phone .phone{--w:400px}
-  }
-  @media(max-width:1080px){
-    .phones{flex-direction:column;align-items:center;gap:76px}
-    .detail-grid{grid-template-columns:1fr;gap:48px}
-    .id-card{text-align:center}
-    .id-card .seg{display:inline-flex}
-    .swatches,.traits{justify-content:center}
-    .id-card .desc{margin-left:auto;margin-right:auto;max-width:52ch}
+    .phone{--w:430px}
   }
   @media(max-width:640px){
-    .phone{--w:min(300px,86vw)}
-    .detail-phone .phone{--w:min(300px,86vw)}
-    .phones[data-view="a"] .slot-a .phone,
-    .phones[data-view="b"] .slot-b .phone{--w:min(320px,88vw)}
-    .seg button{padding:10px 15px;font-size:10.5px}
+    .phone{--w:min(320px,88vw)}
     .links a{padding:12px 18px;font-size:10.5px}
   }
   @media(prefers-reduced-motion:reduce){
@@ -377,16 +324,15 @@
   <!-- ===================== CABECERA ===================== -->
   <header class="intro">
     <img class="lockup rv in" src="images/logo.png" alt="EPC — Empresa de Servicios Públicos de Cajicá">
-    <span class="eyebrow rv d1">Dos propuestas · una en vivo en cada teléfono</span>
+    <span class="eyebrow rv d1">Vista móvil en vivo</span>
     <h1 class="display rv d2">Tu sitio, <em>en el bolsillo</em><br>de cada ciudadano</h1>
     <p class="lead rv d3">
       La mayoría de los ciudadanos va a entrar a pagar su factura o hacer un trámite desde el
-      celular. Estos dos teléfonos no son imágenes: cargan el sitio real, con los datos y trámites
-      reales de la EPC. Desliza dentro de cada pantalla y navégalo tal cual lo hará él.
+      celular. Este teléfono no es una imagen: carga el sitio real, con los datos y trámites
+      reales de la EPC. Desliza dentro de la pantalla y navégalo tal cual lo hará él.
     </p>
     <nav class="links rv d4">
-      <a class="solid" href="index.html" target="_blank" rel="noopener">Ver Propuesta 1 completa ↗</a>
-      <a href="v2/index.html" target="_blank" rel="noopener">Ver Propuesta 2 completa ↗</a>
+      <a class="solid" href="index.html" target="_blank" rel="noopener">Ver el sitio completo ↗</a>
     </nav>
   </header>
 
@@ -394,47 +340,15 @@
   <section class="stage">
 
     <div class="controls rv">
-      <div class="seg" role="group" aria-label="Qué propuesta mostrar">
-        <button type="button" data-view="both" aria-pressed="true">Las dos</button>
-        <button type="button" data-view="a" aria-pressed="false">Sólo 1</button>
-        <button type="button" data-view="b" aria-pressed="false">Sólo 2</button>
-      </div>
       <button type="button" class="ghost" id="btnTilt" aria-pressed="false">Poner de frente</button>
     </div>
 
-    <div class="phones rv d1" id="phones" data-view="both" data-tilt="on">
+    <div class="phones rv d1" id="phones" data-tilt="on">
 
-      <!-- ---------- Propuesta 1 ---------- -->
-      <article class="slot slot-a">
+      <article class="slot">
         <span class="halo" aria-hidden="true"></span>
         <div class="tag">
-          <span class="letter">1</span>
-          <h2>Corporativa institucional</h2>
-          <span class="kicker">Azul oficial · esquinas rectas</span>
-        </div>
-        <div class="tilt">
-          <div class="phone">
-            <i class="vol1"></i><i class="vol2"></i><i class="pwr"></i>
-            <div class="screen">
-              <iframe src="index.html" title="EPC — Propuesta 1 en móvil"></iframe>
-              <div class="notch" aria-hidden="true"></div>
-              <div class="glass" aria-hidden="true"></div>
-              <div class="hint" aria-hidden="true"><span>Desliza aquí ↕</span></div>
-            </div>
-          </div>
-        </div>
-        <p class="caption">
-          Colores oficiales del manual, tipografía Work Sans + Inter, bordes rectos y sobrios.
-          Se siente firme y de entidad pública seria.
-          <a href="index.html" target="_blank" rel="noopener">Abrir a pantalla completa ↗</a>
-        </p>
-      </article>
-
-      <!-- ---------- Propuesta 2 ---------- -->
-      <article class="slot slot-b">
-        <span class="halo" aria-hidden="true"></span>
-        <div class="tag">
-          <span class="letter">2</span>
+          <span class="letter">✓</span>
           <h2>Cercana y redondeada</h2>
           <span class="kicker">Verde oficial · arcos y pills</span>
         </div>
@@ -442,7 +356,7 @@
           <div class="phone">
             <i class="vol1"></i><i class="vol2"></i><i class="pwr"></i>
             <div class="screen">
-              <iframe src="v2/index.html" title="EPC — Propuesta 2 en móvil"></iframe>
+              <iframe src="index.html" title="EPC — sitio en móvil"></iframe>
               <div class="notch" aria-hidden="true"></div>
               <div class="glass" aria-hidden="true"></div>
               <div class="hint" aria-hidden="true"><span>Desliza aquí ↕</span></div>
@@ -450,51 +364,38 @@
           </div>
         </div>
         <p class="caption">
-          Mismos colores oficiales del manual, tipografía Poppins + Manrope, bordes curvos y pills.
+          Colores oficiales del manual de marca, tipografía Poppins + Manrope, bordes curvos y pills.
           Se siente cercana y fácil de usar.
-          <a href="v2/index.html" target="_blank" rel="noopener">Abrir a pantalla completa ↗</a>
+          <a href="index.html" target="_blank" rel="noopener">Abrir a pantalla completa ↗</a>
         </p>
       </article>
 
     </div>
   </section>
 
-  <!-- ===================== VISTA DE CERCA ===================== -->
+  <!-- ===================== IDENTIDAD ===================== -->
   <section class="detail">
     <div class="detail-head rv">
-      <span class="eyebrow">De cerca</span>
-      <h2 class="display">El detalle, una por una</h2>
-      <p>Para revisar con calma durante la reunión: cambia de propuesta y el teléfono se recarga en vivo.</p>
+      <span class="eyebrow">Identidad</span>
+      <h2 class="display">El sistema visual, de un vistazo</h2>
     </div>
 
-    <div class="detail-grid rv d1">
-      <div class="detail-phone">
-        <div class="phone">
-          <i class="vol1"></i><i class="vol2"></i><i class="pwr"></i>
-          <div class="screen">
-            <iframe id="fDetail" src="index.html" title="EPC — vista de cerca" loading="lazy"></iframe>
-            <div class="notch" aria-hidden="true"></div>
-            <div class="glass" aria-hidden="true"></div>
-          </div>
-        </div>
+    <div class="id-card rv d1">
+      <h3>Cercana y redondeada</h3>
+      <p class="desc">
+        Colores oficiales del manual de marca, mandando el verde con arcos, círculos y pills.
+        El trámite se siente simple y menos burocrático.
+      </p>
+      <div class="swatches">
+        <div class="sw"><div class="chip" style="background:#8DC63F"></div><small>Verde</small></div>
+        <div class="sw"><div class="chip" style="background:#2484C6"></div><small>Azul</small></div>
+        <div class="sw"><div class="chip" style="background:#EF923B"></div><small>Naranja</small></div>
+        <div class="sw"><div class="chip" style="background:#043956"></div><small>Azul oscuro</small></div>
       </div>
-
-      <div class="id-card">
-        <div class="seg" role="group" aria-label="Propuesta en vista de cerca">
-          <button type="button" data-dir="a" aria-pressed="true">Propuesta 1</button>
-          <button type="button" data-dir="b" aria-pressed="false">Propuesta 2</button>
-        </div>
-        <h3 id="dTitle">Corporativa institucional</h3>
-        <p class="desc" id="dDesc">
-          Azul y verde oficiales del manual de marca, bordes rectos y contraste alto. Retícula
-          sobria de entidad pública: se ve firme, confiable y con oficio.
-        </p>
-        <div class="swatches" id="dSwatches"></div>
-        <div class="traits" id="dTraits"></div>
-        <p class="typeline" id="dType">
-          <b>Work Sans</b> para los titulares, Inter para la lectura.
-        </p>
+      <div class="traits">
+        <span>Arcos y pills</span><span>Poppins + Manrope</span><span>Contraste suave</span><span>Tono cercano</span>
       </div>
+      <p class="typeline"><b>Poppins</b> para los titulares, Manrope para la lectura.</p>
     </div>
   </section>
 
@@ -502,9 +403,9 @@
   <footer class="foot rv">
     <div class="rule"></div>
     <p>
-      Los tres teléfonos cargan <strong>index.html</strong> y <strong>v2/index.html</strong> en un
-      viewport móvil real de 390&nbsp;px, así que lo que ves aquí es exactamente lo que verá
-      cualquier ciudadano desde su celular. Nada de esto es una imagen.
+      El teléfono carga <strong>index.html</strong> en un viewport móvil real de 390&nbsp;px, así
+      que lo que ves aquí es exactamente lo que verá cualquier ciudadano desde su celular. Nada de
+      esto es una imagen.
     </p>
     <p class="sign">EPC Cajicá · Servicios Públicos</p>
   </footer>
@@ -515,17 +416,17 @@
 (function(){
   'use strict';
 
-  /* --- Escala cada iframe: se renderiza a un viewport móvil real de 390px
+  /* --- Escala el iframe: se renderiza a un viewport móvil real de 390px
          y se reduce con transform para caber en el marco. El scroll y los
          clics siguen llegando al documento real dentro del iframe. --- */
   var pantallas = [].slice.call(document.querySelectorAll('.screen'));
 
   function ajustar(pantalla){
     var f = pantalla.querySelector('iframe');
-    if(!f || !pantalla.clientWidth) return;   /* oculto: se recalcula al volver */
+    if(!f || !pantalla.clientWidth) return;
     var s = pantalla.clientWidth / 390;
     f.style.transform = 'scale(' + s + ')';
-    pantalla.style.setProperty('--s', s);  /* notch a escala */
+    pantalla.style.setProperty('--s', s);
   }
   function ajustarTodo(){ pantallas.forEach(ajustar); }
 
@@ -535,8 +436,7 @@
   pantallas.forEach(function(p){ ajustar(p); if(ro) ro.observe(p); });
   window.addEventListener('resize', ajustarTodo);
 
-  /* --- Un teléfono real no muestra barra de scroll: se inyecta una regla
-         dentro del iframe (mismo origen) para ocultarla. --- */
+  /* --- Un teléfono real no muestra barra de scroll --- */
   function sinBarra(iframe){
     function inyectar(){
       try{
@@ -547,12 +447,11 @@
         st.textContent = 'html{scrollbar-width:none;-ms-overflow-style:none;overscroll-behavior:contain}' +
                          'html::-webkit-scrollbar,body::-webkit-scrollbar{width:0;height:0;display:none}';
         (d.head || d.documentElement).appendChild(st);
-      }catch(e){ /* si algún día se sirve cruzado, simplemente no se oculta */ }
+      }catch(e){}
     }
     iframe.addEventListener('load', inyectar);
     inyectar();
   }
-
   document.querySelectorAll('.screen iframe').forEach(sinBarra);
 
   /* --- Scroll reveal --- */
@@ -573,19 +472,8 @@
   window.addEventListener('load', revisar);
   setTimeout(revisar, 500);
 
-  /* --- Conmutador del escenario: las dos / sólo 1 / sólo 2 --- */
-  var phones = document.getElementById('phones');
-  var segStage = document.querySelectorAll('.controls .seg button');
-  segStage.forEach(function(b){
-    b.addEventListener('click', function(){
-      phones.dataset.view = b.dataset.view;
-      segStage.forEach(function(o){ o.setAttribute('aria-pressed', String(o === b)); });
-      setTimeout(ajustarTodo, 0);
-      setTimeout(ajustarTodo, 450);
-    });
-  });
-
   /* --- Poner de frente / devolver la inclinación --- */
+  var phones = document.getElementById('phones');
   var btnTilt = document.getElementById('btnTilt');
   btnTilt.addEventListener('click', function(){
     var off = phones.dataset.tilt === 'off';
@@ -611,65 +499,6 @@
       tilts.forEach(function(t){ t.style.transform = 'translate3d(0,0,0)'; });
     });
   }
-
-  /* --- Vista de cerca: ficha de identidad de cada propuesta --- */
-  var datos = {
-    a:{
-      titulo:'Corporativa institucional',
-      desc:'Azul y verde oficiales del manual de marca, bordes rectos y contraste alto. Retícula sobria de entidad pública: se ve firme, confiable y con oficio.',
-      src:'index.html',
-      round:false,
-      swatches:[['#2484C6','Azul'],['#043956','Azul oscuro'],['#8DC63F','Verde'],['#EF923B','Naranja']],
-      traits:['Esquinas rectas','Work Sans + Inter','Contraste alto','Tono institucional'],
-      tipo:'<b>Work Sans</b> para los titulares, Inter para la lectura.'
-    },
-    b:{
-      titulo:'Cercana y redondeada',
-      desc:'Los mismos colores oficiales, pero mandando el verde con arcos, círculos y pills. El trámite se siente más simple y menos burocrático.',
-      src:'v2/index.html',
-      round:true,
-      swatches:[['#8DC63F','Verde'],['#2484C6','Azul'],['#EF923B','Naranja'],['#043956','Azul oscuro']],
-      traits:['Arcos y pills','Poppins + Manrope','Contraste suave','Tono cercano'],
-      tipo:'<b>Poppins</b> para los titulares, Manrope para la lectura.'
-    }
-  };
-
-  var fDetail   = document.getElementById('fDetail');
-  var dTitle    = document.getElementById('dTitle');
-  var dDesc     = document.getElementById('dDesc');
-  var dSwatches = document.getElementById('dSwatches');
-  var dTraits   = document.getElementById('dTraits');
-  var dType     = document.getElementById('dType');
-
-  function pintar(k){
-    var d = datos[k];
-    dTitle.textContent = d.titulo;
-    dDesc.textContent = d.desc;
-    dSwatches.innerHTML = d.swatches.map(function(s){
-      return '<div class="sw' + (d.round ? ' round' : '') + '">' +
-             '<div class="chip" style="background:' + s[0] + '"></div>' +
-             '<small>' + s[1] + '</small></div>';
-    }).join('');
-    dTraits.innerHTML = d.traits.map(function(t){ return '<span>' + t + '</span>'; }).join('');
-    dType.innerHTML = d.tipo;
-  }
-  pintar('a');
-
-  var segDetail = document.querySelectorAll('.id-card .seg button');
-  segDetail.forEach(function(b){
-    b.addEventListener('click', function(){
-      if(b.getAttribute('aria-pressed') === 'true') return;
-      segDetail.forEach(function(o){ o.setAttribute('aria-pressed', String(o === b)); });
-      var k = b.dataset.dir, sc = fDetail.closest('.screen');
-      sc.style.transition = 'opacity .3s ease';
-      sc.style.opacity = '0';
-      setTimeout(function(){
-        fDetail.src = datos[k].src;
-        sc.style.opacity = '1';
-      }, 220);
-      pintar(k);
-    });
-  });
 })();
 </script>
 
