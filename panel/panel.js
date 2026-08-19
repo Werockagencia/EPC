@@ -23,4 +23,16 @@
     });
   });
 
+  // Selector de cuenta: muestra el bloque .datos-cuenta que corresponda
+  var selCuenta = document.getElementById('selector-cuenta');
+  if (selCuenta) {
+    function pintarCuenta(id) {
+      document.querySelectorAll('.datos-cuenta').forEach(function (d) {
+        d.classList.toggle('activo', d.dataset.cuenta === id);
+      });
+    }
+    selCuenta.addEventListener('change', function () { pintarCuenta(this.value); });
+    pintarCuenta(selCuenta.value);
+  }
+
 })();

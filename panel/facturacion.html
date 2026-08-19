@@ -96,31 +96,83 @@
         <p>Consulta y descarga tus facturas emitidas por acueducto, alcantarillado y aseo.</p>
       </div>
 
-      <span class="badge-cuenta"><span class="punto"></span>Mostrando cuenta N.° 1608353 · DG 2 Sur No 12-150</span>
-
-      <div class="stat-grid" style="margin-top:22px">
-        <div class="stat"><div class="valor">$69.320</div><div class="lbl">Última factura</div></div>
-        <div class="stat"><div class="valor">13 ago 2026</div><div class="lbl">Próximo vencimiento</div></div>
-        <div class="stat"><div class="valor acento">1</div><div class="lbl">Factura pendiente</div></div>
-        <div class="stat"><div class="valor">$789.150</div><div class="lbl">Facturado en 2026</div></div>
+      <div class="selector-cuenta">
+        <label for="selector-cuenta">Mostrando facturación de</label>
+        <select id="selector-cuenta">
+          <option value="1608353">1608353 · Mercedes de Higuera · DG 2 Sur No 12-150</option>
+          <option value="2214870">2214870 · Local comercial · Cra 4 No 8-21, Local 2</option>
+          <option value="1774502">1774502 · Finca La Esperanza · Vereda Chuntame, Km 3</option>
+        </select>
       </div>
 
-      <div class="tabla-wrap">
-        <table class="panel-tabla">
-          <thead>
-            <tr><th>N.° factura</th><th>Fecha de expedición</th><th>Valor</th><th>Fecha de vencimiento</th><th>Estado</th><th>Factura</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>403723943-5</td><td>03/08/2026</td><td>$69.320</td><td>13/08/2026</td><td><span class="estado emitida">Emitida</span></td><td><a class="enlace-tabla" href="#">Ver →</a></td></tr>
-            <tr><td>400189297-7</td><td>01/07/2026</td><td>$114.110</td><td>10/07/2026</td><td><span class="estado pagado">Pagada</span></td><td><a class="enlace-tabla" href="#">Ver →</a></td></tr>
-            <tr><td>396668140-7</td><td>01/06/2026</td><td>$102.630</td><td>11/06/2026</td><td><span class="estado pagado">Pagada</span></td><td><a class="enlace-tabla" href="#">Ver →</a></td></tr>
-            <tr><td>393157565-1</td><td>04/05/2026</td><td>$161.500</td><td>13/05/2026</td><td><span class="estado pagado">Pagada</span></td><td><a class="enlace-tabla" href="#">Ver →</a></td></tr>
-            <tr><td>389608845-4</td><td>01/04/2026</td><td>$83.090</td><td>14/04/2026</td><td><span class="estado pagado">Pagada</span></td><td><a class="enlace-tabla" href="#">Ver →</a></td></tr>
-            <tr><td>386110457-4</td><td>02/03/2026</td><td>$128.870</td><td>11/03/2026</td><td><span class="estado pagado">Pagada</span></td><td><a class="enlace-tabla" href="#">Ver →</a></td></tr>
-            <tr><td>382642518-1</td><td>02/02/2026</td><td>$52.180</td><td>11/02/2026</td><td><span class="estado pagado">Pagada</span></td><td><a class="enlace-tabla" href="#">Ver →</a></td></tr>
-            <tr><td>379154458-7</td><td>02/01/2026</td><td>$49.550</td><td>14/01/2026</td><td><span class="estado pagado">Pagada</span></td><td><a class="enlace-tabla" href="#">Ver →</a></td></tr>
-          </tbody>
-        </table>
+      <div class="datos-cuenta" data-cuenta="1608353">
+        <div class="stat-grid" style="margin-top:22px">
+          <div class="stat"><div class="valor">$69.320</div><div class="lbl">Última factura</div></div>
+          <div class="stat"><div class="valor">13 ago 2026</div><div class="lbl">Próximo vencimiento</div></div>
+          <div class="stat"><div class="valor acento">1</div><div class="lbl">Factura pendiente</div></div>
+          <div class="stat"><div class="valor">$789.150</div><div class="lbl">Facturado en 2026</div></div>
+        </div>
+        <div class="tabla-wrap">
+          <table class="panel-tabla">
+            <thead>
+              <tr><th>N.° factura</th><th>Fecha de expedición</th><th>Valor</th><th>Fecha de vencimiento</th><th>Estado</th><th>Factura</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>403723943-5</td><td>03/08/2026</td><td>$69.320</td><td>13/08/2026</td><td><span class="estado emitida">Emitida</span></td><td><a class="enlace-tabla" href="factura-detalle.html">Ver →</a><a class="btn-mini" href="pagar-factura.html">Pagar</a></td></tr>
+              <tr><td>400189297-7</td><td>01/07/2026</td><td>$114.110</td><td>10/07/2026</td><td><span class="estado pagado">Pagada</span></td><td><a class="enlace-tabla" href="factura-detalle.html">Ver →</a></td></tr>
+              <tr><td>396668140-7</td><td>01/06/2026</td><td>$102.630</td><td>11/06/2026</td><td><span class="estado pagado">Pagada</span></td><td><a class="enlace-tabla" href="factura-detalle.html">Ver →</a></td></tr>
+              <tr><td>393157565-1</td><td>04/05/2026</td><td>$161.500</td><td>13/05/2026</td><td><span class="estado pagado">Pagada</span></td><td><a class="enlace-tabla" href="factura-detalle.html">Ver →</a></td></tr>
+              <tr><td>389608845-4</td><td>01/04/2026</td><td>$83.090</td><td>14/04/2026</td><td><span class="estado pagado">Pagada</span></td><td><a class="enlace-tabla" href="factura-detalle.html">Ver →</a></td></tr>
+              <tr><td>386110457-4</td><td>02/03/2026</td><td>$128.870</td><td>11/03/2026</td><td><span class="estado pagado">Pagada</span></td><td><a class="enlace-tabla" href="factura-detalle.html">Ver →</a></td></tr>
+              <tr><td>382642518-1</td><td>02/02/2026</td><td>$52.180</td><td>11/02/2026</td><td><span class="estado pagado">Pagada</span></td><td><a class="enlace-tabla" href="factura-detalle.html">Ver →</a></td></tr>
+              <tr><td>379154458-7</td><td>02/01/2026</td><td>$49.550</td><td>14/01/2026</td><td><span class="estado pagado">Pagada</span></td><td><a class="enlace-tabla" href="factura-detalle.html">Ver →</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="datos-cuenta" data-cuenta="2214870">
+        <div class="stat-grid" style="margin-top:22px">
+          <div class="stat"><div class="valor">$142.780</div><div class="lbl">Última factura</div></div>
+          <div class="stat"><div class="valor">15 ago 2026</div><div class="lbl">Próximo vencimiento</div></div>
+          <div class="stat"><div class="valor acento">1</div><div class="lbl">Factura pendiente</div></div>
+          <div class="stat"><div class="valor">$1.240.300</div><div class="lbl">Facturado en 2026</div></div>
+        </div>
+        <div class="tabla-wrap">
+          <table class="panel-tabla">
+            <thead>
+              <tr><th>N.° factura</th><th>Fecha de expedición</th><th>Valor</th><th>Fecha de vencimiento</th><th>Estado</th><th>Factura</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>403724410-2</td><td>05/08/2026</td><td>$142.780</td><td>15/08/2026</td><td><span class="estado emitida">Emitida</span></td><td><a class="enlace-tabla" href="factura-detalle.html">Ver →</a><a class="btn-mini" href="pagar-factura.html">Pagar</a></td></tr>
+              <tr><td>400189510-6</td><td>03/07/2026</td><td>$198.400</td><td>12/07/2026</td><td><span class="estado pagado">Pagada</span></td><td><a class="enlace-tabla" href="factura-detalle.html">Ver →</a></td></tr>
+              <tr><td>396668820-1</td><td>03/06/2026</td><td>$176.950</td><td>13/06/2026</td><td><span class="estado pagado">Pagada</span></td><td><a class="enlace-tabla" href="factura-detalle.html">Ver →</a></td></tr>
+              <tr><td>393157901-8</td><td>05/05/2026</td><td>$205.100</td><td>15/05/2026</td><td><span class="estado pagado">Pagada</span></td><td><a class="enlace-tabla" href="factura-detalle.html">Ver →</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="datos-cuenta" data-cuenta="1774502">
+        <div class="stat-grid" style="margin-top:22px">
+          <div class="stat"><div class="valor">$58.900</div><div class="lbl">Última factura</div></div>
+          <div class="stat"><div class="valor">10 sep 2026</div><div class="lbl">Próximo vencimiento</div></div>
+          <div class="stat"><div class="valor" style="color:var(--verde-oscuro)">0</div><div class="lbl">Facturas pendientes</div></div>
+          <div class="stat"><div class="valor">$410.600</div><div class="lbl">Facturado en 2026</div></div>
+        </div>
+        <div class="tabla-wrap">
+          <table class="panel-tabla">
+            <thead>
+              <tr><th>N.° factura</th><th>Fecha de expedición</th><th>Valor</th><th>Fecha de vencimiento</th><th>Estado</th><th>Factura</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>403701122-9</td><td>01/08/2026</td><td>$58.900</td><td>10/08/2026</td><td><span class="estado pagado">Pagada</span></td><td><a class="enlace-tabla" href="factura-detalle.html">Ver →</a></td></tr>
+              <tr><td>400172004-3</td><td>01/07/2026</td><td>$61.200</td><td>10/07/2026</td><td><span class="estado pagado">Pagada</span></td><td><a class="enlace-tabla" href="factura-detalle.html">Ver →</a></td></tr>
+              <tr><td>396651187-5</td><td>01/06/2026</td><td>$54.700</td><td>10/06/2026</td><td><span class="estado pagado">Pagada</span></td><td><a class="enlace-tabla" href="factura-detalle.html">Ver →</a></td></tr>
+              <tr><td>393140902-2</td><td>01/05/2026</td><td>$49.300</td><td>10/05/2026</td><td><span class="estado pagado">Pagada</span></td><td><a class="enlace-tabla" href="factura-detalle.html">Ver →</a></td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
 

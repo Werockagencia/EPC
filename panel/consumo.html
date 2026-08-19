@@ -96,28 +96,83 @@
         <p>Metros cúbicos (m³) de agua registrados por tu medidor mes a mes.</p>
       </div>
 
-      <span class="badge-cuenta"><span class="punto"></span>Medidor MED-04471 · Cuenta N.° 1608353</span>
-
-      <div class="stat-grid" style="margin-top:22px">
-        <div class="stat"><div class="valor">9 m³</div><div class="lbl">Consumo mes actual</div></div>
-        <div class="stat"><div class="valor">13,5 m³</div><div class="lbl">Promedio 12 meses</div></div>
-        <div class="stat"><div class="valor acento">22 m³</div><div class="lbl">Mayor consumo (jun 2026)</div></div>
-        <div class="stat"><div class="valor" style="color:var(--verde-oscuro)">-33%</div><div class="lbl">Frente al mes anterior</div></div>
+      <div class="selector-cuenta">
+        <label for="selector-cuenta">Mostrando consumo de</label>
+        <select id="selector-cuenta">
+          <option value="1608353">1608353 · Mercedes de Higuera · Medidor MED-04471</option>
+          <option value="2214870">2214870 · Local comercial · Medidor MED-11209</option>
+          <option value="1774502">1774502 · Finca La Esperanza · Medidor MED-09981 (principal)</option>
+        </select>
       </div>
 
-      <div class="grafico-consumo">
-        <div class="grafico-barra"><span class="valor-barra">14</span><div class="barra" style="--h:64%"></div><span class="mes-barra">09-25</span></div>
-        <div class="grafico-barra"><span class="valor-barra">15</span><div class="barra" style="--h:68%"></div><span class="mes-barra">10-25</span></div>
-        <div class="grafico-barra"><span class="valor-barra">9</span><div class="barra" style="--h:41%"></div><span class="mes-barra">11-25</span></div>
-        <div class="grafico-barra"><span class="valor-barra">11</span><div class="barra" style="--h:50%"></div><span class="mes-barra">12-25</span></div>
-        <div class="grafico-barra"><span class="valor-barra">8</span><div class="barra" style="--h:36%"></div><span class="mes-barra">01-26</span></div>
-        <div class="grafico-barra"><span class="valor-barra">12</span><div class="barra" style="--h:55%"></div><span class="mes-barra">02-26</span></div>
-        <div class="grafico-barra"><span class="valor-barra">15</span><div class="barra" style="--h:68%"></div><span class="mes-barra">03-26</span></div>
-        <div class="grafico-barra"><span class="valor-barra">12</span><div class="barra" style="--h:55%"></div><span class="mes-barra">04-26</span></div>
-        <div class="grafico-barra"><span class="valor-barra">18</span><div class="barra" style="--h:82%"></div><span class="mes-barra">05-26</span></div>
-        <div class="grafico-barra pico"><span class="valor-barra">22</span><div class="barra" style="--h:100%"></div><span class="mes-barra">06-26</span></div>
-        <div class="grafico-barra"><span class="valor-barra">16</span><div class="barra" style="--h:73%"></div><span class="mes-barra">07-26</span></div>
-        <div class="grafico-barra"><span class="valor-barra">9</span><div class="barra" style="--h:41%"></div><span class="mes-barra">08-26</span></div>
+      <div class="datos-cuenta" data-cuenta="1608353">
+        <div class="stat-grid" style="margin-top:22px">
+          <div class="stat"><div class="valor">9 m³</div><div class="lbl">Consumo mes actual</div></div>
+          <div class="stat"><div class="valor">13,5 m³</div><div class="lbl">Promedio 12 meses</div></div>
+          <div class="stat"><div class="valor acento">22 m³</div><div class="lbl">Mayor consumo (jun 2026)</div></div>
+          <div class="stat"><div class="valor" style="color:var(--verde-oscuro)">-33%</div><div class="lbl">Frente al mes anterior</div></div>
+        </div>
+        <div class="grafico-consumo">
+          <div class="grafico-barra"><span class="valor-barra">14</span><div class="barra" style="--h:64%"></div><span class="mes-barra">09-25</span></div>
+          <div class="grafico-barra"><span class="valor-barra">15</span><div class="barra" style="--h:68%"></div><span class="mes-barra">10-25</span></div>
+          <div class="grafico-barra"><span class="valor-barra">9</span><div class="barra" style="--h:41%"></div><span class="mes-barra">11-25</span></div>
+          <div class="grafico-barra"><span class="valor-barra">11</span><div class="barra" style="--h:50%"></div><span class="mes-barra">12-25</span></div>
+          <div class="grafico-barra"><span class="valor-barra">8</span><div class="barra" style="--h:36%"></div><span class="mes-barra">01-26</span></div>
+          <div class="grafico-barra"><span class="valor-barra">12</span><div class="barra" style="--h:55%"></div><span class="mes-barra">02-26</span></div>
+          <div class="grafico-barra"><span class="valor-barra">15</span><div class="barra" style="--h:68%"></div><span class="mes-barra">03-26</span></div>
+          <div class="grafico-barra"><span class="valor-barra">12</span><div class="barra" style="--h:55%"></div><span class="mes-barra">04-26</span></div>
+          <div class="grafico-barra"><span class="valor-barra">18</span><div class="barra" style="--h:82%"></div><span class="mes-barra">05-26</span></div>
+          <div class="grafico-barra pico"><span class="valor-barra">22</span><div class="barra" style="--h:100%"></div><span class="mes-barra">06-26</span></div>
+          <div class="grafico-barra"><span class="valor-barra">16</span><div class="barra" style="--h:73%"></div><span class="mes-barra">07-26</span></div>
+          <div class="grafico-barra"><span class="valor-barra">9</span><div class="barra" style="--h:41%"></div><span class="mes-barra">08-26</span></div>
+        </div>
+      </div>
+
+      <div class="datos-cuenta" data-cuenta="2214870">
+        <div class="stat-grid" style="margin-top:22px">
+          <div class="stat"><div class="valor">44 m³</div><div class="lbl">Consumo mes actual</div></div>
+          <div class="stat"><div class="valor">47,5 m³</div><div class="lbl">Promedio 12 meses</div></div>
+          <div class="stat"><div class="valor acento">60 m³</div><div class="lbl">Mayor consumo (jun 2026)</div></div>
+          <div class="stat"><div class="valor" style="color:var(--verde-oscuro)">-15%</div><div class="lbl">Frente al mes anterior</div></div>
+        </div>
+        <div class="grafico-consumo">
+          <div class="grafico-barra"><span class="valor-barra">42</span><div class="barra" style="--h:70%"></div><span class="mes-barra">09-25</span></div>
+          <div class="grafico-barra"><span class="valor-barra">45</span><div class="barra" style="--h:75%"></div><span class="mes-barra">10-25</span></div>
+          <div class="grafico-barra"><span class="valor-barra">38</span><div class="barra" style="--h:63%"></div><span class="mes-barra">11-25</span></div>
+          <div class="grafico-barra"><span class="valor-barra">40</span><div class="barra" style="--h:67%"></div><span class="mes-barra">12-25</span></div>
+          <div class="grafico-barra"><span class="valor-barra">44</span><div class="barra" style="--h:73%"></div><span class="mes-barra">01-26</span></div>
+          <div class="grafico-barra"><span class="valor-barra">48</span><div class="barra" style="--h:80%"></div><span class="mes-barra">02-26</span></div>
+          <div class="grafico-barra"><span class="valor-barra">50</span><div class="barra" style="--h:83%"></div><span class="mes-barra">03-26</span></div>
+          <div class="grafico-barra"><span class="valor-barra">47</span><div class="barra" style="--h:78%"></div><span class="mes-barra">04-26</span></div>
+          <div class="grafico-barra"><span class="valor-barra">55</span><div class="barra" style="--h:92%"></div><span class="mes-barra">05-26</span></div>
+          <div class="grafico-barra pico"><span class="valor-barra">60</span><div class="barra" style="--h:100%"></div><span class="mes-barra">06-26</span></div>
+          <div class="grafico-barra"><span class="valor-barra">52</span><div class="barra" style="--h:87%"></div><span class="mes-barra">07-26</span></div>
+          <div class="grafico-barra"><span class="valor-barra">44</span><div class="barra" style="--h:73%"></div><span class="mes-barra">08-26</span></div>
+        </div>
+      </div>
+
+      <div class="datos-cuenta" data-cuenta="1774502">
+        <div class="stat-grid" style="margin-top:22px">
+          <div class="stat"><div class="valor">8 m³</div><div class="lbl">Consumo mes actual</div></div>
+          <div class="stat"><div class="valor">10,8 m³</div><div class="lbl">Promedio 12 meses</div></div>
+          <div class="stat"><div class="valor acento">28 m³</div><div class="lbl">Mayor consumo (jun 2026)</div></div>
+          <div class="stat"><div class="valor" style="color:var(--verde-oscuro)">-56%</div><div class="lbl">Frente al mes anterior</div></div>
+        </div>
+        <div class="grafico-consumo">
+          <div class="grafico-barra"><span class="valor-barra">5</span><div class="barra" style="--h:18%"></div><span class="mes-barra">09-25</span></div>
+          <div class="grafico-barra"><span class="valor-barra">6</span><div class="barra" style="--h:21%"></div><span class="mes-barra">10-25</span></div>
+          <div class="grafico-barra"><span class="valor-barra">4</span><div class="barra" style="--h:14%"></div><span class="mes-barra">11-25</span></div>
+          <div class="grafico-barra"><span class="valor-barra">5</span><div class="barra" style="--h:18%"></div><span class="mes-barra">12-25</span></div>
+          <div class="grafico-barra"><span class="valor-barra">6</span><div class="barra" style="--h:21%"></div><span class="mes-barra">01-26</span></div>
+          <div class="grafico-barra"><span class="valor-barra">7</span><div class="barra" style="--h:25%"></div><span class="mes-barra">02-26</span></div>
+          <div class="grafico-barra"><span class="valor-barra">9</span><div class="barra" style="--h:32%"></div><span class="mes-barra">03-26</span></div>
+          <div class="grafico-barra"><span class="valor-barra">14</span><div class="barra" style="--h:50%"></div><span class="mes-barra">04-26</span></div>
+          <div class="grafico-barra"><span class="valor-barra">20</span><div class="barra" style="--h:71%"></div><span class="mes-barra">05-26</span></div>
+          <div class="grafico-barra pico"><span class="valor-barra">28</span><div class="barra" style="--h:100%"></div><span class="mes-barra">06-26</span></div>
+          <div class="grafico-barra"><span class="valor-barra">18</span><div class="barra" style="--h:64%"></div><span class="mes-barra">07-26</span></div>
+          <div class="grafico-barra"><span class="valor-barra">8</span><div class="barra" style="--h:29%"></div><span class="mes-barra">08-26</span></div>
+        </div>
+        <p class="ayuda" style="margin-top:14px">El pico de mayo-julio corresponde al riego de la temporada seca, registrado por el medidor MED-09982.</p>
       </div>
     </div>
 
