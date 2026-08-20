@@ -50,8 +50,14 @@
         if (input && label && input.value.trim()) label.textContent = input.value.trim();
       }
       var abrir = form.hasAttribute('hidden');
+      if (abrir && form.classList.contains('tramite-form')) {
+        document.querySelectorAll('.tramite-form').forEach(function (f) {
+          if (f !== form) f.setAttribute('hidden', '');
+        });
+      }
       form.toggleAttribute('hidden', !abrir);
       if (abrir) {
+        form.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         var primerInput = form.querySelector('input');
         if (primerInput) primerInput.focus();
       }
