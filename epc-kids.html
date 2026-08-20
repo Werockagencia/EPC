@@ -3,20 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nuevo proyecto de acueducto — Noticias EPC Cajicá</title>
+<title>EPC Kids — EPC Cajicá</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-  .articulo { max-width: 780px; margin: 0 auto; }
-  .articulo-portada { width: 100%; height: 360px; object-fit: cover; border-radius: var(--radio-l); box-shadow: var(--sombra); margin-bottom: 30px; }
-  .articulo h1 { font-size: clamp(26px,3vw,36px); color: var(--azul-oscuro); line-height: 1.2; margin-bottom: 14px; }
-  .articulo-meta { display: flex; gap: 14px; align-items: center; margin-bottom: 26px; }
-  .articulo-prosa { font-size: 15.5px; line-height: 1.85; color: var(--gris-texto); }
-  .articulo-prosa p { margin-bottom: 18px; }
-  .articulo-prosa h2 { font-size: 19px; color: var(--azul-oscuro); margin: 28px 0 12px; }
-  .relacionadas { max-width: 780px; margin: 50px auto 0; padding-top: 34px; border-top: 1px solid var(--gris-borde); }
+  .kids-hero { background: linear-gradient(135deg, var(--verde-oscuro) 0%, var(--azul) 55%, var(--naranja) 130%); position: relative; overflow: hidden; }
+  .kids-hero::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 88% 20%, rgba(255,255,255,.16), transparent 45%), radial-gradient(circle at 8% 90%, rgba(255,255,255,.12), transparent 45%); }
+  .kids-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .kids-card { background: var(--blanco); border: 1px solid var(--gris-borde); border-radius: var(--radio-l); padding: 26px 22px; text-align: center; box-shadow: var(--sombra); transition: transform .18s, box-shadow .18s; position: relative; overflow: hidden; }
+  .kids-card:hover { transform: translateY(-5px) rotate(-.5deg); box-shadow: 0 22px 40px rgba(4,57,86,.16); }
+  .kids-card .icono-kid { width: 68px; height: 68px; margin: 0 auto 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; }
+  .kids-card h3 { font-family: var(--fuente-titulo); font-size: 15px; color: var(--azul-oscuro); margin-bottom: 8px; }
+  .kids-card p { font-size: 12.5px; color: var(--gris-texto); line-height: 1.6; margin-bottom: 14px; }
+  .badge-proximamente { display: inline-flex; align-items: center; gap: 6px; font-size: 10.5px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--naranja-h); background: rgba(239,146,59,.12); border: 1px solid rgba(239,146,59,.3); padding: 5px 12px; border-radius: var(--radio-full); }
+  @media (max-width: 900px) { .kids-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .kids-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -38,7 +41,7 @@
     <nav class="nav-principal">
       <a href="index.html">Inicio</a>
       <a href="empresa.html">La Empresa</a>
-      <a href="servicios.html">Servicios</a>
+      <a href="servicios.html" class="activo">Servicios</a>
       <a href="atencion.html">Atención al ciudadano</a>
       <a href="contratacion.html">Contratación</a>
       <a href="transparencia.html">Transparencia</a>
@@ -51,49 +54,87 @@
   </div>
 </header>
 
+<section class="pagina-hero kids-hero" style="background-image:none">
+  <div class="contenedor pagina-hero-wrap">
+    <div class="pagina-hero-texto">
+      <div class="migas-pub"><a href="index.html">Inicio</a> / <a href="servicios.html">Servicios</a> / EPC Kids</div>
+      <div class="badge-red" style="background:var(--naranja)">💧 EPC Kids</div>
+      <h1>Aprender a cuidar el agua, jugando.</h1>
+      <p class="lead">Juegos, trivias, cartillas y canciones para que los niños y niñas de Cajicá aprendan a cuidar el agua y el planeta desde casa.</p>
+    </div>
+    <div class="pagina-hero-stat">
+      <div class="icono-stat" style="color:var(--verde-oscuro)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/></svg></div>
+      <div>
+        <div class="num">8</div>
+        <div class="txt">experiencias educativas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="seccion">
   <div class="contenedor">
-    <article class="articulo">
-      <div class="migas-pub" style="color:var(--gris-texto)"><a href="index.html" style="color:var(--azul)">Inicio</a> / <a href="noticias.html" style="color:var(--azul)">Noticias</a> / Nuevo proyecto de acueducto</div>
-      <img class="articulo-portada" src="images/noticia-1.jpg" alt="Nuevo proyecto de acueducto">
-      <span class="etiqueta">Institucional</span>
-      <h1>Nuevo proyecto para mejorar el servicio de acueducto en sectores del municipio</h1>
-      <div class="articulo-meta">
-        <span class="fecha-noticia" style="margin:0">15 de mayo de 2026</span>
+    <div class="kids-grid">
+      <div class="kids-card">
+        <div class="icono-kid" style="background:rgba(36,132,198,.12)">🌊</div>
+        <h3>Amigos del agua</h3>
+        <p>Conoce a los personajes que te enseñan a cuidar cada gota.</p>
+        <span class="badge-proximamente">Próximamente</span>
       </div>
-      <div class="articulo-prosa">
-        <p>La Empresa de Servicios Públicos de Cajicá avanza en un nuevo proyecto de infraestructura orientado a mejorar la continuidad y la presión del servicio de acueducto en varios sectores del municipio, como parte de su plan de modernización de la red.</p>
-        <h2>Qué incluye el proyecto</h2>
-        <p>El proyecto contempla la renovación de tramos de la red de distribución, la instalación de nuevos macromedidores para el monitoreo en tiempo real, y la puesta en marcha del nuevo tanque de abastecimiento que ya se encuentra en operación en el municipio.</p>
-        <p>Con estas obras, la EPC busca reducir las pérdidas técnicas de agua y mejorar la respuesta ante eventuales cortes o mantenimientos programados.</p>
-        <h2>Cómo te enteras si tu sector se ve afectado</h2>
-        <p>Durante la ejecución de las obras, la EPC informará oportunamente a los usuarios de los sectores involucrados a través de sus canales oficiales: WhatsApp, redes sociales y el Portal del Ciudadano.</p>
-        <p>Si tienes dudas sobre el estado del servicio en tu sector, puedes escribirnos por WhatsApp o consultar el estado de tu cuenta desde tu <a href="login.html" style="color:var(--azul);font-weight:700">Portal del Ciudadano</a>.</p>
+      <div class="kids-card">
+        <div class="icono-kid" style="background:rgba(107,168,44,.12)">🐸</div>
+        <h3>GLUGLÚ</h3>
+        <p>El personaje oficial de EPC Kids, listo para nuevas aventuras.</p>
+        <span class="badge-proximamente">Próximamente</span>
       </div>
-    </article>
+      <div class="kids-card">
+        <div class="icono-kid" style="background:rgba(239,146,59,.12)">❓</div>
+        <h3>Trivia de Cajicá</h3>
+        <p>Pon a prueba lo que sabes sobre tu municipio y el agua.</p>
+        <span class="badge-proximamente">Próximamente</span>
+      </div>
+      <div class="kids-card">
+        <div class="icono-kid" style="background:rgba(36,132,198,.12)">♻️</div>
+        <h3>Juguemos seleccionando residuos</h3>
+        <p>Aprende a separar la basura correctamente, jugando.</p>
+        <span class="badge-proximamente">Próximamente</span>
+      </div>
+      <div class="kids-card">
+        <div class="icono-kid" style="background:rgba(107,168,44,.12)">💡</div>
+        <h3>Tips ahorro agua</h3>
+        <p>Consejos fáciles para ahorrar agua desde casa.</p>
+        <span class="badge-proximamente">Próximamente</span>
+      </div>
+      <div class="kids-card">
+        <div class="icono-kid" style="background:rgba(239,146,59,.12)">📖</div>
+        <h3>Consejos del agua</h3>
+        <p>Buenos hábitos para cuidar el agua todos los días.</p>
+        <span class="badge-proximamente">Próximamente</span>
+      </div>
+      <div class="kids-card">
+        <div class="icono-kid" style="background:rgba(36,132,198,.12)">🎨</div>
+        <h3>Cartilla artes del PGIRS</h3>
+        <p>Colorea y aprende sobre el manejo de residuos sólidos.</p>
+        <span class="badge-proximamente">Próximamente</span>
+      </div>
+      <div class="kids-card">
+        <div class="icono-kid" style="background:rgba(107,168,44,.12)">🎵</div>
+        <h3>EPC Jingle</h3>
+        <p>Canta con nosotros la canción oficial de EPC Kids.</p>
+        <span class="badge-proximamente">Próximamente</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div class="relacionadas">
-      <span class="sec-label" style="display:block;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--azul);margin-bottom:18px">Más noticias</span>
-      <div class="noticias-lista">
-        <article class="tarjeta-noticia">
-          <img src="images/noticia-2.jpg" alt="Jornada de limpieza ambiental">
-          <span class="etiqueta ambiental">Ambiental</span><span class="fecha-noticia">08 may 2026</span>
-          <h4>Jornada de limpieza y educación ambiental con la comunidad</h4>
-          <a href="noticia-detalle.html" class="leer-mas">Leer más →</a>
-        </article>
-        <article class="tarjeta-noticia">
-          <img src="images/noticia-3.jpg" alt="Recomendaciones para el ahorro del agua">
-          <span class="etiqueta servicio">Servicio</span><span class="fecha-noticia">02 may 2026</span>
-          <h4>Recomendaciones para el uso eficiente y ahorro del agua</h4>
-          <a href="noticia-detalle.html" class="leer-mas">Leer más →</a>
-        </article>
-        <article class="tarjeta-noticia">
-          <img src="images/hero-tanque-detalle.jpg" alt="Nuevo tanque de abastecimiento">
-          <span class="etiqueta">Institucional</span><span class="fecha-noticia">31 jul 2026</span>
-          <h4>Entra en operación el nuevo tanque de abastecimiento de agua de Cajicá</h4>
-          <a href="noticia-detalle.html" class="leer-mas">Leer más →</a>
-        </article>
-      </div>
+<section class="seccion" style="padding-top:0">
+  <div class="contenedor">
+    <div class="encuesta" style="background:linear-gradient(120deg, var(--azul-oscuro) 0%, var(--verde-oscuro) 100%)">
+      <span class="emoji">🌱💧</span>
+      <h3>¿Eres profe o cuidador?<br><span class="verde">Trae a tu grupo a conocer la EPC</span></h3>
+      <div class="separador"></div>
+      <p>Coordinamos visitas educativas y actividades ambientales para colegios e instituciones del municipio.</p>
+      <a href="contacto.html" class="btn-verde-claro">Contáctanos →</a>
     </div>
   </div>
 </section>
@@ -157,7 +198,7 @@
   </div>
 </footer>
 
-<a class="chat-flotante" href="https://wa.me/573163476418?text=Hola" target="_blank" rel="noopener" aria-label="Chatear por WhatsApp">
+<a class="chat-flotante" href="https://wa.me/573163476418?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20EPC%20Kids" target="_blank" rel="noopener" aria-label="Chatear por WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.14-1.31A10 10 0 1 0 12 2zm5.62 14.24c-.24.68-1.4 1.3-1.94 1.36-.5.06-1.12.09-1.8-.11a14.4 14.4 0 0 1-1.65-.6 11.5 11.5 0 0 1-4.5-3.98 5.3 5.3 0 0 1-1.1-2.8c0-.9.47-1.34.65-1.53.17-.18.37-.23.5-.23h.35c.13 0 .3-.02.46.35.17.4.57 1.4.62 1.5.05.1.08.22.02.36-.06.14-.09.22-.18.34-.1.12-.2.27-.28.36-.1.1-.2.21-.08.4.11.2.5.83 1.08 1.34.75.66 1.37.86 1.57.96.2.1.32.08.44-.05.13-.13.53-.62.67-.83.14-.21.28-.18.47-.1.2.07 1.25.6 1.46.7.22.11.36.16.42.25.05.1.05.55-.19 1.23z"/></svg>
 </a>
 

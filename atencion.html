@@ -39,7 +39,7 @@
     </nav>
   </div>
 </div>
-<div class="barra-superior"><div class="contenedor"><div class="redes"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="X">𝕏</a></div></div></div>
+<div class="barra-superior"><div class="contenedor"><a class="item" href="edictos-notificaciones.html#edictos">Edictos</a><a class="item" href="edictos-notificaciones.html#notificaciones">Notificaciones judiciales</a><div class="redes"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="X">𝕏</a></div></div></div>
 <header class="encabezado">
   <div class="contenedor">
     <div class="logo"><img src="images/logo.png" alt="Empresa de Servicios Públicos de Cajicá" class="logo-img"></div>
@@ -128,7 +128,7 @@
         <p>Estas acciones se gestionan desde tu cuenta en el Portal del Ciudadano.</p>
         <div class="linea"></div>
       </div>
-      <div class="tramites-tarjetas">
+      <div class="tramites-tarjetas" style="grid-template-columns:repeat(4,1fr)">
         <div class="tarjeta-tramite">
           <div class="icono"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1857a4" stroke-width="1.6"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/></svg></div>
           <h3>Pagar mi factura</h3>
@@ -147,6 +147,35 @@
           <p>Reconexión, cambio de suscriptor, suspensión temporal y más.</p>
           <a href="login.html" class="ver">Ver trámites →</a>
         </div>
+        <div class="tarjeta-tramite" style="border-top-color:var(--verde-oscuro)">
+          <div class="icono"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#6ba82c" stroke-width="1.6"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <h3>Consultar tarifas y costos</h3>
+          <p>Entiende cómo se compone tu factura y los costos de conexión.</p>
+          <a href="tarifas.html" class="ver" style="color:var(--verde-oscuro)">Ver tarifas →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="seccion" style="padding-top:0">
+  <div class="contenedor">
+    <span class="sec-label" style="display:block;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--azul);margin-bottom:16px">Información de interés</span>
+    <div class="info-grid">
+      <div class="tarjeta-info">
+        <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3h7l4 4v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M9 12h6M9 16h6"/></svg></div>
+        <h3>Cómo leer tu factura</h3>
+        <p>Tu factura muestra el consumo del periodo, el cargo fijo, los subsidios o contribuciones según tu estrato, y la fecha límite de pago.</p>
+      </div>
+      <div class="tarjeta-info">
+        <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01"/><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg></div>
+        <h3>¿No te llegó el agua?</h3>
+        <p>Antes de reportar, verifica si hay un corte programado. Si no, repórtalo por WhatsApp o la línea de atención para revisión inmediata.</p>
+      </div>
+      <div class="tarjeta-info">
+        <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+        <h3>Cortes programados</h3>
+        <p>Las labores de mantenimiento a la red pueden requerir cortes temporales. Te avisamos con anticipación por nuestros canales oficiales.</p>
       </div>
     </div>
   </div>

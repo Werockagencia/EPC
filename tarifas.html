@@ -3,20 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nuevo proyecto de acueducto — Noticias EPC Cajicá</title>
+<title>Tarifas y costos de conexión — EPC Cajicá</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-  .articulo { max-width: 780px; margin: 0 auto; }
-  .articulo-portada { width: 100%; height: 360px; object-fit: cover; border-radius: var(--radio-l); box-shadow: var(--sombra); margin-bottom: 30px; }
-  .articulo h1 { font-size: clamp(26px,3vw,36px); color: var(--azul-oscuro); line-height: 1.2; margin-bottom: 14px; }
-  .articulo-meta { display: flex; gap: 14px; align-items: center; margin-bottom: 26px; }
-  .articulo-prosa { font-size: 15.5px; line-height: 1.85; color: var(--gris-texto); }
-  .articulo-prosa p { margin-bottom: 18px; }
-  .articulo-prosa h2 { font-size: 19px; color: var(--azul-oscuro); margin: 28px 0 12px; }
-  .relacionadas { max-width: 780px; margin: 50px auto 0; padding-top: 34px; border-top: 1px solid var(--gris-borde); }
+  .concepto-tabla { width: 100%; border-collapse: collapse; margin-top: 18px; }
+  .concepto-tabla th { text-align: left; font-family: var(--fuente-titulo); font-size: 11.5px; text-transform: uppercase; letter-spacing: .06em; color: var(--gris-texto); padding: 10px 14px; border-bottom: 2px solid var(--gris-borde); }
+  .concepto-tabla td { padding: 14px; border-bottom: 1px solid var(--gris-borde); color: var(--azul-oscuro); font-size: 14px; }
+  .concepto-tabla tr:last-child td { border-bottom: none; }
+  .placeholder-valor { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: var(--naranja-h); background: rgba(239,146,59,.1); border: 1px solid rgba(239,146,59,.28); padding: 4px 10px; border-radius: var(--radio-full); }
 </style>
 </head>
 <body>
@@ -39,7 +36,7 @@
       <a href="index.html">Inicio</a>
       <a href="empresa.html">La Empresa</a>
       <a href="servicios.html">Servicios</a>
-      <a href="atencion.html">Atención al ciudadano</a>
+      <a href="atencion.html" class="activo">Atención al ciudadano</a>
       <a href="contratacion.html">Contratación</a>
       <a href="transparencia.html">Transparencia</a>
     </nav>
@@ -51,49 +48,77 @@
   </div>
 </header>
 
+<section class="pagina-hero">
+  <div class="contenedor pagina-hero-wrap">
+    <div class="pagina-hero-texto">
+      <div class="migas-pub"><a href="index.html">Inicio</a> / <a href="atencion.html">Atención al ciudadano</a> / Tarifas</div>
+      <div class="badge-red">Tarifas y costos de conexión</div>
+      <h1>Entiende cómo se compone tu factura.</h1>
+      <p class="lead">Las tarifas de acueducto, alcantarillado y aseo se calculan según el consumo, el estrato y los subsidios o contribuciones que apliquen a tu predio, conforme a la normatividad vigente.</p>
+    </div>
+    <div class="pagina-hero-stat">
+      <div class="icono-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <div>
+        <div class="num">6</div>
+        <div class="txt">estratos con tarifa diferencial</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="seccion">
   <div class="contenedor">
-    <article class="articulo">
-      <div class="migas-pub" style="color:var(--gris-texto)"><a href="index.html" style="color:var(--azul)">Inicio</a> / <a href="noticias.html" style="color:var(--azul)">Noticias</a> / Nuevo proyecto de acueducto</div>
-      <img class="articulo-portada" src="images/noticia-1.jpg" alt="Nuevo proyecto de acueducto">
-      <span class="etiqueta">Institucional</span>
-      <h1>Nuevo proyecto para mejorar el servicio de acueducto en sectores del municipio</h1>
-      <div class="articulo-meta">
-        <span class="fecha-noticia" style="margin:0">15 de mayo de 2026</span>
-      </div>
-      <div class="articulo-prosa">
-        <p>La Empresa de Servicios Públicos de Cajicá avanza en un nuevo proyecto de infraestructura orientado a mejorar la continuidad y la presión del servicio de acueducto en varios sectores del municipio, como parte de su plan de modernización de la red.</p>
-        <h2>Qué incluye el proyecto</h2>
-        <p>El proyecto contempla la renovación de tramos de la red de distribución, la instalación de nuevos macromedidores para el monitoreo en tiempo real, y la puesta en marcha del nuevo tanque de abastecimiento que ya se encuentra en operación en el municipio.</p>
-        <p>Con estas obras, la EPC busca reducir las pérdidas técnicas de agua y mejorar la respuesta ante eventuales cortes o mantenimientos programados.</p>
-        <h2>Cómo te enteras si tu sector se ve afectado</h2>
-        <p>Durante la ejecución de las obras, la EPC informará oportunamente a los usuarios de los sectores involucrados a través de sus canales oficiales: WhatsApp, redes sociales y el Portal del Ciudadano.</p>
-        <p>Si tienes dudas sobre el estado del servicio en tu sector, puedes escribirnos por WhatsApp o consultar el estado de tu cuenta desde tu <a href="login.html" style="color:var(--azul);font-weight:700">Portal del Ciudadano</a>.</p>
-      </div>
-    </article>
+    <div class="contenido-prosa" style="max-width:100%">
+      <h2>Cómo se compone tu tarifa</h2>
+      <p>Cada factura combina un <strong>cargo fijo</strong> (cubre los costos de administrar y mantener disponible el servicio, se cobra exista o no consumo) y un <strong>cargo por consumo</strong> (el volumen de agua registrado por tu medidor durante el periodo, en metros cúbicos). A ambos se les aplica el subsidio o la contribución que corresponda según tu estrato socioeconómico, en cumplimiento de la Ley 142 de 1994.</p>
 
-    <div class="relacionadas">
-      <span class="sec-label" style="display:block;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--azul);margin-bottom:18px">Más noticias</span>
-      <div class="noticias-lista">
-        <article class="tarjeta-noticia">
-          <img src="images/noticia-2.jpg" alt="Jornada de limpieza ambiental">
-          <span class="etiqueta ambiental">Ambiental</span><span class="fecha-noticia">08 may 2026</span>
-          <h4>Jornada de limpieza y educación ambiental con la comunidad</h4>
-          <a href="noticia-detalle.html" class="leer-mas">Leer más →</a>
-        </article>
-        <article class="tarjeta-noticia">
-          <img src="images/noticia-3.jpg" alt="Recomendaciones para el ahorro del agua">
-          <span class="etiqueta servicio">Servicio</span><span class="fecha-noticia">02 may 2026</span>
-          <h4>Recomendaciones para el uso eficiente y ahorro del agua</h4>
-          <a href="noticia-detalle.html" class="leer-mas">Leer más →</a>
-        </article>
-        <article class="tarjeta-noticia">
-          <img src="images/hero-tanque-detalle.jpg" alt="Nuevo tanque de abastecimiento">
-          <span class="etiqueta">Institucional</span><span class="fecha-noticia">31 jul 2026</span>
-          <h4>Entra en operación el nuevo tanque de abastecimiento de agua de Cajicá</h4>
-          <a href="noticia-detalle.html" class="leer-mas">Leer más →</a>
-        </article>
+      <div class="tabla-wrap">
+        <table class="concepto-tabla">
+          <thead><tr><th>Concepto</th><th>Aplica a</th><th>Descripción</th></tr></thead>
+          <tbody>
+            <tr><td>Cargo fijo</td><td>Acueducto, alcantarillado, aseo</td><td>Costo fijo mensual, independiente del consumo</td></tr>
+            <tr><td>Cargo por consumo</td><td>Acueducto, alcantarillado</td><td>Se calcula sobre los metros cúbicos (m³) consumidos en el periodo</td></tr>
+            <tr><td>Subsidio</td><td>Estratos 1, 2 y 3</td><td>Descuento aplicado según el estrato, financiado con recursos públicos</td></tr>
+            <tr><td>Contribución</td><td>Estratos 5, 6 y no residencial</td><td>Aporte adicional que financia los subsidios de los estratos bajos</td></tr>
+          </tbody>
+        </table>
       </div>
+
+      <div class="alerta info" style="display:flex;gap:12px;padding:16px 20px;border-radius:12px;background:rgba(36,132,198,.08);border:1px solid rgba(36,132,198,.22);margin-top:26px">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--azul)" stroke-width="1.8" style="flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+        <p style="font-size:13.5px;color:var(--azul-h);margin:0">Los valores exactos de cada tarifa dependen de la resolución vigente de la Empresa y se actualizan periódicamente. Para conocer el valor exacto aplicable a tu predio, ingresa a tu <a href="login.html" style="font-weight:800;color:var(--azul-h)">Portal del Ciudadano</a> o consulta con Atención al ciudadano.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="seccion" style="padding-top:0" id="costos-conexion">
+  <div class="contenedor">
+    <span class="sec-label" style="display:block;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--azul);margin-bottom:16px">Costos de conexión</span>
+    <div class="info-grid">
+      <div class="tarjeta-info">
+        <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3s5 5.5 5 9.5a5 5 0 0 1-10 0C7 8.5 12 3 12 3z"/></svg></div>
+        <h3>Conexión de acueducto</h3>
+        <p>Instalación de una nueva acometida de agua potable a un predio sin servicio activo.</p>
+        <span class="placeholder-valor">Valor sujeto a estudio técnico</span>
+      </div>
+      <div class="tarjeta-info">
+        <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3v6a3 3 0 0 0 3 3h0a3 3 0 0 0 3-3V3"/><path d="M9 12v9"/><path d="M15 8h3a3 3 0 0 1 3 3v10"/></svg></div>
+        <h3>Conexión de alcantarillado</h3>
+        <p>Instalación de una nueva acometida de alcantarillado a un predio sin servicio activo.</p>
+        <span class="placeholder-valor">Valor sujeto a estudio técnico</span>
+      </div>
+      <div class="tarjeta-info">
+        <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/></svg></div>
+        <h3>Reconexión del servicio</h3>
+        <p>Restablecimiento del servicio tras una suspensión, previo pago de la tarifa vigente.</p>
+        <span class="placeholder-valor">Valor sujeto a estudio técnico</span>
+      </div>
+    </div>
+    <p style="font-size:13.5px;color:var(--gris-texto);margin-top:20px;max-width:720px">El valor de cada conexión depende de la distancia a la red existente, el diámetro requerido y las condiciones técnicas del predio. Solicita tu estudio de factibilidad por WhatsApp o en el punto de atención presencial.</p>
+    <div style="display:flex;gap:14px;margin-top:20px;flex-wrap:wrap">
+      <a href="https://wa.me/573163476418?text=Hola%2C%20quiero%20consultar%20costos%20de%20conexi%C3%B3n" target="_blank" rel="noopener" class="btn btn-verde" style="display:inline-flex;align-items:center;gap:9px;background:var(--verde-oscuro);color:var(--blanco);font-family:var(--fuente-titulo);font-weight:700;font-size:13.5px;padding:12px 22px;border-radius:var(--radio-full)">Consultar por WhatsApp →</a>
+      <a href="atencion.html" style="display:inline-flex;align-items:center;gap:9px;border:1.5px solid var(--gris-borde);color:var(--azul-oscuro);font-family:var(--fuente-titulo);font-weight:700;font-size:13.5px;padding:12px 22px;border-radius:var(--radio-full)">Ver Atención al ciudadano →</a>
     </div>
   </div>
 </section>
@@ -157,7 +182,7 @@
   </div>
 </footer>
 
-<a class="chat-flotante" href="https://wa.me/573163476418?text=Hola" target="_blank" rel="noopener" aria-label="Chatear por WhatsApp">
+<a class="chat-flotante" href="https://wa.me/573163476418?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20tarifas" target="_blank" rel="noopener" aria-label="Chatear por WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.14-1.31A10 10 0 1 0 12 2zm5.62 14.24c-.24.68-1.4 1.3-1.94 1.36-.5.06-1.12.09-1.8-.11a14.4 14.4 0 0 1-1.65-.6 11.5 11.5 0 0 1-4.5-3.98 5.3 5.3 0 0 1-1.1-2.8c0-.9.47-1.34.65-1.53.17-.18.37-.23.5-.23h.35c.13 0 .3-.02.46.35.17.4.57 1.4.62 1.5.05.1.08.22.02.36-.06.14-.09.22-.18.34-.1.12-.2.27-.28.36-.1.1-.2.21-.08.4.11.2.5.83 1.08 1.34.75.66 1.37.86 1.57.96.2.1.32.08.44-.05.13-.13.53-.62.67-.83.14-.21.28-.18.47-.1.2.07 1.25.6 1.46.7.22.11.36.16.42.25.05.1.05.55-.19 1.23z"/></svg>
 </a>
 
