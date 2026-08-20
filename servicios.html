@@ -9,16 +9,25 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-  .servicio-bloque { padding: 60px 0; scroll-margin-top: 100px; }
+  .servicio-bloque { padding: 64px 0; scroll-margin-top: 100px; position: relative; border-top: 1px solid var(--gris-borde); overflow: hidden; }
+  .servicio-bloque:first-of-type { border-top: none; }
   .servicio-bloque:nth-child(even) { background: var(--gris-claro); }
-  .servicio-grid { display: grid; grid-template-columns: 90px 1fr; gap: 26px; align-items: flex-start; }
-  .servicio-icono { width: 90px; height: 90px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .servicio-icono svg { width: 40px; height: 40px; }
-  .servicio-grid h2 { font-size: 24px; color: var(--azul-oscuro); margin-bottom: 12px; }
+  .servicio-bloque::before {
+    content: ''; position: absolute; top: -1px; left: 0; width: 64px; height: 4px;
+  }
+  .servicio-bloque#acueducto::before { background: var(--azul); }
+  .servicio-bloque#alcantarillado::before { background: var(--naranja); }
+  .servicio-bloque#aseo::before { background: var(--verde-oscuro); }
+  .servicio-bloque .marca-agua { position: absolute; top: -30px; right: -20px; width: 220px; height: 220px; opacity: .05; pointer-events: none; }
+  .servicio-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 96px 1fr; gap: 28px; align-items: flex-start; }
+  .servicio-icono { width: 96px; height: 96px; border-radius: 26px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 16px 30px rgba(4,57,86,.18); }
+  .servicio-icono svg { width: 42px; height: 42px; }
+  .servicio-numero { font-family: var(--fuente-titulo); font-size: 13px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--gris-texto); margin-bottom: 6px; }
+  .servicio-grid h2 { font-size: 26px; color: var(--azul-oscuro); margin-bottom: 12px; }
   .servicio-grid p { font-size: 15px; color: var(--gris-texto); line-height: 1.75; max-width: 720px; }
-  .servicio-lista { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 30px; margin-top: 18px; max-width: 720px; }
-  .servicio-lista div { font-size: 13.5px; color: var(--gris-texto); padding: 6px 0 6px 20px; position: relative; }
-  .servicio-lista div::before { content: '✓'; position: absolute; left: 0; color: var(--verde-oscuro); font-weight: 800; }
+  .servicio-lista { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 30px; margin-top: 20px; max-width: 720px; }
+  .servicio-lista div { font-size: 13.5px; color: var(--azul-oscuro); font-weight: 600; padding: 10px 14px 10px 38px; position: relative; background: var(--blanco); border: 1px solid var(--gris-borde); border-radius: var(--radio-s); }
+  .servicio-lista div::before { content: '✓'; position: absolute; left: 14px; top: 9px; color: var(--verde-oscuro); font-weight: 800; }
   @media (max-width: 700px) { .servicio-grid { grid-template-columns: 1fr; } .servicio-lista { grid-template-columns: 1fr; } }
 </style>
 </head>
@@ -55,19 +64,30 @@
 </header>
 
 <section class="pagina-hero">
-  <div class="contenedor">
-    <div class="migas-pub"><a href="index.html">Inicio</a> / Servicios</div>
-    <div class="badge-red">Acueducto · Alcantarillado · Aseo</div>
-    <h1>Los tres servicios que sostienen a Cajicá.</h1>
-    <p class="lead">Acueducto, alcantarillado y aseo, con cobertura en todo el municipio y programas ambientales que acompañan cada uno de ellos.</p>
+  <div class="contenedor pagina-hero-wrap">
+    <div class="pagina-hero-texto">
+      <div class="migas-pub"><a href="index.html">Inicio</a> / Servicios</div>
+      <div class="badge-red">Acueducto · Alcantarillado · Aseo</div>
+      <h1>Los tres servicios que sostienen a Cajicá.</h1>
+      <p class="lead">Acueducto, alcantarillado y aseo, con cobertura en todo el municipio y programas ambientales que acompañan cada uno de ellos.</p>
+    </div>
+    <div class="pagina-hero-stat">
+      <div class="icono-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="7" r="3"/><path d="M3 21v-2a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v2"/></svg></div>
+      <div>
+        <div class="num">98.456</div>
+        <div class="txt">usuarios atendidos hoy</div>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="servicio-bloque" id="acueducto">
+  <svg class="marca-agua" viewBox="0 0 24 24" fill="none" stroke="var(--azul)" stroke-width="1.2"><path d="M12 3s5 5.5 5 9.5a5 5 0 0 1-10 0C7 8.5 12 3 12 3z"/></svg>
   <div class="contenedor">
     <div class="servicio-grid">
       <div class="servicio-icono" style="background:var(--azul)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M12 3s5 5.5 5 9.5a5 5 0 0 1-10 0C7 8.5 12 3 12 3z"/></svg></div>
       <div>
+        <div class="servicio-numero">01 · Servicio esencial</div>
         <h2>Acueducto</h2>
         <p>Captación, tratamiento y distribución de agua potable para todo el municipio, con monitoreo permanente de calidad y presión de la red.</p>
         <div class="servicio-lista">
@@ -82,10 +102,12 @@
 </section>
 
 <section class="servicio-bloque" id="alcantarillado">
+  <svg class="marca-agua" viewBox="0 0 24 24" fill="none" stroke="var(--naranja)" stroke-width="1.2"><path d="M6 3v6a3 3 0 0 0 3 3h0a3 3 0 0 0 3-3V3"/><path d="M9 12v9"/><path d="M15 8h3a3 3 0 0 1 3 3v10"/></svg>
   <div class="contenedor">
     <div class="servicio-grid">
       <div class="servicio-icono" style="background:var(--naranja)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M6 3v6a3 3 0 0 0 3 3h0a3 3 0 0 0 3-3V3"/><path d="M9 12v9"/><path d="M15 8h3a3 3 0 0 1 3 3v10"/></svg></div>
       <div>
+        <div class="servicio-numero">02 · Servicio esencial</div>
         <h2>Alcantarillado</h2>
         <p>Recolección y conducción de aguas residuales y lluvias, con mantenimiento preventivo de la red para evitar obstrucciones e inundaciones.</p>
         <div class="servicio-lista">
@@ -100,10 +122,12 @@
 </section>
 
 <section class="servicio-bloque" id="aseo">
+  <svg class="marca-agua" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro)" stroke-width="1.2"><path d="M4 7h16"/><path d="M6 7l1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13"/><path d="M9 7V4h6v3"/></svg>
   <div class="contenedor">
     <div class="servicio-grid">
       <div class="servicio-icono" style="background:var(--verde-oscuro)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M4 7h16"/><path d="M6 7l1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13"/><path d="M9 7V4h6v3"/></svg></div>
       <div>
+        <div class="servicio-numero">03 · Servicio esencial</div>
         <h2>Aseo</h2>
         <p>Recolección, transporte y disposición final de residuos sólidos, con rutas programadas por sector y jornadas de sensibilización ambiental.</p>
         <div class="servicio-lista">
