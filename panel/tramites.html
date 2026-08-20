@@ -137,37 +137,147 @@
           <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/><path d="M9 12h6"/></svg></div>
           <h3>Solicitud de reconexión</h3>
           <p>Reconexión del servicio tras suspensión, previo pago de la tarifa vigente.</p>
-          <a class="enlace" href="#">Iniciar solicitud →</a>
+          <button class="enlace" data-toggle-form="tramite-reconexion" style="background:none;border:none;padding:0;cursor:pointer;font:inherit">Iniciar solicitud →</button>
         </div>
         <div class="tramite-card">
           <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="7" r="3"/><path d="M3 21v-2a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v2"/><path d="M17 8l3 3-3 3"/></svg></div>
           <h3>Cambio de suscriptor</h3>
           <p>Transferencia de la titularidad de la cuenta a un nuevo propietario o arrendatario.</p>
-          <a class="enlace" href="#">Iniciar solicitud →</a>
+          <button class="enlace" data-toggle-form="tramite-suscriptor" style="background:none;border:none;padding:0;cursor:pointer;font:inherit">Iniciar solicitud →</button>
         </div>
         <div class="tramite-card">
           <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 12h6"/></svg></div>
           <h3>Suspensión temporal</h3>
           <p>Suspensión voluntaria del servicio por ausencia prolongada del predio.</p>
-          <a class="enlace" href="#">Iniciar solicitud →</a>
+          <button class="enlace" data-toggle-form="tramite-suspension" style="background:none;border:none;padding:0;cursor:pointer;font:inherit">Iniciar solicitud →</button>
         </div>
         <div class="tramite-card">
           <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/></svg></div>
           <h3>Actualización de estrato</h3>
           <p>Modifica la tarifa facturada cuando cambia la estratificación oficial del predio.</p>
-          <a class="enlace" href="#">Iniciar solicitud →</a>
+          <button class="enlace" data-toggle-form="tramite-estrato" style="background:none;border:none;padding:0;cursor:pointer;font:inherit">Iniciar solicitud →</button>
         </div>
         <div class="tramite-card">
           <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
           <h3>Actualización de nomenclatura</h3>
           <p>Actualiza la dirección del predio cuando el municipio cambia la nomenclatura oficial.</p>
-          <a class="enlace" href="#">Iniciar solicitud →</a>
+          <button class="enlace" data-toggle-form="tramite-nomenclatura" style="background:none;border:none;padding:0;cursor:pointer;font:inherit">Iniciar solicitud →</button>
         </div>
         <div class="tramite-card">
           <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div>
           <h3>¿No encuentras tu trámite?</h3>
           <p>Radica una PQRS y nuestro equipo te orienta sobre el proceso correcto.</p>
           <a class="enlace" href="pqrs.html">Ir a Radicar PQRS →</a>
+        </div>
+      </div>
+
+      <div class="tramite-form" id="form-tramite-reconexion" hidden>
+        <h3>Solicitud de reconexión</h3>
+        <p>Reconexión del servicio tras suspensión, previo pago de la tarifa vigente.</p>
+        <div class="campo-fila tres">
+          <div class="campo"><label>Cuenta asociada</label>
+            <select><option>1608353 · Mercedes de Higuera</option><option>2214870 · Local comercial</option><option>1774502 · Finca La Esperanza</option></select>
+          </div>
+          <div class="campo"><label>Datos del propietario <span class="req">*</span></label><input type="text" placeholder="Nombre completo"></div>
+          <div class="campo"><label>Número de cédula <span class="req">*</span></label><input type="text" placeholder="Ej. 1032456789"></div>
+        </div>
+        <div class="campo"><label>Número de recibo <span class="req">*</span></label><input type="text" placeholder="Ej. 1608353"></div>
+        <div class="campo-fila tres">
+          <div class="campo"><label>Carta solicitud firmada <span class="req">*</span></label><input type="file"></div>
+          <div class="campo"><label>Fotocopia cédula propietario <span class="req">*</span></label><input type="file"></div>
+          <div class="campo"><label>Fotocopia recibo de agua <span class="req">*</span></label><input type="file"></div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:6px">
+          <button class="btn btn-azul">Radicar solicitud</button>
+          <button class="btn btn-outline" data-toggle-form="tramite-reconexion">Cancelar</button>
+        </div>
+      </div>
+
+      <div class="tramite-form" id="form-tramite-suscriptor" hidden>
+        <h3>Cambio de suscriptor</h3>
+        <p>Transferencia de la titularidad de la cuenta a un nuevo propietario o arrendatario.</p>
+        <div class="campo-fila tres">
+          <div class="campo"><label>Cuenta asociada</label>
+            <select><option>1608353 · Mercedes de Higuera</option><option>2214870 · Local comercial</option><option>1774502 · Finca La Esperanza</option></select>
+          </div>
+          <div class="campo"><label>Datos del propietario <span class="req">*</span></label><input type="text" placeholder="Nombre completo"></div>
+          <div class="campo"><label>Número de cédula <span class="req">*</span></label><input type="text" placeholder="Ej. 1032456789"></div>
+        </div>
+        <div class="campo-fila">
+          <div class="campo"><label>Certificado de libertad y tradición <span class="req">*</span></label><input type="file"></div>
+          <div class="campo"><label>Copia del recibo de agua <span class="req">*</span></label><input type="file"></div>
+        </div>
+        <div class="campo-fila">
+          <div class="campo"><label>Fotocopia cédula propietario <span class="req">*</span></label><input type="file"></div>
+          <div class="campo"><label>Fotocopia impuesto predial vigente <span class="req">*</span></label><input type="file"></div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:6px">
+          <button class="btn btn-azul">Radicar solicitud</button>
+          <button class="btn btn-outline" data-toggle-form="tramite-suscriptor">Cancelar</button>
+        </div>
+      </div>
+
+      <div class="tramite-form" id="form-tramite-suspension" hidden>
+        <h3>Suspensión temporal</h3>
+        <p>Suspensión voluntaria del servicio por ausencia prolongada del predio.</p>
+        <div class="campo-fila tres">
+          <div class="campo"><label>Cuenta asociada</label>
+            <select><option>1608353 · Mercedes de Higuera</option><option>2214870 · Local comercial</option><option>1774502 · Finca La Esperanza</option></select>
+          </div>
+          <div class="campo"><label>Datos del propietario <span class="req">*</span></label><input type="text" placeholder="Nombre completo"></div>
+          <div class="campo"><label>Número de cédula <span class="req">*</span></label><input type="text" placeholder="Ej. 1032456789"></div>
+        </div>
+        <div class="campo-fila tres">
+          <div class="campo"><label>Carta solicitud firmada <span class="req">*</span></label><input type="file"></div>
+          <div class="campo"><label>Fotocopia cédula propietario <span class="req">*</span></label><input type="file"></div>
+          <div class="campo"><label>Fotocopia último recibo cancelado <span class="req">*</span></label><input type="file"></div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:6px">
+          <button class="btn btn-azul">Radicar solicitud</button>
+          <button class="btn btn-outline" data-toggle-form="tramite-suspension">Cancelar</button>
+        </div>
+      </div>
+
+      <div class="tramite-form" id="form-tramite-estrato" hidden>
+        <h3>Actualización de estrato</h3>
+        <p>Modifica la tarifa facturada cuando cambia la estratificación oficial del predio.</p>
+        <div class="campo-fila tres">
+          <div class="campo"><label>Cuenta asociada</label>
+            <select><option>1608353 · Mercedes de Higuera</option><option>2214870 · Local comercial</option><option>1774502 · Finca La Esperanza</option></select>
+          </div>
+          <div class="campo"><label>Datos del propietario <span class="req">*</span></label><input type="text" placeholder="Nombre completo"></div>
+          <div class="campo"><label>Número de cédula <span class="req">*</span></label><input type="text" placeholder="Ej. 1032456789"></div>
+        </div>
+        <div class="campo-fila">
+          <div class="campo"><label>Certificación de estratificación <span class="req">*</span></label><input type="file"></div>
+          <div class="campo"><label>Copia de la factura de servicios <span class="req">*</span></label><input type="file"></div>
+        </div>
+        <div class="campo-fila">
+          <div class="campo"><label>Copia impuesto predial vigente <span class="req">*</span></label><input type="file"></div>
+          <div class="campo"><label>Fotocopia cédula propietario <span class="req">*</span></label><input type="file"></div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:6px">
+          <button class="btn btn-azul">Radicar solicitud</button>
+          <button class="btn btn-outline" data-toggle-form="tramite-estrato">Cancelar</button>
+        </div>
+      </div>
+
+      <div class="tramite-form" id="form-tramite-nomenclatura" hidden>
+        <h3>Actualización de nomenclatura</h3>
+        <p>Actualiza la dirección del predio cuando el municipio cambia la nomenclatura oficial.</p>
+        <div class="campo-fila">
+          <div class="campo"><label>Cuenta asociada</label>
+            <select><option>1608353 · Mercedes de Higuera</option><option>2214870 · Local comercial</option><option>1774502 · Finca La Esperanza</option></select>
+          </div>
+          <div class="campo"><label>Datos del propietario <span class="req">*</span></label><input type="text" placeholder="Nombre completo"></div>
+        </div>
+        <div class="campo-fila">
+          <div class="campo"><label>Certificación de nomenclatura <span class="req">*</span></label><input type="file"></div>
+          <div class="campo"><label>Copia de la factura de servicios <span class="req">*</span></label><input type="file"></div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:6px">
+          <button class="btn btn-azul">Radicar solicitud</button>
+          <button class="btn btn-outline" data-toggle-form="tramite-nomenclatura">Cancelar</button>
         </div>
       </div>
     </div>
