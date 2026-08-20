@@ -1119,12 +1119,13 @@ body.menu-movil-abierto { overflow: hidden; }
 .contenido-prosa h2 { font-size: 22px; color: var(--azul-oscuro); margin: 34px 0 14px; }
 .contenido-prosa h2:first-child { margin-top: 0; }
 
-/* Texto + foto de apoyo (ej. "Nuestra historia") — la imagen se sale del
-   ancho angosto de .contenido-prosa para acompañar bloques largos de texto. */
-.historia-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: start; }
-.historia-foto { position: sticky; top: 110px; border-radius: var(--radio-l); overflow: hidden; box-shadow: var(--sombra); }
-.historia-foto img { display: block; width: 100%; aspect-ratio: 4/5; object-fit: cover; }
-@media (max-width: 900px) { .historia-grid { grid-template-columns: 1fr; } .historia-foto { position: relative; top: auto; max-width: 480px; } }
+/* Foto panorámica de apoyo entre bloques de texto (ej. "Nuestra historia") —
+   ancho completo porque la fotografía real es un formato apaisado (foto de
+   grupo), un recorte angosto tipo retrato la arruina. */
+.historia-foto-ancha { margin: 36px 0; border-radius: var(--radio-l); overflow: hidden; box-shadow: var(--sombra); position: relative; }
+.historia-foto-ancha img { display: block; width: 100%; aspect-ratio: 21/8; object-fit: cover; object-position: center 35%; }
+.historia-foto-ancha figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 22px; font-size: 12.5px; font-weight: 600; color: var(--blanco); background: linear-gradient(0deg, rgba(4,57,86,.78) 0%, transparent 100%); }
+@media (max-width: 700px) { .historia-foto-ancha img { aspect-ratio: 4/5; object-position: center 15%; } }
 
 .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .info-grid.dos { grid-template-columns: repeat(2, 1fr); }

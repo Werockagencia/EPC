@@ -19,7 +19,7 @@
   .servicio-bloque#alcantarillado::before { background: var(--naranja); }
   .servicio-bloque#aseo::before { background: var(--verde-oscuro); }
   .servicio-bloque .marca-agua { position: absolute; top: -30px; right: -20px; width: 220px; height: 220px; opacity: .05; pointer-events: none; }
-  .servicio-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 96px 1fr 280px; gap: 28px; align-items: start; }
+  .servicio-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 96px 1fr; gap: 28px; align-items: start; }
   .servicio-icono { width: 96px; height: 96px; border-radius: 26px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 16px 30px rgba(4,57,86,.18); }
   .servicio-icono svg { width: 42px; height: 42px; }
   .servicio-numero { font-family: var(--fuente-titulo); font-size: 13px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--gris-texto); margin-bottom: 6px; }
@@ -28,10 +28,9 @@
   .servicio-lista { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 30px; margin-top: 20px; max-width: 720px; }
   .servicio-lista div { font-size: 13.5px; color: var(--azul-oscuro); font-weight: 600; padding: 10px 14px 10px 38px; position: relative; background: var(--blanco); border: 1px solid var(--gris-borde); border-radius: var(--radio-s); }
   .servicio-lista div::before { content: '✓'; position: absolute; left: 14px; top: 9px; color: var(--verde-oscuro); font-weight: 800; }
-  .servicio-foto { grid-row: 1 / 3; border-radius: var(--radio-l); overflow: hidden; box-shadow: var(--sombra); }
-  .servicio-foto img { display: block; width: 100%; height: 100%; min-height: 260px; object-fit: cover; }
-  @media (max-width: 980px) { .servicio-grid { grid-template-columns: 96px 1fr; } .servicio-foto { grid-row: auto; grid-column: 1 / 3; margin-top: 20px; } .servicio-foto img { min-height: 200px; max-height: 280px; } }
-  @media (max-width: 700px) { .servicio-grid { grid-template-columns: 1fr; } .servicio-foto { grid-column: 1; } .servicio-lista { grid-template-columns: 1fr; } }
+  .servicio-foto { grid-column: 1 / 3; margin-top: 26px; border-radius: var(--radio-l); overflow: hidden; box-shadow: var(--sombra); max-width: 720px; margin-left: 124px; }
+  .servicio-foto img { display: block; width: 100%; aspect-ratio: 16/6; object-fit: cover; }
+  @media (max-width: 700px) { .servicio-grid { grid-template-columns: 1fr; } .servicio-lista { grid-template-columns: 1fr; } .servicio-foto { margin-left: 0; max-width: none; } .servicio-foto img { aspect-ratio: 4/3; } }
 </style>
 </head>
 <body>
