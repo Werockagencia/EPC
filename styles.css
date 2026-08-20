@@ -1078,6 +1078,7 @@ body.menu-movil-abierto { overflow: hidden; }
 .pagina-hero.hero-atencion { background-image: radial-gradient(rgba(255,255,255,.09) 1.4px, transparent 1.4px), linear-gradient(135deg, rgba(4,57,86,.92) 0%, rgba(10,84,120,.85) 50%, rgba(13,107,88,.72) 100%), url("images/atencion-oficina.jpg"); }
 .pagina-hero.hero-contacto { background-image: radial-gradient(rgba(255,255,255,.09) 1.4px, transparent 1.4px), linear-gradient(135deg, rgba(4,57,86,.92) 0%, rgba(10,84,120,.85) 50%, rgba(13,107,88,.72) 100%), url("images/aerea-contacto.jpg"); }
 .pagina-hero.hero-transparencia { background-image: radial-gradient(rgba(255,255,255,.09) 1.4px, transparent 1.4px), linear-gradient(135deg, rgba(4,57,86,.92) 0%, rgba(10,84,120,.85) 50%, rgba(13,107,88,.72) 100%), url("images/aerea-infraestructura.jpg"); background-position: 0 0, center 40%, center 40%; }
+.pagina-hero.hero-contratacion { background-image: radial-gradient(rgba(255,255,255,.09) 1.4px, transparent 1.4px), linear-gradient(135deg, rgba(4,57,86,.92) 0%, rgba(10,84,120,.85) 50%, rgba(13,107,88,.72) 100%), url("images/gerencia-aerea.jpg"); background-position: 0 0, center 40%, center 40%; }
 .pagina-hero::after {
   content: "";
   position: absolute; inset: 0; pointer-events: none;
