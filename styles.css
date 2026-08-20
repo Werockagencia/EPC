@@ -1132,7 +1132,11 @@ body.menu-movil-abierto { overflow: hidden; }
 .tarjeta-info {
   background: var(--blanco); border: 1px solid var(--gris-borde); border-top: 4px solid var(--azul);
   border-radius: var(--radio-m); padding: 28px 26px; box-shadow: var(--sombra);
+  transition: transform .18s, box-shadow .18s;
 }
+.tarjeta-info:has(a):hover { transform: translateY(-3px); box-shadow: 0 14px 30px -12px rgba(4,57,86,.25); }
+.tarjeta-info a { transition: gap .15s, color .15s; }
+.tarjeta-info a:hover { color: var(--azul-h); gap: 9px; text-decoration: underline; }
 .tarjeta-info:nth-child(2) { border-top-color: var(--naranja); }
 .tarjeta-info:nth-child(3) { border-top-color: var(--verde-oscuro); }
 .tarjeta-info .icono { width: 46px; height: 46px; border-radius: 50%; background: var(--gris-claro); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; color: var(--azul); }
