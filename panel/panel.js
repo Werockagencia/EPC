@@ -44,6 +44,11 @@
     var form = document.getElementById('form-' + b.dataset.toggleForm);
     if (!form) return;
     b.addEventListener('click', function () {
+      if (b.dataset.saveAlias) {
+        var input = document.getElementById('alias-input-' + b.dataset.saveAlias);
+        var label = document.getElementById('alias-label-' + b.dataset.saveAlias);
+        if (input && label && input.value.trim()) label.textContent = input.value.trim();
+      }
       var abrir = form.hasAttribute('hidden');
       form.toggleAttribute('hidden', !abrir);
       if (abrir) {
