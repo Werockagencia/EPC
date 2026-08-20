@@ -111,8 +111,78 @@
           </div>
         </div>
         <div class="cuenta-card-acciones">
-          <a href="facturacion.html" class="btn btn-outline">Ver detalle</a>
+          <button class="btn btn-outline" data-toggle-cuenta="1608353" aria-expanded="false">
+            Ver detalle
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
           <button class="btn btn-outline" style="color:var(--rojo);border-color:rgba(214,69,69,.35)">Eliminar</button>
+        </div>
+      </div>
+
+      <div class="cuenta-detalle" id="detalle-1608353" hidden>
+        <h3>Datos de la cuenta</h3>
+        <div class="datos-cuenta-grid">
+          <div><span>Titular</span><strong>Mercedes de Higuera</strong></div>
+          <div><span>Dirección del predio</span><strong>DG 2 Sur No 12-150</strong></div>
+          <div><span>Estrato</span><strong>4</strong></div>
+          <div><span>Tipo de uso</span><strong>Residencial</strong></div>
+        </div>
+
+        <h3>Medidores</h3>
+        <div class="medidor-fila">
+          <div>
+            <strong style="font-size:13.5px;color:var(--azul-oscuro)">MED-04471</strong>
+            <div style="font-size:12px;color:var(--gris-texto);margin-top:2px">Principal</div>
+          </div>
+          <button class="btn-mini">Editar alias</button>
+        </div>
+        <div class="medidor-fila">
+          <div>
+            <strong style="font-size:13.5px;color:var(--azul-oscuro)">MED-04832</strong>
+            <div style="font-size:12px;color:var(--gris-texto);margin-top:2px">Secundario</div>
+          </div>
+          <button class="btn-mini">Editar alias</button>
+        </div>
+
+        <button class="btn-agregar-medidor" data-toggle-form="medidor-1608353">+ Agregar medidor a esta cuenta</button>
+        <div class="form-inline" id="form-medidor-1608353" hidden>
+          <div class="campo-fila">
+            <div class="campo">
+              <label for="num-medidor-1608353">Número de medidor</label>
+              <input type="text" id="num-medidor-1608353" placeholder="Ej. MED-04471">
+            </div>
+            <div class="campo">
+              <label for="tipo-medidor-1608353">Tipo</label>
+              <select id="tipo-medidor-1608353">
+                <option>Principal</option>
+                <option>Secundario</option>
+                <option>Riego</option>
+              </select>
+            </div>
+          </div>
+          <div style="display:flex;gap:10px">
+            <button class="btn btn-azul">Guardar medidor</button>
+            <button class="btn btn-outline" data-toggle-form="medidor-1608353">Cancelar</button>
+          </div>
+        </div>
+
+        <h3>Preferencias de notificación</h3>
+        <div class="campo-fila">
+          <div class="campo">
+            <label for="correo-1608353">Correo para factura electrónica</label>
+            <input type="email" id="correo-1608353" value="david@werockagencia.com">
+          </div>
+          <div class="campo">
+            <label for="direccion-1608353">Dirección de notificación</label>
+            <input type="text" id="direccion-1608353" value="DG 2 Sur No 12-150, Cajicá">
+          </div>
+        </div>
+        <button class="btn btn-azul">Guardar cambios</button>
+
+        <div class="cuenta-detalle-accesos">
+          <a href="facturacion.html?cuenta=1608353" class="btn btn-outline">Historial de facturación</a>
+          <a href="consumo.html?cuenta=1608353" class="btn btn-outline">Historial de consumo</a>
+          <a href="pagos.html?cuenta=1608353" class="btn btn-outline">Historial de pagos</a>
         </div>
       </div>
 
@@ -130,8 +200,71 @@
           </div>
         </div>
         <div class="cuenta-card-acciones">
-          <a href="facturacion.html" class="btn btn-outline">Ver detalle</a>
+          <button class="btn btn-outline" data-toggle-cuenta="2214870" aria-expanded="false">
+            Ver detalle
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
           <button class="btn btn-outline" style="color:var(--rojo);border-color:rgba(214,69,69,.35)">Eliminar</button>
+        </div>
+      </div>
+
+      <div class="cuenta-detalle" id="detalle-2214870" hidden>
+        <h3>Datos de la cuenta</h3>
+        <div class="datos-cuenta-grid">
+          <div><span>Titular</span><strong>David Higuera</strong></div>
+          <div><span>Dirección del predio</span><strong>Cra 4 No 8-21, Local 2</strong></div>
+          <div><span>Estrato</span><strong>N/A</strong></div>
+          <div><span>Tipo de uso</span><strong>Comercial</strong></div>
+        </div>
+
+        <h3>Medidores</h3>
+        <div class="medidor-fila">
+          <div>
+            <strong style="font-size:13.5px;color:var(--azul-oscuro)">MED-11209</strong>
+            <div style="font-size:12px;color:var(--gris-texto);margin-top:2px">Principal</div>
+          </div>
+          <button class="btn-mini">Editar alias</button>
+        </div>
+
+        <button class="btn-agregar-medidor" data-toggle-form="medidor-2214870">+ Agregar medidor a esta cuenta</button>
+        <div class="form-inline" id="form-medidor-2214870" hidden>
+          <div class="campo-fila">
+            <div class="campo">
+              <label for="num-medidor-2214870">Número de medidor</label>
+              <input type="text" id="num-medidor-2214870" placeholder="Ej. MED-11209">
+            </div>
+            <div class="campo">
+              <label for="tipo-medidor-2214870">Tipo</label>
+              <select id="tipo-medidor-2214870">
+                <option>Principal</option>
+                <option>Secundario</option>
+                <option>Riego</option>
+              </select>
+            </div>
+          </div>
+          <div style="display:flex;gap:10px">
+            <button class="btn btn-azul">Guardar medidor</button>
+            <button class="btn btn-outline" data-toggle-form="medidor-2214870">Cancelar</button>
+          </div>
+        </div>
+
+        <h3>Preferencias de notificación</h3>
+        <div class="campo-fila">
+          <div class="campo">
+            <label for="correo-2214870">Correo para factura electrónica</label>
+            <input type="email" id="correo-2214870" value="david@werockagencia.com">
+          </div>
+          <div class="campo">
+            <label for="direccion-2214870">Dirección de notificación</label>
+            <input type="text" id="direccion-2214870" value="Cra 4 No 8-21, Local 2, Cajicá">
+          </div>
+        </div>
+        <button class="btn btn-azul">Guardar cambios</button>
+
+        <div class="cuenta-detalle-accesos">
+          <a href="facturacion.html?cuenta=2214870" class="btn btn-outline">Historial de facturación</a>
+          <a href="consumo.html?cuenta=2214870" class="btn btn-outline">Historial de consumo</a>
+          <a href="pagos.html?cuenta=2214870" class="btn btn-outline">Historial de pagos</a>
         </div>
       </div>
 
@@ -150,8 +283,78 @@
           </div>
         </div>
         <div class="cuenta-card-acciones">
-          <a href="facturacion.html" class="btn btn-outline">Ver detalle</a>
+          <button class="btn btn-outline" data-toggle-cuenta="1774502" aria-expanded="false">
+            Ver detalle
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
           <button class="btn btn-outline" style="color:var(--rojo);border-color:rgba(214,69,69,.35)">Eliminar</button>
+        </div>
+      </div>
+
+      <div class="cuenta-detalle" id="detalle-1774502" hidden>
+        <h3>Datos de la cuenta</h3>
+        <div class="datos-cuenta-grid">
+          <div><span>Titular</span><strong>David Higuera</strong></div>
+          <div><span>Dirección del predio</span><strong>Vereda Chuntame, Km 3</strong></div>
+          <div><span>Estrato</span><strong>Rural</strong></div>
+          <div><span>Tipo de uso</span><strong>Agropecuario</strong></div>
+        </div>
+
+        <h3>Medidores</h3>
+        <div class="medidor-fila">
+          <div>
+            <strong style="font-size:13.5px;color:var(--azul-oscuro)">MED-09981</strong>
+            <div style="font-size:12px;color:var(--gris-texto);margin-top:2px">Principal</div>
+          </div>
+          <button class="btn-mini">Editar alias</button>
+        </div>
+        <div class="medidor-fila">
+          <div>
+            <strong style="font-size:13.5px;color:var(--azul-oscuro)">MED-09982</strong>
+            <div style="font-size:12px;color:var(--gris-texto);margin-top:2px">Riego</div>
+          </div>
+          <button class="btn-mini">Editar alias</button>
+        </div>
+
+        <button class="btn-agregar-medidor" data-toggle-form="medidor-1774502">+ Agregar medidor a esta cuenta</button>
+        <div class="form-inline" id="form-medidor-1774502" hidden>
+          <div class="campo-fila">
+            <div class="campo">
+              <label for="num-medidor-1774502">Número de medidor</label>
+              <input type="text" id="num-medidor-1774502" placeholder="Ej. MED-09981">
+            </div>
+            <div class="campo">
+              <label for="tipo-medidor-1774502">Tipo</label>
+              <select id="tipo-medidor-1774502">
+                <option>Principal</option>
+                <option>Secundario</option>
+                <option>Riego</option>
+              </select>
+            </div>
+          </div>
+          <div style="display:flex;gap:10px">
+            <button class="btn btn-azul">Guardar medidor</button>
+            <button class="btn btn-outline" data-toggle-form="medidor-1774502">Cancelar</button>
+          </div>
+        </div>
+
+        <h3>Preferencias de notificación</h3>
+        <div class="campo-fila">
+          <div class="campo">
+            <label for="correo-1774502">Correo para factura electrónica</label>
+            <input type="email" id="correo-1774502" value="david@werockagencia.com">
+          </div>
+          <div class="campo">
+            <label for="direccion-1774502">Dirección de notificación</label>
+            <input type="text" id="direccion-1774502" value="Vereda Chuntame, Km 3, Cajicá">
+          </div>
+        </div>
+        <button class="btn btn-azul">Guardar cambios</button>
+
+        <div class="cuenta-detalle-accesos">
+          <a href="facturacion.html?cuenta=1774502" class="btn btn-outline">Historial de facturación</a>
+          <a href="consumo.html?cuenta=1774502" class="btn btn-outline">Historial de consumo</a>
+          <a href="pagos.html?cuenta=1774502" class="btn btn-outline">Historial de pagos</a>
         </div>
       </div>
     </div>
@@ -181,28 +384,6 @@
         <button class="btn btn-primario">Agregar cuenta</button>
         <button class="btn btn-outline">Cancelar</button>
       </div>
-    </div>
-
-    <div class="panel-card">
-      <div class="panel-card-header">
-        <h2>Asociar otro medidor</h2>
-        <p>Si tu predio tiene más de un contador de agua — por ejemplo, uno adicional para riego o para una unidad independiente — asócialo aquí a la cuenta correspondiente.</p>
-      </div>
-      <div class="campo-fila">
-        <div class="campo">
-          <label for="cuenta-med">Cuenta <span class="req">*</span></label>
-          <select id="cuenta-med">
-            <option>1608353 · Mercedes de Higuera</option>
-            <option>2214870 · Local comercial</option>
-            <option>1774502 · Finca La Esperanza</option>
-          </select>
-        </div>
-        <div class="campo">
-          <label for="num-med">Número de medidor <span class="req">*</span></label>
-          <input type="text" id="num-med" placeholder="Ej. MED-04471">
-        </div>
-      </div>
-      <button class="btn btn-azul">Asociar medidor</button>
     </div>
 
   </main>

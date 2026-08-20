@@ -23,6 +23,36 @@
     });
   });
 
+  // Mis cuentas: "Ver detalle" expande el detalle de esa cuenta en la misma página
+  document.querySelectorAll('[data-toggle-cuenta]').forEach(function (b) {
+    var detalle = document.getElementById('detalle-' + b.dataset.toggleCuenta);
+    if (!detalle) return;
+    b.addEventListener('click', function () {
+      var abrir = detalle.hasAttribute('hidden');
+      detalle.toggleAttribute('hidden', !abrir);
+      b.classList.toggle('abierto', abrir);
+      b.setAttribute('aria-expanded', String(abrir));
+      b.childNodes[0].nodeValue = abrir ? 'Ocultar detalle ' : 'Ver detalle ';
+      if (abrir) {
+        detalle.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+  });
+
+  // Formularios inline (ej. "+ Agregar medidor" dentro del detalle de una cuenta)
+  document.querySelectorAll('[data-toggle-form]').forEach(function (b) {
+    var form = document.getElementById('form-' + b.dataset.toggleForm);
+    if (!form) return;
+    b.addEventListener('click', function () {
+      var abrir = form.hasAttribute('hidden');
+      form.toggleAttribute('hidden', !abrir);
+      if (abrir) {
+        var primerInput = form.querySelector('input');
+        if (primerInput) primerInput.focus();
+      }
+    });
+  });
+
   // Selector de cuenta: muestra el bloque .datos-cuenta que corresponda
   var selCuenta = document.getElementById('selector-cuenta');
   if (selCuenta) {
