@@ -3,12 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Edictos y notificaciones judiciales — EPC Cajicá</title>
+<title>Mapa del sitio — EPC Cajicá</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<style>.acordeon-pub{scroll-margin-top:100px}</style>
+<style>
+  .mapa-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:8px}
+  .mapa-card{background:var(--blanco);border:1px solid var(--gris-borde);border-radius:var(--radio-m);padding:26px 28px}
+  .mapa-card h3{font-size:16px;color:var(--azul-oscuro);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+  .mapa-card h3 .punto{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+  .mapa-card ul{list-style:none;display:grid;gap:9px}
+  .mapa-card ul li a{font-size:14px;color:var(--gris-texto);font-weight:600;transition:color .2s}
+  .mapa-card ul li a:hover{color:var(--azul)}
+  .mapa-card ul.sub{margin-top:2px;margin-bottom:8px;padding-left:14px;border-left:2px solid var(--gris-borde);gap:6px}
+  .mapa-card ul.sub li a{font-size:12.5px;font-weight:500;color:var(--gris-texto);opacity:.85}
+  @media(max-width:900px){.mapa-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:600px){.mapa-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 
@@ -65,16 +77,16 @@
 <section class="pagina-hero">
   <div class="contenedor pagina-hero-wrap">
     <div class="pagina-hero-texto">
-      <div class="migas-pub"><a href="index.html">Inicio</a> / Edictos y notificaciones</div>
-      <div class="badge-red">Información legal</div>
-      <h1>Edictos y notificaciones judiciales.</h1>
-      <p class="lead">Publicaciones legales que la Empresa realiza en cumplimiento de la normatividad vigente, para notificar actos administrativos y comunicaciones oficiales a los interesados.</p>
+      <div class="migas-pub"><a href="index.html">Inicio</a> / Mapa del sitio</div>
+      <div class="badge-red">Navegación completa</div>
+      <h1>Mapa del sitio.</h1>
+      <p class="lead">Todas las páginas y secciones del portal de la EPC, organizadas para que encuentres lo que buscas en un clic.</p>
     </div>
     <div class="pagina-hero-stat">
-      <div class="icono-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3h7l4 4v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M9 12h6M9 16h6"/></svg></div>
+      <div class="icono-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div>
       <div>
-        <div class="num">2</div>
-        <div class="txt">canales de notificación oficial</div>
+        <div class="num">24</div>
+        <div class="txt">páginas en el portal</div>
       </div>
     </div>
   </div>
@@ -82,37 +94,104 @@
 
 <section class="seccion">
   <div class="contenedor">
-    <div class="contenido-prosa" style="max-width:100%">
+    <div class="mapa-grid">
 
-      <div class="acordeon-pub abierto" id="edictos">
-        <button class="acordeon-pub-btn"><span class="num-badge">1</span><span class="titulo-acordeon">Edictos</span><span class="mas">+</span></button>
-        <div class="acordeon-pub-body">
-          <p>Los edictos son publicaciones que la Empresa realiza para dar a conocer decisiones o actos administrativos cuando no es posible notificar directamente a los interesados, conforme a lo establecido en la normatividad vigente. Se fijan durante el término legal correspondiente y quedan a disposición del público para su consulta.</p>
-          <ul>
-            <li>Se publican en la cartelera del punto de atención y, cuando aplica, en este sitio web</li>
-            <li>Permanecen fijados durante el término que establece la ley</li>
-            <li>Cualquier interesado puede consultarlos durante su vigencia</li>
+      <div class="mapa-card">
+        <h3><span class="punto" style="background:var(--azul)"></span>La Empresa</h3>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="empresa.html">La Empresa · Quiénes somos</a></li>
+          <ul class="sub">
+            <li><a href="empresa.html#mision-vision">Misión y visión</a></li>
+            <li><a href="empresa.html#historia">Nuestra historia</a></li>
+            <li><a href="empresa.html#naturaleza">Naturaleza jurídica</a></li>
+            <li><a href="empresa.html#organizacion">Organización</a></li>
           </ul>
-        </div>
+          <li><a href="noticias.html">Noticias</a></li>
+          <li><a href="noticia-detalle.html">Detalle de noticia</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
       </div>
 
-      <div class="acordeon-pub" id="notificaciones">
-        <button class="acordeon-pub-btn"><span class="num-badge">2</span><span class="titulo-acordeon">Notificaciones judiciales</span><span class="mas">+</span></button>
-        <div class="acordeon-pub-body">
-          <p>Canal dispuesto para la recepción de notificaciones judiciales dirigidas a la Empresa de Servicios Públicos de Cajicá S.A. E.S.P., en el marco de procesos administrativos o judiciales en los que la Empresa sea parte o tercero interesado.</p>
-          <ul>
-            <li>Notificaciones recibidas por el canal oficial dispuesto para tal fin</li>
-            <li>Gestionadas conforme a los términos y procedimientos legales aplicables</li>
-            <li>Para radicar una notificación judicial, dirígete al punto de atención presencial o al correo institucional</li>
+      <div class="mapa-card">
+        <h3><span class="punto" style="background:var(--verde-oscuro)"></span>Servicios</h3>
+        <ul>
+          <li><a href="servicios.html">Acueducto · Alcantarillado · Aseo</a></li>
+          <ul class="sub">
+            <li><a href="servicios.html#acueducto">Acueducto</a></li>
+            <li><a href="servicios.html#alcantarillado">Alcantarillado</a></li>
+            <li><a href="servicios.html#aseo">Aseo</a></li>
+            <li><a href="servicios.html#ambientales">Programas ambientales</a></li>
           </ul>
-        </div>
+          <li><a href="tarifas.html">Tarifas y costos de conexión</a></li>
+          <li><a href="epc-kids.html">EPC Kids</a></li>
+        </ul>
       </div>
 
-    </div>
+      <div class="mapa-card">
+        <h3><span class="punto" style="background:var(--naranja)"></span>Atención al ciudadano</h3>
+        <ul>
+          <li><a href="atencion.html">Atención al ciudadano</a></li>
+          <ul class="sub">
+            <li><a href="atencion.html#presencial">Punto de atención</a></li>
+            <li><a href="atencion.html#tramites">Trámites en línea</a></li>
+          </ul>
+          <li><a href="login.html">Iniciar sesión</a></li>
+          <li><a href="panel/perfil.html">Mi perfil</a></li>
+          <li><a href="panel/mis-cuentas.html">Mis cuentas</a></li>
+          <li><a href="panel/facturacion.html">Historial de facturación</a></li>
+          <li><a href="panel/consumo.html">Historial de consumo</a></li>
+          <li><a href="panel/pagos.html">Historial de pagos</a></li>
+          <li><a href="panel/pagar-factura.html">Pagar factura</a></li>
+          <li><a href="panel/pqrs.html">Radicar PQRS</a></li>
+          <li><a href="panel/tramites.html">Trámites en línea</a></li>
+        </ul>
+      </div>
 
-    <div class="alerta info" style="display:flex;gap:12px;padding:16px 20px;border-radius:12px;background:rgba(36,132,198,.08);border:1px solid rgba(36,132,198,.22);margin-top:10px">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--azul)" stroke-width="1.8" style="flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
-      <p style="font-size:13.5px;color:var(--azul-h);margin:0">¿Buscas un edicto o notificación específica? Escríbenos por <a href="https://wa.me/573163476418" target="_blank" rel="noopener" style="font-weight:800;color:var(--azul-h)">WhatsApp</a> o visita el <a href="atencion.html#presencial" style="font-weight:800;color:var(--azul-h)">punto de atención</a>.</p>
+      <div class="mapa-card">
+        <h3><span class="punto" style="background:var(--azul-oscuro)"></span>Contratación</h3>
+        <ul>
+          <li><a href="contratacion.html">Contratación</a></li>
+          <ul class="sub">
+            <li><a href="contratacion.html#normatividad">Marco normativo</a></li>
+            <li><a href="contratacion.html#modalidades">Modalidades</a></li>
+            <li><a href="contratacion.html#principios">Principios</a></li>
+          </ul>
+        </ul>
+      </div>
+
+      <div class="mapa-card">
+        <h3><span class="punto" style="background:var(--verde)"></span>Transparencia y acceso a la información</h3>
+        <ul>
+          <li><a href="transparencia.html">Transparencia</a></li>
+          <ul class="sub">
+            <li><a href="transparencia.html#info-entidad">Información de la entidad</a></li>
+            <li><a href="transparencia.html#normatividad">Normatividad</a></li>
+            <li><a href="transparencia.html#presupuesto">Presupuesto</a></li>
+            <li><a href="transparencia.html#planeacion">Planeación</a></li>
+            <li><a href="transparencia.html#control">Control</a></li>
+            <li><a href="transparencia.html#contratacion-seccion">Contratación</a></li>
+            <li><a href="transparencia.html#tramites">Trámites</a></li>
+            <li><a href="transparencia.html#participa">Participa</a></li>
+            <li><a href="transparencia.html#datos-abiertos">Datos abiertos</a></li>
+            <li><a href="transparencia.html#publicaciones">Publicaciones</a></li>
+            <li><a href="transparencia.html#transparencia-historico">Transparencia histórico</a></li>
+          </ul>
+          <li><a href="edictos-notificaciones.html">Edictos y notificaciones judiciales</a></li>
+        </ul>
+      </div>
+
+      <div class="mapa-card">
+        <h3><span class="punto" style="background:var(--naranja-h)"></span>Legal</h3>
+        <ul>
+          <li><a href="politica-tratamiento-datos.html">Política de tratamiento de datos</a></li>
+          <li><a href="terminos-condiciones.html">Términos y condiciones</a></li>
+          <li><a href="mapa-sitio.html">Mapa del sitio</a></li>
+          <li><a href="transparencia.html#planeacion">Política de seguridad digital</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+
     </div>
   </div>
 </section>
@@ -176,7 +255,7 @@
   </div>
 </footer>
 
-<a class="chat-flotante" href="https://wa.me/573163476418?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20un%20edicto%20o%20notificaci%C3%B3n" target="_blank" rel="noopener" aria-label="Chatear por WhatsApp">
+<a class="chat-flotante" href="https://wa.me/573163476418" target="_blank" rel="noopener" aria-label="Chatear por WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.14-1.31A10 10 0 1 0 12 2zm5.62 14.24c-.24.68-1.4 1.3-1.94 1.36-.5.06-1.12.09-1.8-.11a14.4 14.4 0 0 1-1.65-.6 11.5 11.5 0 0 1-4.5-3.98 5.3 5.3 0 0 1-1.1-2.8c0-.9.47-1.34.65-1.53.17-.18.37-.23.5-.23h.35c.13 0 .3-.02.46.35.17.4.57 1.4.62 1.5.05.1.08.22.02.36-.06.14-.09.22-.18.34-.1.12-.2.27-.28.36-.1.1-.2.21-.08.4.11.2.5.83 1.08 1.34.75.66 1.37.86 1.57.96.2.1.32.08.44-.05.13-.13.53-.62.67-.83.14-.21.28-.18.47-.1.2.07 1.25.6 1.46.7.22.11.36.16.42.25.05.1.05.55-.19 1.23z"/></svg>
 </a>
 

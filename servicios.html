@@ -19,7 +19,7 @@
   .servicio-bloque#alcantarillado::before { background: var(--naranja); }
   .servicio-bloque#aseo::before { background: var(--verde-oscuro); }
   .servicio-bloque .marca-agua { position: absolute; top: -30px; right: -20px; width: 220px; height: 220px; opacity: .05; pointer-events: none; }
-  .servicio-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 96px 1fr; gap: 28px; align-items: flex-start; }
+  .servicio-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 96px 1fr 280px; gap: 28px; align-items: start; }
   .servicio-icono { width: 96px; height: 96px; border-radius: 26px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 16px 30px rgba(4,57,86,.18); }
   .servicio-icono svg { width: 42px; height: 42px; }
   .servicio-numero { font-family: var(--fuente-titulo); font-size: 13px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--gris-texto); margin-bottom: 6px; }
@@ -28,7 +28,10 @@
   .servicio-lista { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 30px; margin-top: 20px; max-width: 720px; }
   .servicio-lista div { font-size: 13.5px; color: var(--azul-oscuro); font-weight: 600; padding: 10px 14px 10px 38px; position: relative; background: var(--blanco); border: 1px solid var(--gris-borde); border-radius: var(--radio-s); }
   .servicio-lista div::before { content: '✓'; position: absolute; left: 14px; top: 9px; color: var(--verde-oscuro); font-weight: 800; }
-  @media (max-width: 700px) { .servicio-grid { grid-template-columns: 1fr; } .servicio-lista { grid-template-columns: 1fr; } }
+  .servicio-foto { grid-row: 1 / 3; border-radius: var(--radio-l); overflow: hidden; box-shadow: var(--sombra); }
+  .servicio-foto img { display: block; width: 100%; height: 100%; min-height: 260px; object-fit: cover; }
+  @media (max-width: 980px) { .servicio-grid { grid-template-columns: 96px 1fr; } .servicio-foto { grid-row: auto; grid-column: 1 / 3; margin-top: 20px; } .servicio-foto img { min-height: 200px; max-height: 280px; } }
+  @media (max-width: 700px) { .servicio-grid { grid-template-columns: 1fr; } .servicio-foto { grid-column: 1; } .servicio-lista { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -62,6 +65,26 @@
     </div>
   </div>
 </header>
+
+<div class="menu-movil" id="menuMovil" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+  <div class="menu-movil-top">
+    <img src="images/logo.png" alt="EPC">
+    <button class="menu-movil-cerrar" aria-label="Cerrar menú">&times;</button>
+  </div>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="empresa.html">La Empresa</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="atencion.html">Atención al ciudadano</a>
+    <a href="contratacion.html">Contratación</a>
+    <a href="transparencia.html">Transparencia</a>
+  </nav>
+  <div class="menu-movil-acciones">
+    <a href="login.html" class="btn-sesion">&#128100; Iniciar sesión</a>
+    <a href="contacto.html" class="btn-linea">Contacto</a>
+  </div>
+</div>
+
 
 <section class="pagina-hero">
   <div class="contenedor pagina-hero-wrap">
@@ -98,6 +121,7 @@
           <div>Programa Reúso del Agua</div>
         </div>
       </div>
+      <figure class="servicio-foto"><img src="images/operario-acueducto.jpg" alt="Operario de la Dirección de Acueducto de la EPC en labores de campo"></figure>
     </div>
   </div>
 </section>
@@ -121,6 +145,7 @@
           <div>Campaña Colillas al piso, no</div>
         </div>
       </div>
+      <figure class="servicio-foto"><img src="images/alcantarillado-equipo.jpg" alt="Equipo de la Dirección de Alcantarillado de la EPC"></figure>
     </div>
   </div>
 </section>
@@ -144,6 +169,7 @@
           <div>Actualización PGIRS 2021</div>
         </div>
       </div>
+      <figure class="servicio-foto"><img src="images/aseo-operacion.jpg" alt="Operación de recolección de aseo de la EPC en Cajicá"></figure>
     </div>
   </div>
 </section>
@@ -247,7 +273,7 @@
     </div>
     <div class="pie-inferior">
       <span>© 2026 Empresa de Servicios Públicos de Cajicá S.A. E.S.P. · NIT 832.002.386-5 · Todos los derechos reservados.</span>
-      <div class="enlaces"><a href="#">Política de privacidad</a><a href="#">Términos y condiciones</a><a href="#">Mapa del sitio</a><a href="#">Política de seguridad digital</a><a href="https://www.gov.co" target="_blank">GOV.CO</a></div>
+      <div class="enlaces"><a href="politica-tratamiento-datos.html">Política de tratamiento de datos</a><a href="terminos-condiciones.html">Términos y condiciones</a><a href="mapa-sitio.html">Mapa del sitio</a><a href="transparencia.html#planeacion">Política de seguridad digital</a><a href="https://www.gov.co" target="_blank">GOV.CO</a></div>
     </div>
   </div>
 </footer>

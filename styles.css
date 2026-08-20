@@ -224,6 +224,46 @@ button { font-family: inherit; cursor: pointer; border: none; }
 }
 
 /* ---------------------------------------------------------
+   Menú móvil — panel a pantalla completa, activado por
+   .menu-hamburguesa en el breakpoint de 860px (ver media query)
+--------------------------------------------------------- */
+.menu-movil {
+  position: fixed; inset: 0; z-index: 200;
+  background: var(--azul-oscuro);
+  display: flex; flex-direction: column;
+  padding: 22px 28px 40px;
+  opacity: 0; visibility: hidden; transform: translateY(-12px);
+  transition: opacity .28s ease, transform .28s ease, visibility 0s linear .28s;
+  overflow-y: auto;
+}
+.menu-movil.abierto {
+  opacity: 1; visibility: visible; transform: none;
+  transition: opacity .28s ease, transform .28s ease;
+}
+.menu-movil-top { display: flex; align-items: center; justify-content: space-between; }
+.menu-movil-top img { height: 30px; filter: brightness(0) invert(1); }
+.menu-movil-cerrar {
+  width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,.1);
+  color: var(--blanco); font-size: 22px; line-height: 1; border: none; cursor: pointer;
+}
+.menu-movil nav { display: flex; flex-direction: column; gap: 4px; margin-top: 34px; }
+.menu-movil nav a {
+  font-family: var(--fuente-titulo); font-weight: 700; font-size: 21px; color: var(--blanco);
+  padding: 14px 4px; border-bottom: 1px solid rgba(255,255,255,.12);
+}
+.menu-movil nav a.activo { color: var(--verde); }
+.menu-movil-acciones { margin-top: 28px; display: flex; flex-direction: column; gap: 12px; }
+.menu-movil-acciones .btn-sesion { justify-content: center; }
+.menu-movil-acciones a.btn-linea {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  border: 1.5px solid rgba(255,255,255,.35); color: var(--blanco);
+  font-family: var(--fuente-titulo); font-weight: 700; font-size: 14px;
+  padding: 11px 22px; border-radius: var(--radio-full);
+}
+body.menu-movil-abierto { overflow: hidden; }
+@media (min-width: 861px) { .menu-movil { display: none !important; } }
+
+/* ---------------------------------------------------------
    Hero
 --------------------------------------------------------- */
 .hero {
@@ -1033,6 +1073,11 @@ button { font-family: inherit; cursor: pointer; border: none; }
   padding: 56px 0 46px;
   position: relative;
 }
+/* Variantes de foto de fondo por página — mismo tratamiento de degradado,
+   distinta fotografía según el tema, para no repetir siempre el tanque. */
+.pagina-hero.hero-atencion { background-image: radial-gradient(rgba(255,255,255,.09) 1.4px, transparent 1.4px), linear-gradient(135deg, rgba(4,57,86,.92) 0%, rgba(10,84,120,.85) 50%, rgba(13,107,88,.72) 100%), url("images/atencion-oficina.jpg"); }
+.pagina-hero.hero-contacto { background-image: radial-gradient(rgba(255,255,255,.09) 1.4px, transparent 1.4px), linear-gradient(135deg, rgba(4,57,86,.92) 0%, rgba(10,84,120,.85) 50%, rgba(13,107,88,.72) 100%), url("images/aerea-contacto.jpg"); }
+.pagina-hero.hero-transparencia { background-image: radial-gradient(rgba(255,255,255,.09) 1.4px, transparent 1.4px), linear-gradient(135deg, rgba(4,57,86,.92) 0%, rgba(10,84,120,.85) 50%, rgba(13,107,88,.72) 100%), url("images/aerea-infraestructura.jpg"); background-position: 0 0, center 40%, center 40%; }
 .pagina-hero::after {
   content: "";
   position: absolute; inset: 0; pointer-events: none;
@@ -1073,6 +1118,13 @@ button { font-family: inherit; cursor: pointer; border: none; }
 .contenido-prosa p { margin-bottom: 16px; }
 .contenido-prosa h2 { font-size: 22px; color: var(--azul-oscuro); margin: 34px 0 14px; }
 .contenido-prosa h2:first-child { margin-top: 0; }
+
+/* Texto + foto de apoyo (ej. "Nuestra historia") — la imagen se sale del
+   ancho angosto de .contenido-prosa para acompañar bloques largos de texto. */
+.historia-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: start; }
+.historia-foto { position: sticky; top: 110px; border-radius: var(--radio-l); overflow: hidden; box-shadow: var(--sombra); }
+.historia-foto img { display: block; width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+@media (max-width: 900px) { .historia-grid { grid-template-columns: 1fr; } .historia-foto { position: relative; top: auto; max-width: 480px; } }
 
 .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .info-grid.dos { grid-template-columns: repeat(2, 1fr); }
