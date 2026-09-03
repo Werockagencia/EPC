@@ -121,12 +121,24 @@
         <div class="rol-card" style="border-color:var(--azul-oscuro)">
           <span class="tag" style="background:#e9edf1;color:var(--azul-oscuro)">Personal EPC</span>
           <h3>Ana Torres (Comercial)</h3>
-          <p>No es un rol del panel de ciudadanos — inicia sesión en <code>/wp-admin/</code> (el panel de administración de WordPress), no en <code>/login/</code>. Revisa y responde PQRS y trámites.</p>
+          <p>No es un rol del panel de ciudadanos — inicia sesión en <code>/wp-admin/</code> (el panel de administración de WordPress), no en <code>/login/</code>. Revisa y responde PQRS y trámites, sin acceso al resto del sitio.</p>
           <div class="credencial"><span>Usuario</span><strong>comercial</strong></div>
           <div class="credencial"><span>Contraseña</span><strong>Comercial2026</strong></div>
           <ul>
-            <li>Ve todas las PQRS y trámites radicados (incluidos los anónimos) en <code>/wp-admin/edit.php?post_type=epc_pqrs</code></li>
+            <li>Ve todas las PQRS y trámites radicados (incluidos los anónimos) en <code>/wp-admin/edit.php?post_type=epc_pqrs</code> y <code>?post_type=epc_tramite</code></li>
             <li>Puede responder directo o marcar "Escalada a Integra" — el estado queda visible para el ciudadano</li>
+          </ul>
+        </div>
+
+        <div class="rol-card" style="border-color:var(--azul-oscuro)">
+          <span class="tag" style="background:#e9edf1;color:var(--azul-oscuro)">Personal EPC</span>
+          <h3>Administrador del sitio</h3>
+          <p>Acceso completo a <code>/wp-admin/</code>: todo lo que ve Comercial (PQRS y trámites) más páginas, usuarios, tema, plugins y configuración — es la cuenta con la que se construyó el sitio.</p>
+          <div class="credencial"><span>Usuario</span><strong>werock</strong></div>
+          <div class="credencial"><span>Contraseña</span><strong>EPCCajica2026</strong></div>
+          <ul>
+            <li>Único rol que puede crear/editar páginas, cambiar el tema y gestionar usuarios</li>
+            <li>Úsalo si necesitas revisar algo que Comercial no alcanza a ver</li>
           </ul>
         </div>
 
@@ -151,7 +163,7 @@
         </div>
         <div class="paso">
           <div class="num"></div>
-          <div><strong>Abrir en el navegador</strong><p><code>http://localhost:8890/</code> para el sitio público, <code>http://localhost:8890/login/</code> para el panel con cualquiera de los 3 usuarios de arriba.</p></div>
+          <div><strong>Abrir en el navegador</strong><p><code>http://localhost:8890/</code> para el sitio público, <code>http://localhost:8890/login/</code> para el panel (los 3 primeros usuarios de arriba) o <code>http://localhost:8890/wp-admin/</code> para Comercial/Administrador.</p></div>
         </div>
       </div>
       <div class="caja-nota">El sitio corre en el computador local (todavía no está publicado en internet) — para la sesión de hoy se navega en vivo desde acá. El wireframe de referencia visual, ya aprobado, sí es público: <a href="index.html" style="color:#7a4a12;font-weight:700">werockagencia.github.io/EPC</a>.</div>
