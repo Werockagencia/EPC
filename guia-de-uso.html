@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía de uso — Entrega EPC Cajicá · We Rock</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .guia-wrap{max-width:880px;margin:0 auto;padding:0 24px}
+  .guia-seccion{margin-bottom:56px}
+  .guia-seccion h2{font-size:24px;color:var(--azul-oscuro);margin-bottom:10px;font-family:var(--fuente-titulo)}
+  .guia-seccion > p{color:var(--gris-texto);font-size:14.5px;line-height:1.7;margin-bottom:22px;max-width:680px}
+  .roles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .rol-card{background:var(--blanco);border:1px solid var(--gris-borde);border-radius:var(--radio-m);padding:26px;box-shadow:var(--sombra)}
+  .rol-card .tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;padding:5px 12px;border-radius:var(--radio-full);margin-bottom:14px}
+  .rol-card.propietario .tag{background:#eaf4e5;color:var(--verde-oscuro)}
+  .rol-card.arrendatario .tag{background:#eaf1fb;color:var(--azul)}
+  .rol-card.usuario .tag{background:#fdf1e6;color:var(--naranja-h)}
+  .rol-card h3{font-size:17px;color:var(--azul-oscuro);margin-bottom:6px}
+  .rol-card p{font-size:13px;color:var(--gris-texto);line-height:1.6;margin-bottom:16px}
+  .credencial{background:var(--gris-claro);border-radius:var(--radio-s);padding:14px 16px;font-family:"Courier New",monospace;font-size:13px;margin-bottom:8px}
+  .credencial span{display:block;color:var(--gris-texto);font-family:var(--fuente-base);font-size:11px;text-transform:uppercase;letter-spacing:.3px;margin-bottom:3px}
+  .credencial strong{color:var(--azul-oscuro);font-size:14px}
+  .rol-card ul{list-style:disc;padding-left:18px;margin-top:14px}
+  .rol-card ul li{font-size:12.5px;color:var(--gris-texto);margin-bottom:5px;line-height:1.5}
+  .check-list{display:grid;gap:12px}
+  .check-item{display:flex;gap:12px;align-items:flex-start;background:var(--blanco);border:1px solid var(--gris-borde);border-radius:var(--radio-s);padding:16px 18px}
+  .check-item .punto{width:22px;height:22px;border-radius:50%;background:var(--verde);color:var(--blanco);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0;margin-top:1px}
+  .check-item.pendiente .punto{background:var(--naranja)}
+  .check-item strong{color:var(--azul-oscuro);font-size:14px;display:block;margin-bottom:3px}
+  .check-item p{font-size:13px;color:var(--gris-texto);line-height:1.55}
+  .pasos{counter-reset:paso}
+  .paso{display:flex;gap:16px;margin-bottom:20px}
+  .paso .num{counter-increment:paso;background:var(--azul-oscuro);color:var(--blanco);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0}
+  .paso .num::before{content:counter(paso)}
+  .paso strong{color:var(--azul-oscuro);font-size:14.5px;display:block;margin-bottom:4px}
+  .paso p, .paso code{font-size:13px;color:var(--gris-texto);line-height:1.6}
+  .paso code{background:var(--gris-claro);padding:2px 8px;border-radius:6px;font-family:"Courier New",monospace;font-size:12px;color:var(--azul-oscuro)}
+  .caja-nota{background:#fff7ed;border:1px solid #fbd9a8;border-radius:var(--radio-s);padding:18px 22px;font-size:13.5px;color:#7a4a12;line-height:1.6}
+  @media(max-width:900px){.roles-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="gov-bar">
+  <div class="gov-bar-inner">
+    <a href="#" class="gov-logo"><span class="gov-tricolor"><i></i><i></i><i></i></span><span class="gov-wordmark">GOV.CO</span></a>
+  </div>
+</div>
+
+<header class="encabezado">
+  <div class="contenedor">
+    <div class="logo"><img src="images/logo.png" alt="Empresa de Servicios Públicos de Cajicá" class="logo-img"></div>
+    <nav class="nav-principal">
+      <a href="index.html">Inicio</a>
+      <a href="mapa-sitio.html">Mapa del sitio</a>
+      <a href="guia-de-uso.html" class="activo">Guía de uso</a>
+    </nav>
+  </div>
+</header>
+
+<section class="pagina-hero">
+  <div class="contenedor pagina-hero-wrap">
+    <div class="pagina-hero-texto">
+      <div class="migas-pub"><a href="index.html">Inicio</a> / Guía de uso</div>
+      <div class="badge-red">Entrega We Rock · Sesión 2026-09-03</div>
+      <h1>Guía de uso — Panel de usuario.</h1>
+      <p class="lead">Credenciales de prueba y resumen de lo construido hoy para el desarrollo WordPress de la EPC. Este contenido es interno, para la sesión de revisión del equipo — no forma parte del sitio público.</p>
+    </div>
+  </div>
+</section>
+
+<section class="seccion">
+  <div class="guia-wrap">
+
+    <div class="guia-seccion">
+      <h2>1. Roles de usuario del panel</h2>
+      <p>El panel de usuario ya tiene login real y 3 roles con navegación y permisos distintos, funcionando sobre WordPress (listos para conectar a la API de Integra cuando esté disponible). Pruébalos en <code>http://localhost:8890/login/</code> sobre el entorno local del computador donde se construyó.</p>
+
+      <div class="roles-grid">
+
+        <div class="rol-card propietario">
+          <span class="tag">Propietario</span>
+          <h3>David Higuera</h3>
+          <p>Titular validado del predio. Único rol que ve y gestiona acuerdos de pago y cambio de suscriptor.</p>
+          <div class="credencial"><span>Usuario</span><strong>1070010122</strong></div>
+          <div class="credencial"><span>Contraseña</span><strong>Propietario2026</strong></div>
+          <ul>
+            <li>Ve "Acuerdo de pago" y "Cambio de suscriptor" en Mis cuentas</li>
+            <li>Badge "Propietario" visible en todo el panel</li>
+          </ul>
+        </div>
+
+        <div class="rol-card arrendatario">
+          <span class="tag">Arrendatario</span>
+          <h3>Laura Gómez</h3>
+          <p>Asociada a una cuenta como arrendataria, no titular. Puede asociar medidor y automatizar pagos.</p>
+          <div class="credencial"><span>Usuario</span><strong>1608353</strong></div>
+          <div class="credencial"><span>Contraseña</span><strong>Arrendatario2026</strong></div>
+          <ul>
+            <li>Ve "Asociar medidor" y "Activar pago automático" / "Pago inmediato"</li>
+            <li>NO ve acuerdo de pago ni cambio de suscriptor</li>
+          </ul>
+        </div>
+
+        <div class="rol-card usuario">
+          <span class="tag">Usuario sin validar</span>
+          <h3>Carlos Ramírez</h3>
+          <p>Cuenta recién creada (así queda cualquiera que se registre desde "Regístrate" en /login/), sin ningún predio vinculado todavía.</p>
+          <div class="credencial"><span>Usuario</span><strong>1122334455</strong></div>
+          <div class="credencial"><span>Contraseña</span><strong>Usuario2026</strong></div>
+          <ul>
+            <li>Ve el CTA "Vincula tu primera cuenta"</li>
+            <li>Desde Perfil puede iniciar la validación como propietario</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="guia-seccion">
+      <h2>2. Cómo ver el sitio hoy</h2>
+      <div class="pasos">
+        <div class="paso">
+          <div class="num"></div>
+          <div><strong>Abrir una terminal en la carpeta del proyecto</strong><p>Desktop → We Rock → Desarrollos Wordpress → EPC Cajica → wordpress</p></div>
+        </div>
+        <div class="paso">
+          <div class="num"></div>
+          <div><strong>Levantar el servidor local</strong><p>Correr el comando documentado en <code>README.md</code> de la carpeta del proyecto (WordPress + SQLite, sin instalar nada adicional).</p></div>
+        </div>
+        <div class="paso">
+          <div class="num"></div>
+          <div><strong>Abrir en el navegador</strong><p><code>http://localhost:8890/</code> para el sitio público, <code>http://localhost:8890/login/</code> para el panel con cualquiera de los 3 usuarios de arriba.</p></div>
+        </div>
+      </div>
+      <div class="caja-nota">El sitio corre en el computador local (todavía no está publicado en internet) — para la sesión de hoy se navega en vivo desde acá. El wireframe de referencia visual, ya aprobado, sí es público: <a href="index.html" style="color:#7a4a12;font-weight:700">werockagencia.github.io/EPC</a>.</div>
+    </div>
+
+    <div class="guia-seccion">
+      <h2>3. Qué quedó listo hoy</h2>
+      <div class="check-list">
+        <div class="check-item"><div class="punto">✓</div><div><strong>Entorno WordPress local</strong><p>WordPress + SQLite, sin MySQL, tema de bloques propio con la paleta y tipografía del manual de marca.</p></div></div>
+        <div class="check-item"><div class="punto">✓</div><div><strong>Header y footer completos</strong><p>Barra GOV.CO, los 3 menús que Procuraduría siempre revisa (Atención y servicio a la ciudadanía, Transparencia con mega-menú de 13 secciones ITA, Participa), footer con contacto real y enlace al sitio anterior.</p></div></div>
+        <div class="check-item"><div class="punto">✓</div><div><strong>Home completo</strong><p>Hero, barra de iconos, pagos, programas ambientales, trámites, noticias dinámicas con categorías, cifras, entidades de interés.</p></div></div>
+        <div class="check-item"><div class="punto">✓</div><div><strong>Panel de usuario con login real</strong><p>3 roles con navegación diferenciada (ver sección 1), PQRS y trámites que notifican por correo al equipo comercial — listo para conectar a Integra.</p></div></div>
+        <div class="check-item pendiente"><div class="punto">→</div><div><strong>Pendiente: contenido de las demás páginas</strong><p>Atención al ciudadano (portafolio de 24 trámites ya transcrito), Transparencia (13 secciones ITA), Financiera, 8 páginas de Dirección, Noticias con filtro, EPC Kids, accesibilidad final y redirects 301 desde las URLs del sitio actual.</p></div></div>
+        <div class="check-item pendiente"><div class="punto">→</div><div><strong>Pendiente: integración con Integra</strong><p>Login, facturas, consumo y pagos están con datos de ejemplo — la especificación de API ya se envió al equipo de Integra, el sitio queda listo para el swap en cuanto respondan.</p></div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="pie">
+  <div class="contenedor">
+    <div class="pie-inferior">
+      <span>Guía interna de entrega — We Rock Agencia · Proyecto EPC Cajicá · 2026-09-03</span>
+      <div class="enlaces"><a href="index.html">Volver al wireframe</a><a href="mapa-sitio.html">Mapa del sitio</a></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
