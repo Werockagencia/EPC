@@ -118,7 +118,24 @@
           </ul>
         </div>
 
+        <div class="rol-card" style="border-color:var(--azul-oscuro)">
+          <span class="tag" style="background:#e9edf1;color:var(--azul-oscuro)">Personal EPC</span>
+          <h3>Ana Torres (Comercial)</h3>
+          <p>No es un rol del panel de ciudadanos — inicia sesión en <code>/wp-admin/</code> (el panel de administración de WordPress), no en <code>/login/</code>. Revisa y responde PQRS y trámites.</p>
+          <div class="credencial"><span>Usuario</span><strong>comercial</strong></div>
+          <div class="credencial"><span>Contraseña</span><strong>Comercial2026</strong></div>
+          <ul>
+            <li>Ve todas las PQRS y trámites radicados (incluidos los anónimos) en <code>/wp-admin/edit.php?post_type=epc_pqrs</code></li>
+            <li>Puede responder directo o marcar "Escalada a Integra" — el estado queda visible para el ciudadano</li>
+          </ul>
+        </div>
+
       </div>
+    </div>
+
+    <div class="guia-seccion">
+      <h2>1.1 PQRS pública, sin necesidad de cuenta</h2>
+      <p>Por ley, cualquier persona puede radicar una PQRS sin iniciar sesión, incluso de forma anónima. Pruébalo en <code>/pqrs/</code>: tiene la opción "Radicar de forma anónima" y una consulta pública de estado por número de radicado. Ya probamos el flujo completo: una PQRS anónima real, respondida desde el panel Comercial, con el estado actualizándose.</p>
     </div>
 
     <div class="guia-seccion">
