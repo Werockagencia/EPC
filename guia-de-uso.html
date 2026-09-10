@@ -111,7 +111,7 @@
 
     <div class="guia-seccion">
       <h2>1. Roles de usuario del panel</h2>
-      <p>El panel de usuario ya tiene login real y 3 roles con navegación y permisos distintos, funcionando sobre WordPress (listos para conectar a la API de Integra cuando esté disponible). Pruébalos en <code>http://localhost:8890/login/</code> sobre el entorno local del computador donde se construyó.</p>
+      <p>El panel de usuario ya tiene login real y 4 roles entran por el mismo formulario en <code>/login/</code> — los 3 ciudadanos más Comercial, que hoy dejó de depender de <code>/wp-admin/</code> — cada uno con navegación y permisos distintos, funcionando sobre WordPress (listos para conectar a la API de Integra cuando esté disponible). Pruébalos en <code>http://localhost:8890/login/</code> sobre el entorno local del computador donde se construyó.</p>
 
       <div class="roles-grid">
 
@@ -152,14 +152,15 @@
         </div>
 
         <div class="rol-card" style="border-color:var(--azul-oscuro)">
-          <span class="tag" style="background:#e9edf1;color:var(--azul-oscuro)">Personal EPC</span>
+          <span class="tag" style="background:#e9edf1;color:var(--azul-oscuro)">Personal EPC <span class="badge-nuevo">rediseñado hoy</span></span>
           <h3>Ana Torres (Comercial)</h3>
-          <p>No es un rol del panel de ciudadanos — inicia sesión en <code>/wp-admin/</code> (el panel de administración de WordPress), no en <code>/login/</code>. Revisa y responde PQRS y trámites, sin acceso al resto del sitio.</p>
+          <p>Ya NO inicia sesión en <code>/wp-admin/</code> — entra por el mismo formulario que los ciudadanos, <code>/login/</code>, y cae en su propio panel en <code>/panel/comercial/</code> con el mismo diseño que Propietario/Arrendatario. Sin acceso a WordPress.</p>
           <div class="credencial"><span>Usuario</span><strong>comercial</strong></div>
           <div class="credencial"><span>Contraseña</span><strong>Comercial2026</strong></div>
           <ul>
-            <li>Ve todas las PQRS y trámites radicados (incluidos los anónimos) en <code>/wp-admin/edit.php?post_type=epc_pqrs</code> y <code>?post_type=epc_tramite</code></li>
-            <li>Puede responder directo o marcar "Escalada a Integra" — el estado queda visible para el ciudadano</li>
+            <li>PQRS y trámites (incluidos los anónimos), con adjunto de respuesta en PDF y exportación CSV</li>
+            <li>Aprueba o rechaza solicitudes de "validación de propietario" — al aprobar, la cuenta pasa a Propietario automáticamente</li>
+            <li>Gestión de usuarios: ve todas las cuentas ciudadanas y puede corregir un rol a mano</li>
           </ul>
         </div>
 
@@ -196,7 +197,7 @@
         </div>
         <div class="paso">
           <div class="num"></div>
-          <div><strong>Abrir en el navegador</strong><p><code>http://localhost:8890/</code> para el sitio público, <code>http://localhost:8890/login/</code> para el panel (los 3 primeros usuarios de arriba) o <code>http://localhost:8890/wp-admin/</code> para Comercial/Administrador.</p></div>
+          <div><strong>Abrir en el navegador</strong><p><code>http://localhost:8890/</code> para el sitio público o <code>http://localhost:8890/login/</code> para el panel — con las credenciales de arriba, incluida Comercial. Solo el Administrador entra por <code>http://localhost:8890/wp-admin/</code>.</p></div>
         </div>
       </div>
       <div class="caja-nota">El sitio corre en el computador local (todavía no está publicado en internet) — para la sesión de hoy se navega en vivo desde acá. El wireframe de referencia visual, ya aprobado, sí es público: <a href="index.html" style="color:#7a4a12;font-weight:700">werockagencia.github.io/EPC</a>.</div>
@@ -206,11 +207,13 @@
       <h2>3. Qué quedó listo</h2>
       <div class="check-list">
         <div class="check-item"><div class="punto">✓</div><div><strong>Entorno WordPress local</strong><p>WordPress + SQLite, sin MySQL, tema de bloques propio con la paleta y tipografía del manual de marca.</p></div></div>
-        <div class="check-item"><div class="punto">✓</div><div><strong>Header y footer completos</strong><p>Barra GOV.CO, los 3 menús que Procuraduría siempre revisa (Atención y servicio a la ciudadanía, Transparencia con mega-menú de 13 secciones ITA, Participa), footer con contacto real y enlace al sitio anterior.</p></div></div>
+        <div class="check-item"><div class="punto">✓</div><div><strong>Header y footer completos</strong><p>Barra GOV.CO, los 3 menús que Procuraduría siempre revisa (Atención y servicio a la ciudadanía, Transparencia con mega-menú de 13 secciones ITA, Participa), footer con contacto real y enlace al sitio anterior. Mega-menú de Servicios rediseñado con iconos propios en sus 4 columnas (Direcciones, Atención al ciudadano, Programas ambientales, EPC Kids), corrigiendo un ícono deformado y paddings pegados a los bordes.</p></div></div>
         <div class="check-item"><div class="punto">✓</div><div><strong>Home completo</strong><p>Hero, barra de iconos, pagos, programas ambientales, trámites, noticias dinámicas con categorías, cifras, entidades de interés, certificaciones ICONTEC/IQNet, y un widget para consultar una PQRS anónima sin salir del Home.</p></div></div>
-        <div class="check-item"><div class="punto">✓</div><div><strong>Panel de usuario con login real</strong><p>3 roles con navegación diferenciada (ver sección 1), flujo de vínculo Propietario ↔ Arrendatario con aprobación, PQRS y trámites ligados a cada usuario — listo para conectar a Integra.</p></div></div>
+        <div class="check-item"><div class="punto">✓</div><div><strong>Panel de usuario con login real</strong><p>4 roles con navegación diferenciada, todos por el mismo formulario en <code>/login/</code> (ver sección 1), flujo de vínculo Propietario ↔ Arrendatario con aprobación, PQRS y trámites ligados a cada usuario — listo para conectar a Integra.</p></div></div>
         <div class="check-item"><div class="punto">✓</div><div><strong>PQRS pública, sin necesidad de cuenta</strong><p>Nuevo enfoque legal: cualquier persona radica y consulta su PQRS de forma anónima desde <code>/pqrs/</code> o desde el widget del Home, sin necesidad de panel — corregido un bug crítico donde el PQRS anónimo perdía su anonimato al ser editado por Comercial.</p></div></div>
-        <div class="check-item"><div class="punto">✓</div><div><strong>Panel Comercial dedicado</strong><p>Rol propio de WordPress que al iniciar sesión va directo a un panel de gestión de PQRS y trámites (no al escritorio genérico de WordPress), con adjunto de respuesta en PDF y exportación de reportes en CSV.</p></div></div>
+        <div class="check-item"><div class="punto">✓</div><div><strong>Panel Comercial rediseñado <span class="badge-nuevo">nuevo</span></strong><p>Rediseño completo del rol Comercial: ya no entra por <code>/wp-admin/</code> — inicia sesión por el mismo formulario que los ciudadanos y su panel tiene el mismo diseño que Propietario/Arrendatario, con sus propias funciones (PQRS y trámites con adjunto PDF y exportación CSV). Sin acceso a WordPress en absoluto.</p></div></div>
+        <div class="check-item"><div class="punto">✓</div><div><strong>Validación de propietario, con aprobación de Comercial <span class="badge-nuevo">nuevo</span></strong><p>Un "Usuario sin validar" ahora puede iniciar su validación como propietario desde Perfil (antes era un botón sin funcionalidad). Comercial revisa la solicitud como un trámite más y, al aprobarla, el sistema asciende el rol de la cuenta a Propietario automáticamente.</p></div></div>
+        <div class="check-item"><div class="punto">✓</div><div><strong>Gestión de usuarios desde el panel Comercial <span class="badge-nuevo">nuevo</span></strong><p>Comercial puede ver todas las cuentas ciudadanas del portal y corregir un rol a mano — por ejemplo, quitarle "Propietario" a una cuenta validada por error, sin depender solo del flujo de aprobación.</p></div></div>
         <div class="check-item"><div class="punto">✓</div><div><strong>Encuesta de satisfacción propia</strong><p>Reemplaza el formulario de Google: formulario público + reporte administrativo con estadísticas (promedio, distribución por estrellas, por servicio).</p></div></div>
         <div class="check-item"><div class="punto">✓</div><div><strong>Transparencia — 15 secciones ITA completas</strong><p>El mega-menú prometía 13 secciones (Resolución 1519/2020 MinTIC) pero 4 no existían como contenido en la página (anclas muertas) — 2 de ellas ni siquiera existían en el sitio actual. Se completaron todas con contenido real: grupos de interés, obligación de reporte (preguntas frecuentes, glosario, código de integridad, cartilla PGIRS), información tributaria y condiciones de seguridad digital.</p></div></div>
         <div class="check-item"><div class="punto">✓</div><div><strong>Contratación</strong><p>Manual de Contratación 2022, Plan Anual de Adquisiciones 2026, bases de procesos contractuales 2020-2026, y enlaces directos a SECOP I y SECOP II.</p></div></div>
@@ -274,6 +277,22 @@
       <div class="caja-bug">
         <strong>Tarifas era una página huérfana</strong>
         <p>Existía con contenido pero ningún menú del sitio enlazaba a ella. Corregido agregándola al footer.</p>
+      </div>
+      <div class="caja-bug">
+        <strong>Fuga de datos: un Arrendatario pendiente veía la factura del Propietario</strong>
+        <p>Auditando cada rol en detalle: si el vínculo de un arrendatario con una cuenta aún no había sido aprobado por el propietario, igual veía el valor real de la factura, el consumo y el historial de pagos en 6 páginas del panel (solo "Mis cuentas" validaba el estado del vínculo). Corregido con una regla de acceso centralizada aplicada en las 6 páginas y verificado con datos reales.</p>
+      </div>
+      <div class="caja-bug">
+        <strong>Selector de medio de pago con iconos gigantes</strong>
+        <p>En "Pagar factura" los iconos de PSE / tarjeta / PayPal no tenían ningún estilo (~970px, ocupando toda la pantalla) y solo PSE se podía seleccionar. Corregido con el estilo completo y clic para seleccionar cualquier medio de pago.</p>
+      </div>
+      <div class="caja-bug">
+        <strong>Trámites en línea con mensaje equivocado para cuentas sin vínculo</strong>
+        <p>Un "Usuario sin validar" sin ninguna cuenta vinculada veía el mensaje y las tarjetas pensadas para un arrendatario, como si tuviera una cuenta que gestionar. Corregido con un mensaje propio para quien todavía no tiene ninguna cuenta vinculada y aprobada.</p>
+      </div>
+      <div class="caja-bug">
+        <strong>Gráfico de estrellas de la encuesta se partía en dos líneas</strong>
+        <p>En "Distribución de calificaciones" la fila de 5 estrellas se envolvía (4 estrellas en una línea, la 5ª en la siguiente). Corregido con el ancho y el <code>white-space</code> correctos.</p>
       </div>
     </div>
 
