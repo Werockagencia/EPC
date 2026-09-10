@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Guía de uso — Entrega EPC Cajicá · We Rock</title>
+<title>Entrega EPC Cajicá — Guía de exposición · We Rock</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -41,6 +41,28 @@
   .paso code{background:var(--gris-claro);padding:2px 8px;border-radius:6px;font-family:"Courier New",monospace;font-size:12px;color:var(--azul-oscuro)}
   .caja-nota{background:#fff7ed;border:1px solid #fbd9a8;border-radius:var(--radio-s);padding:18px 22px;font-size:13.5px;color:#7a4a12;line-height:1.6}
   @media(max-width:900px){.roles-grid{grid-template-columns:1fr}}
+
+  .stats-resumen{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:8px}
+  .stat-resumen{background:var(--blanco);border:1px solid var(--gris-borde);border-radius:var(--radio-m);padding:20px;text-align:center;box-shadow:var(--sombra)}
+  .stat-resumen .num{font-family:var(--fuente-titulo);font-weight:800;font-size:28px;color:var(--azul)}
+  .stat-resumen .txt{font-size:12px;color:var(--gris-texto);margin-top:4px;line-height:1.4}
+  @media(max-width:700px){.stats-resumen{grid-template-columns:1fr 1fr}}
+
+  .paginas-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+  .pagina-chip{display:flex;align-items:center;gap:10px;background:var(--blanco);border:1px solid var(--gris-borde);border-radius:var(--radio-s);padding:12px 14px;font-size:13px;color:var(--azul-oscuro)}
+  .pagina-chip .punto{width:8px;height:8px;border-radius:50%;background:var(--verde);flex-shrink:0}
+  .pagina-chip code{font-size:11px;color:var(--gris-texto);font-family:"Courier New",monospace}
+  @media(max-width:700px){.paginas-grid{grid-template-columns:1fr}}
+
+  .caja-decision{background:#fff7ed;border:1px solid #fbd9a8;border-radius:var(--radio-m);padding:18px 20px;margin-bottom:14px}
+  .caja-decision strong{color:#7a4a12;font-size:14px;display:block;margin-bottom:5px}
+  .caja-decision p{font-size:13px;color:#7a4a12;line-height:1.6;margin:0}
+
+  .caja-bug{background:#fdeeee;border:1px solid #f3c6c6;border-radius:var(--radio-m);padding:18px 20px;margin-bottom:14px}
+  .caja-bug strong{color:#8a2424;font-size:14px;display:block;margin-bottom:5px}
+  .caja-bug p{font-size:13px;color:#8a2424;line-height:1.6;margin:0}
+
+  .badge-nuevo{display:inline-block;background:var(--verde);color:var(--blanco);font-size:10px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;padding:3px 9px;border-radius:var(--radio-full);margin-left:8px;vertical-align:middle}
 </style>
 </head>
 <body>
@@ -66,15 +88,26 @@
   <div class="contenedor pagina-hero-wrap">
     <div class="pagina-hero-texto">
       <div class="migas-pub"><a href="index.html">Inicio</a> / Guía de uso</div>
-      <div class="badge-red">Entrega We Rock · Sesión 2026-09-03</div>
-      <h1>Guía de uso — Panel de usuario.</h1>
-      <p class="lead">Credenciales de prueba y resumen de lo construido hoy para el desarrollo WordPress de la EPC. Este contenido es interno, para la sesión de revisión del equipo — no forma parte del sitio público.</p>
+      <div class="badge-red">Entrega We Rock · Actualizado 2026-09-10</div>
+      <h1>Entrega EPC Cajicá — Guía de exposición.</h1>
+      <p class="lead">Resumen completo de todo lo construido en WordPress para la EPC, credenciales de prueba y los puntos que faltan por decidir con el cliente. Este contenido es interno, para la sesión de exposición del equipo — no forma parte del sitio público.</p>
     </div>
   </div>
 </section>
 
 <section class="seccion">
   <div class="guia-wrap">
+
+    <div class="guia-seccion">
+      <h2>0. Resumen ejecutivo</h2>
+      <p>El sitio completo de la EPC está migrado a WordPress sobre un entorno local (WordPress + SQLite, sin MySQL). El contenido del sitio actual se está trasladando página a página sin perder texto ni documentos, con un diseño renovado respecto al sitio actual y respecto al wireframe original. El desarrollo del Panel de Usuario está funcionalmente listo — solo falta conectar la API de Integra cuando el proveedor la entregue.</p>
+      <div class="stats-resumen">
+        <div class="stat-resumen"><div class="num">30+</div><div class="txt">páginas construidas con contenido real</div></div>
+        <div class="stat-resumen"><div class="num">15</div><div class="txt">secciones ITA de Transparencia (Res. 1519/2020 MinTIC)</div></div>
+        <div class="stat-resumen"><div class="num">5</div><div class="txt">roles de WordPress a la medida (ciudadanos + personal EPC)</div></div>
+        <div class="stat-resumen"><div class="num">145</div><div class="txt">avisos de cobro prejurídico, ahora con buscador</div></div>
+      </div>
+    </div>
 
     <div class="guia-seccion">
       <h2>1. Roles de usuario del panel</h2>
@@ -170,14 +203,94 @@
     </div>
 
     <div class="guia-seccion">
-      <h2>3. Qué quedó listo hoy</h2>
+      <h2>3. Qué quedó listo</h2>
       <div class="check-list">
         <div class="check-item"><div class="punto">✓</div><div><strong>Entorno WordPress local</strong><p>WordPress + SQLite, sin MySQL, tema de bloques propio con la paleta y tipografía del manual de marca.</p></div></div>
         <div class="check-item"><div class="punto">✓</div><div><strong>Header y footer completos</strong><p>Barra GOV.CO, los 3 menús que Procuraduría siempre revisa (Atención y servicio a la ciudadanía, Transparencia con mega-menú de 13 secciones ITA, Participa), footer con contacto real y enlace al sitio anterior.</p></div></div>
-        <div class="check-item"><div class="punto">✓</div><div><strong>Home completo</strong><p>Hero, barra de iconos, pagos, programas ambientales, trámites, noticias dinámicas con categorías, cifras, entidades de interés.</p></div></div>
-        <div class="check-item"><div class="punto">✓</div><div><strong>Panel de usuario con login real</strong><p>3 roles con navegación diferenciada (ver sección 1), PQRS y trámites que notifican por correo al equipo comercial — listo para conectar a Integra.</p></div></div>
-        <div class="check-item pendiente"><div class="punto">→</div><div><strong>Pendiente: contenido de las demás páginas</strong><p>Atención al ciudadano (portafolio de 24 trámites ya transcrito), Transparencia (13 secciones ITA), Financiera, 8 páginas de Dirección, Noticias con filtro, EPC Kids, accesibilidad final y redirects 301 desde las URLs del sitio actual.</p></div></div>
+        <div class="check-item"><div class="punto">✓</div><div><strong>Home completo</strong><p>Hero, barra de iconos, pagos, programas ambientales, trámites, noticias dinámicas con categorías, cifras, entidades de interés, certificaciones ICONTEC/IQNet, y un widget para consultar una PQRS anónima sin salir del Home.</p></div></div>
+        <div class="check-item"><div class="punto">✓</div><div><strong>Panel de usuario con login real</strong><p>3 roles con navegación diferenciada (ver sección 1), flujo de vínculo Propietario ↔ Arrendatario con aprobación, PQRS y trámites ligados a cada usuario — listo para conectar a Integra.</p></div></div>
+        <div class="check-item"><div class="punto">✓</div><div><strong>PQRS pública, sin necesidad de cuenta</strong><p>Nuevo enfoque legal: cualquier persona radica y consulta su PQRS de forma anónima desde <code>/pqrs/</code> o desde el widget del Home, sin necesidad de panel — corregido un bug crítico donde el PQRS anónimo perdía su anonimato al ser editado por Comercial.</p></div></div>
+        <div class="check-item"><div class="punto">✓</div><div><strong>Panel Comercial dedicado</strong><p>Rol propio de WordPress que al iniciar sesión va directo a un panel de gestión de PQRS y trámites (no al escritorio genérico de WordPress), con adjunto de respuesta en PDF y exportación de reportes en CSV.</p></div></div>
+        <div class="check-item"><div class="punto">✓</div><div><strong>Encuesta de satisfacción propia</strong><p>Reemplaza el formulario de Google: formulario público + reporte administrativo con estadísticas (promedio, distribución por estrellas, por servicio).</p></div></div>
+        <div class="check-item"><div class="punto">✓</div><div><strong>Transparencia — 15 secciones ITA completas</strong><p>El mega-menú prometía 13 secciones (Resolución 1519/2020 MinTIC) pero 4 no existían como contenido en la página (anclas muertas) — 2 de ellas ni siquiera existían en el sitio actual. Se completaron todas con contenido real: grupos de interés, obligación de reporte (preguntas frecuentes, glosario, código de integridad, cartilla PGIRS), información tributaria y condiciones de seguridad digital.</p></div></div>
+        <div class="check-item"><div class="punto">✓</div><div><strong>Contratación</strong><p>Manual de Contratación 2022, Plan Anual de Adquisiciones 2026, bases de procesos contractuales 2020-2026, y enlaces directos a SECOP I y SECOP II.</p></div></div>
+        <div class="check-item"><div class="punto">✓</div><div><strong>Publicaciones <span class="badge-nuevo">nuevo</span></strong><p>El sitio actual publica ~145 avisos de cobro prejurídico como lista plana sin buscador. Se migró el contenido completo con un buscador por número de cuenta interna.</p></div></div>
+        <div class="check-item"><div class="punto">✓</div><div><strong>Tarifas</strong><p>Página huérfana (sin enlace de navegación en ningún menú) — corregida y enlazada desde el footer, con archivo histórico de 13 períodos de tarifas agregado.</p></div></div>
+        <div class="check-item"><div class="punto">✓</div><div><strong>Edictos y Notificaciones judiciales</strong><p>Sección Edictos completada con el marco legal real (Ley 1952/2019, Código General Disciplinario) y el expediente disciplinario 008-2024 completo (6 documentos).</p></div></div>
+        <div class="check-item"><div class="punto">✓</div><div><strong>EPC Kids</strong><p>De 8 experiencias, 2 ya no son "Próximamente": la Cartilla artes del PGIRS (PDF descargable) y el EPC Jingle (2 canciones reales incrustadas).</p></div></div>
+        <div class="check-item"><div class="punto">✓</div><div><strong>Diseño renovado con foto real</strong><p>13 páginas que se construyeron con un hero genérico ahora tienen foto + degradado de marca, igualando el nivel visual de las páginas del wireframe original.</p></div></div>
+        <div class="check-item"><div class="punto">✓</div><div><strong>Páginas institucionales completas</strong><p>Empresa (valores, política de calidad, principios éticos, línea de tiempo de 27 años de historia), Gerencia, las Direcciones de Acueducto/Aseo/Alcantarillado/Administrativa/Comercial/Financiera, Atención al ciudadano, Portafolio de servicios, Contrato de Condiciones Uniformes, Participa, Trámites en línea, Cómo leer tu factura, Caza infractores, Noticias con posts nativos de WordPress.</p></div></div>
         <div class="check-item pendiente"><div class="punto">→</div><div><strong>Pendiente: integración con Integra</strong><p>Login, facturas, consumo y pagos están con datos de ejemplo — la especificación de API ya se envió al equipo de Integra, el sitio queda listo para el swap en cuanto respondan.</p></div></div>
+        <div class="check-item pendiente"><div class="punto">→</div><div><strong>Pendiente: publicar el sitio en internet</strong><p>Hoy corre en el computador local — el siguiente paso es el despliegue a Hostinger siguiendo el proceso ya estandarizado con otros proyectos.</p></div></div>
+      </div>
+    </div>
+
+    <div class="guia-seccion">
+      <h2>4. Páginas con contenido migrado</h2>
+      <p>Además del Home y el Panel de usuario, estas páginas ya tienen contenido real (no placeholder), verificado contra el sitio actual.</p>
+      <div class="paginas-grid">
+        <div class="pagina-chip"><span class="punto"></span>Empresa <code>/empresa/</code></div>
+        <div class="pagina-chip"><span class="punto"></span>Gerencia <code>/empresa/gerencia/</code></div>
+        <div class="pagina-chip"><span class="punto"></span>Dirección de Acueducto <code>/servicios/direccion-acueducto/</code></div>
+        <div class="pagina-chip"><span class="punto"></span>Dirección de Aseo <code>/servicios/direccion-aseo/</code></div>
+        <div class="pagina-chip"><span class="punto"></span>Dirección de Alcantarillado <code>/servicios/direccion-alcantarillado/</code></div>
+        <div class="pagina-chip"><span class="punto"></span>Dirección Administrativa <code>/empresa/direccion-administrativa/</code></div>
+        <div class="pagina-chip"><span class="punto"></span>Dirección Comercial <code>/empresa/direccion-comercial/</code></div>
+        <div class="pagina-chip"><span class="punto"></span>Dirección Financiera <code>/servicios/direccion-financiera/</code></div>
+        <div class="pagina-chip"><span class="punto"></span>Contratación <code>/contratacion/</code></div>
+        <div class="pagina-chip"><span class="punto"></span>Transparencia — 15 secciones ITA <code>/transparencia/</code></div>
+        <div class="pagina-chip"><span class="punto"></span>Financiera (Transparencia) <code>/transparencia/financiera/</code></div>
+        <div class="pagina-chip"><span class="punto"></span>Atención al ciudadano <code>/atencion/</code></div>
+        <div class="pagina-chip"><span class="punto"></span>Portafolio de servicios <code>/atencion/portafolio-servicios/</code></div>
+        <div class="pagina-chip"><span class="punto"></span>Trámites en línea <code>/atencion/tramites-en-linea/</code></div>
+        <div class="pagina-chip"><span class="punto"></span>Cómo leer tu factura <code>/atencion/como-leer-tu-factura/</code></div>
+        <div class="pagina-chip"><span class="punto"></span>Contrato de Condiciones Uniformes <code>/atencion/contrato-condiciones-uniformes/</code></div>
+        <div class="pagina-chip"><span class="punto"></span>Participa <code>/participa/</code></div>
+        <div class="pagina-chip"><span class="punto"></span>Caza infractores <code>/servicios/caza-infractores/</code></div>
+        <div class="pagina-chip"><span class="punto"></span>EPC Kids <code>/servicios/epc-kids/</code></div>
+        <div class="pagina-chip"><span class="punto"></span>Tarifas y costos de conexión <code>/servicios/tarifas/</code></div>
+        <div class="pagina-chip"><span class="punto"></span>Publicaciones (buscador) <code>/publicaciones/</code></div>
+        <div class="pagina-chip"><span class="punto"></span>Edictos y notificaciones <code>/edictos-notificaciones/</code></div>
+        <div class="pagina-chip"><span class="punto"></span>Noticias (posts nativos) <code>/noticias/</code></div>
+        <div class="pagina-chip"><span class="punto"></span>Encuesta de satisfacción <code>/encuesta-satisfaccion/</code></div>
+      </div>
+    </div>
+
+    <div class="guia-seccion">
+      <h2>5. Bugs encontrados y corregidos</h2>
+      <p>Del proceso de auditoría visual y de contenido contra el sitio actual y el wireframe aprobado.</p>
+      <div class="caja-bug">
+        <strong>PQRS anónima perdía su anonimato al editarla</strong>
+        <p>WordPress reasignaba automáticamente el autor al editor que la revisaba, exponiendo quién la radicó. Corregido con una regla que fuerza el anonimato cada vez que se guarda.</p>
+      </div>
+      <div class="caja-bug">
+        <strong>5 páginas con iconos y grillas rotas</strong>
+        <p>5 páginas del wireframe tenían estilos propios que nunca se copiaron al sitio nuevo — los iconos se veían gigantes y las grillas colapsaban a una columna. Corregido migrando esos estilos.</p>
+      </div>
+      <div class="caja-bug">
+        <strong>Enlaces permanentes de Noticias rotos</strong>
+        <p>Un error de configuración (arrastrado por semanas) hacía que todas las noticias apuntaran a la misma URL. Corregido y verificado.</p>
+      </div>
+      <div class="caja-bug">
+        <strong>Tarifas era una página huérfana</strong>
+        <p>Existía con contenido pero ningún menú del sitio enlazaba a ella. Corregido agregándola al footer.</p>
+      </div>
+    </div>
+
+    <div class="guia-seccion">
+      <h2>6. Para decidir con el cliente</h2>
+      <p>Puntos donde deliberadamente no se publicó información por tratarse de datos personales, hasta tener confirmación explícita.</p>
+      <div class="caja-decision">
+        <strong>Directorios de personal por Dirección</strong>
+        <p>El sitio actual publica nombres y cargos del equipo de cada Dirección (Acueducto, Aseo, Alcantarillado, etc.). Se omitió deliberadamente en el sitio nuevo hasta que el cliente confirme si se publica igual.</p>
+      </div>
+      <div class="caja-decision">
+        <strong>Cartas de notificación por aviso con datos de residentes</strong>
+        <p>El sitio actual publica en "Notificaciones judiciales" algunas cartas que incluyen nombres de residentes, conjuntos residenciales y direcciones de predios específicos (ej. cambios de estrato). Se dejó una nota en la página en vez de publicarlas sin autorización.</p>
+      </div>
+      <div class="caja-decision">
+        <strong>EPC Kids — 6 de 8 experiencias siguen "Próximamente"</strong>
+        <p>Amigos del agua, GLUGLÚ, Trivia de Cajicá, Juguemos seleccionando residuos, Tips ahorro agua y Consejos del agua son juegos/trivias interactivos en el sitio actual (con un plugin de juegos HTML5 propio) — falta decidir si se desarrollan a la medida o se buscan alternativas.</p>
       </div>
     </div>
 
@@ -187,7 +300,7 @@
 <footer class="pie">
   <div class="contenedor">
     <div class="pie-inferior">
-      <span>Guía interna de entrega — We Rock Agencia · Proyecto EPC Cajicá · 2026-09-03</span>
+      <span>Guía interna de entrega — We Rock Agencia · Proyecto EPC Cajicá · actualizado 2026-09-10</span>
       <div class="enlaces"><a href="index.html">Volver al wireframe</a><a href="mapa-sitio.html">Mapa del sitio</a></div>
     </div>
   </div>
