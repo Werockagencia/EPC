@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Documentación técnica — Portal EPC Cajicá · We Rock</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--azul:#2484c6;--azul-o:#043956;--verde:#6ba82c;--verde-o:#0d6b58;--naranja:#ef923b;--gris:#5b6b76;--linea:#dfe8ee;--fondo:#f4f8fa}
+*{box-sizing:border-box}body{margin:0;font-family:Manrope,system-ui,sans-serif;color:#1d2f3a;line-height:1.65;background:#fff}
+h1,h2,h3{font-family:Poppins,Manrope,sans-serif;color:var(--azul-o);line-height:1.2}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+header{background:linear-gradient(120deg,var(--azul-o),var(--azul) 60%,var(--verde-o));color:#fff;padding:44px 0 38px}
+header h1{color:#fff;font-size:clamp(24px,4vw,36px);margin:10px 0 8px}header p{opacity:.92;max-width:720px;margin:0}
+.chip{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);padding:5px 14px;border-radius:30px;font-size:13px;font-weight:600;margin-right:8px}
+nav.toc{background:var(--fondo);border:1px solid var(--linea);border-radius:14px;padding:18px 22px;margin:28px 0}
+nav.toc ol{columns:2;margin:6px 0 0;padding-left:20px}nav.toc a{color:var(--azul);text-decoration:none;font-weight:600}
+section{padding:26px 0;border-top:1px solid var(--linea)}h2{font-size:23px;margin:0 0 10px}h3{font-size:17px;margin:18px 0 6px}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}th{background:var(--azul-o);color:#fff;text-align:left;padding:9px 12px}td{padding:9px 12px;border-top:1px solid var(--linea);vertical-align:top}
+code,pre{font-family:ui-monospace,Consolas,monospace;font-size:13px;background:#eef4f8;border-radius:6px}code{padding:1px 6px}pre{padding:14px 16px;overflow:auto}
+.nota{border-left:5px solid var(--naranja);background:#fdf3e8;padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0}
+.ok{border-left-color:var(--verde);background:#f1f8ea}
+footer{padding:26px 0;color:var(--gris);font-size:13px;border-top:1px solid var(--linea)}
+@media(max-width:700px){nav.toc ol{columns:1}table{font-size:13px}}
+</style></head><body>
+<header><div class="wrap"><span class="chip">Versión 1.0 · 15 de octubre de 2026</span><span class="chip">Contrato CPS-120-2026 · obligaciones 25 y 26</span>
+<h1>Documentación técnica del ecosistema digital de EPC Cajicá</h1>
+<p>Arquitectura, entornos, estructura del código, roles, integraciones, despliegue, respaldo y recuperación. No contiene contraseñas ni claves: esas se entregan por canal seguro en el acta de cierre.</p></div></header>
+<div class="wrap">
+<nav class="toc"><b>Contenido</b><ol>
+<li><a href="#arq">Arquitectura</a></li><li><a href="#ent">Entornos</a></li><li><a href="#tema">Estructura del tema</a></li><li><a href="#edit">Contenido editable</a></li>
+<li><a href="#roles">Roles y permisos</a></li><li><a href="#integ">Integraciones</a></li><li><a href="#lic">Inventario y licencias</a></li><li><a href="#desp">Despliegue</a></li>
+<li><a href="#resp">Respaldo y recuperación</a></li><li><a href="#seg">Seguridad y accesos</a></li><li><a href="#mant">Mantenimiento y soporte</a></li><li><a href="#pend">Pendientes técnicos</a></li></ol></nav>
+
+<section id="arq"><h2>1. Arquitectura</h2>
+<table><tr><th>Capa</th><th>Tecnología</th></tr>
+<tr><td>CMS</td><td>WordPress 7.1.3 (PHP 8.3 en producción de pruebas; PHP 8.2 en desarrollo local)</td></tr>
+<tr><td>Tema</td><td><code>epc-cajica</code> 0.1.0, tema de bloques propio (sin constructores visuales ni plugins de maquetación)</td></tr>
+<tr><td>Hosting</td><td>Hostinger (Business Web Hosting), servidor LiteSpeed con LiteSpeed Cache y SSL</td></tr>
+<tr><td>Base de datos</td><td>MySQL/MariaDB del hosting (en desarrollo local: SQLite)</td></tr>
+<tr><td>Asistente virtual</td><td>HalconBot (WhatsApp Business Cloud API) — cuenta "EPC Cajicá", bot EPCIA</td></tr>
+<tr><td>Portal del Ciudadano</td><td>Módulos del tema: login y registro, panel por rol, PQRS, trámites, encuesta, PWA</td></tr>
+<tr><td>Integración ERP</td><td>Integra — pendiente de respuesta (ver sección 6)</td></tr></table>
+<p>El Portal es una <b>Progressive Web App</b>: <code>/manifest.webmanifest</code> (instalable, iconos, accesos directos a pagar factura, PQRS y Transparencia) y <code>/sw.js</code> (service worker con caché de archivos estáticos y página sin conexión). Nunca guarda en caché login, panel ni wp-admin.</p></section>
+
+<section id="ent"><h2>2. Entornos</h2>
+<table><tr><th>Entorno</th><th>Dónde</th><th>Uso</th></tr>
+<tr><td>Desarrollo</td><td>Equipo local de We Rock (WordPress + SQLite, <code>http://localhost:8890</code>)</td><td>Construcción y pruebas de cada cambio</td></tr>
+<tr><td>Pruebas (staging)</td><td><a href="https://staging.epccajica.com">staging.epccajica.com</a> en Hostinger</td><td>Revisión de EPC y pruebas previas a producción</td></tr>
+<tr><td>Producción</td><td>Por definir (dominio institucional)</td><td>Se activa con la salida al aire; el dominio está inscrito en un proveedor distinto de Hostinger, por lo que el cambio se hace en sus DNS</td></tr></table></section>
+
+<section id="tema"><h2>3. Estructura del tema</h2>
+<pre>wp-content/themes/epc-cajica/
+├─ functions.php          carga de módulos
+├─ theme.json             paleta, tipografías y ajustes de bloques
+├─ templates/ parts/      plantillas de bloques, encabezado y pie de página
+├─ page-templates/        plantillas del panel del ciudadano (panel-*.php, login, PQRS…)
+├─ assets/ css/ js/ images/   estilos, scripts (site.js, header.js, panel.js) e imágenes
+└─ inc/
+   ├─ paginas/*.php       campos editables por página (textos, fotos, listas)
+   ├─ *-render.php        pintan cada página a partir de esos campos
+   ├─ transparencia-*.php 13 numerales, 22 subpáginas y listas de documentos
+   ├─ roles.php, auth.php, cuentas.php, validacion-propietario.php   roles y portal
+   ├─ pqrs-tramites.php, comercial-panel.php, encuesta.php           PQRS, trámites, panel Comercial
+   ├─ pwa.php             manifest y service worker
+   └─ migraciones.php     cambios de contenido de una sola vez, automáticos al desplegar</pre>
+<p>Los archivos subidos (documentos, fotos, videos de lengua de señas) viven en <code>wp-content/uploads/</code>; los 513 documentos de Transparencia están en <code>uploads/transparencia/</code>.</p></section>
+
+<section id="edit"><h2>4. Contenido editable</h2>
+<p>Cada página tiene un panel <b>"Contenido editable"</b> en su pantalla de edición (Páginas → editar). Allí se cambian textos, fotos, cifras y listas sin tocar código. Tipos de campo: texto, texto largo, imagen, HTML, repetidor (listas de tarjetas, preguntas, integrantes) y lista de documentos (<code>Título | enlace</code>, <code>## Subtítulo</code> para grupos). Si un campo se deja vacío o nunca se guardó, se muestra el valor por defecto definido en <code>inc/paginas/&lt;página&gt;.php</code>.</p></section>
+
+<section id="roles"><h2>5. Roles y permisos</h2>
+<table><tr><th>Rol</th><th>Quién</th><th>Puede</th></tr>
+<tr><td>Administrador</td><td>Equipo de Informática / We Rock</td><td>Todo el sitio: páginas, usuarios, tema, plugins y configuración</td></tr>
+<tr><td>Informática y Comunicaciones</td><td>Personal EPC</td><td>Editar páginas, entradas y medios (permisos del rol "Editor")</td></tr>
+<tr><td>Personal EPC (Comercial)</td><td>Atención al usuario</td><td>Panel Comercial en <code>/panel/comercial/</code>: PQRS y trámites (con adjunto PDF y exportación CSV), validación de propietarios y gestión de usuarios ciudadanos. Sin acceso a wp-admin</td></tr>
+<tr><td>Propietario</td><td>Titular validado del predio</td><td>Facturas, consumo, pagos, PQRS y trámites; único rol con acuerdos de pago y cambio de suscriptor</td></tr>
+<tr><td>Arrendatario</td><td>Asociado a una cuenta, no titular</td><td>Facturas, consumo y pagos; asociar medidor y pago automático. Sin acuerdo de pago ni cambio de suscriptor</td></tr>
+<tr><td>Usuario EPC (sin validar)</td><td>Cuenta recién creada</td><td>Panel básico y vincular su primera cuenta; puede iniciar la validación como propietario</td></tr></table>
+<p>La PQRS pública no requiere cuenta (también anónima, con consulta por número de radicado).</p></section>
+
+<section id="integ"><h2>6. Integraciones</h2>
+<table><tr><th>Sistema</th><th>Estado</th><th>Detalle</th></tr>
+<tr><td>HalconBot / WhatsApp</td><td>Activo, línea provisional</td><td>Botones y chat flotante del sitio usan <code>wa.me/573132435980</code>. El bot EPCIA responde con más de 60 instrucciones y 19 segmentos. Cuando EPC defina la línea definitiva se cambia en HalconBot y en el sitio</td></tr>
+<tr><td>Integra (ERP)</td><td>Pendiente de respuesta</td><td>La especificación de API (autenticación, perfil, cuentas, facturación, consumo, pagos, PQRS, trámites) se envió al Ing. Óscar. Hasta que responda, el panel usa datos de demostración (<code>inc/cuentas.php</code>). La conexión consiste en reemplazar ese modelo de datos por llamadas a la API; las plantillas del panel no cambian</td></tr>
+<tr><td>Pasarela de pagos</td><td>Por definir</td><td>La pantalla de pago está construida; se conecta cuando EPC e Integra definan el proveedor. Mientras tanto el sitio oficial usa su medio de pago actual</td></tr>
+<tr><td>Google (Analytics, Search Console, Tag Manager)</td><td>Se configura al salir al aire</td><td>Sitemap (<code>/wp-sitemap.xml</code>) y robots listos</td></tr></table></section>
+
+<section id="lic"><h2>7. Inventario y licencias</h2>
+<table><tr><th>Componente</th><th>Versión</th><th>Licencia / titular</th></tr>
+<tr><td>WordPress</td><td>7.1.3</td><td>GPL</td></tr>
+<tr><td>Tema epc-cajica</td><td>0.1.0</td><td>Desarrollo a la medida para EPC (propiedad según la cláusula de propiedad intelectual del contrato)</td></tr>
+<tr><td>LiteSpeed Cache</td><td>7.9.1</td><td>GPL</td></tr>
+<tr><td>WordPress Importer</td><td>0.9.6</td><td>GPL — solo para migrar contenido; se desactiva al salir al aire</td></tr>
+<tr><td>Hostinger Tools, Easy Onboarding, AI y Reach</td><td>3.0.77 · 3.0.0 · 3.0.55 · 1.8.5</td><td>Plugins de gestión del hosting (Hostinger). Hay actualizaciones disponibles</td></tr>
+<tr><td>Tipografías Manrope y Poppins</td><td>—</td><td>Google Fonts, licencia abierta (OFL)</td></tr>
+<tr><td>Hosting y dominio</td><td>Plan Business activo</td><td>Contratación a nombre de EPC / We Rock según acta de cierre</td></tr></table></section>
+
+<section id="desp"><h2>8. Despliegue</h2>
+<ol>
+<li>Probar el cambio en local (<code>http://localhost:8890</code>) y revisar enlaces.</li>
+<li>Empaquetar solo los archivos cambiados en un <b>.zip</b> (generado con PHP <code>ZipArchive</code>, no con el compresor de Windows) respetando las rutas del tema.</li>
+<li>hPanel → Archivos → Administrador de archivos → subir el zip a <code>public_html/wp-content/themes/epc-cajica/</code> → clic derecho → Extract (carpeta "."; marcar sobrescribir) → borrar el zip.</li>
+<li>hPanel → Tablero → <b>Limpiar caché</b>.</li>
+<li>Abrir cualquier página una vez: <code>inc/migraciones.php</code> aplica los cambios de contenido pendientes (se registran en opciones de WordPress y no se repiten).</li>
+<li>Verificar: páginas principales con respuesta 200 y revisión de enlaces rotos.</li></ol>
+<div class="nota">Evitar subir muchos archivos sueltos por FTP: el hosting bloquea la IP por ráfagas de conexiones. Para archivos grandes (documentos), usar un zip o un script temporal protegido que se borra solo.</div></section>
+
+<section id="resp"><h2>9. Respaldo y recuperación</h2>
+<h3>Copias existentes</h3>
+<ul><li><b>Hosting:</b> copias automáticas <b>diarias</b> de archivos y base de datos (última verificada: 14 de octubre de 2026) y copias manuales cada 24 horas desde hPanel → Archivos → Copias de seguridad.</li>
+<li><b>Código:</b> el tema está versionado en GitHub (<code>Werockagencia/epc-cajica-theme</code>).</li>
+<li><b>Contenido y documentos:</b> insumos organizados en el repositorio del proyecto (diagnóstico, requerimientos, fotos, documentos y paquetes de despliegue).</li></ul>
+<h3>Antes de un cambio importante</h3>
+<p>hPanel → Copias de seguridad → <b>Crear respaldo</b> (manual) y esperar a que figure como completado.</p>
+<h3>Procedimiento de recuperación</h3>
+<ol>
+<li><b>Fallo del tema o de una actualización:</b> restaurar solo archivos desde hPanel → Copias de seguridad → "Restaurar y descargar" → archivos (carpeta <code>wp-content/themes/epc-cajica</code>), o volver a extraer el último zip de despliegue.</li>
+<li><b>Fallo de contenido:</b> restaurar la base de datos desde la misma pantalla eligiendo la fecha anterior al incidente.</li>
+<li><b>Sitio caído por completo:</b> restaurar la copia completa (archivos y base de datos) más reciente y limpiar caché.</li>
+<li>Verificar: inicio, Transparencia, login, una PQRS de prueba y el asistente en WhatsApp.</li></ol>
+<div class="nota ok"><b>Objetivos:</b> incidentes críticos atendidos en 4 horas hábiles, con solución o plan de contingencia en las 24 horas siguientes (contrato). Restauración desde copia diaria: pérdida máxima de 24 horas de cambios.</div>
+<div class="nota"><b>Pendiente:</b> realizar una restauración de prueba en staging y dejar registro de fecha y resultado.</div></section>
+
+<section id="seg"><h2>10. Seguridad y accesos</h2>
+<ul><li>SSL activo; contraseñas gestionadas por WordPress (hash); acceso al panel solo con sesión y por rol; PQRS anónima con anonimato forzado.</li>
+<li>El panel Comercial no da acceso a wp-admin; el administrador es el único rol que gestiona páginas, tema, plugins y usuarios del sitio.</li>
+<li><b>Recomendado antes de salir al aire:</b> contraseñas largas únicas para administradores, segundo factor de autenticación y revisar la lista de administradores.</li></ul>
+<h3>Matriz de accesos (sin credenciales)</h3>
+<table><tr><th>Servicio</th><th>Titular / responsable</th><th>Dónde se custodia</th></tr>
+<tr><td>Hostinger (hPanel, administrador de archivos, FTP)</td><td>We Rock / EPC</td><td>Gestor de contraseñas del equipo; entrega formal en el acta de cierre</td></tr>
+<tr><td>WordPress (administrador)</td><td>Informática EPC / We Rock</td><td>Ídem</td></tr>
+<tr><td>HalconBot (panel y WhatsApp Cloud API)</td><td>We Rock con EPC</td><td>Ídem</td></tr>
+<tr><td>Dominio y DNS</td><td>EPC (proveedor externo)</td><td>EPC</td></tr>
+<tr><td>Google Workspace</td><td>EPC</td><td>Administrador de EPC</td></tr>
+<tr><td>GitHub (repositorios EPC y tema)</td><td>We Rock</td><td>Cuenta de la agencia</td></tr></table></section>
+
+<section id="mant"><h2>11. Mantenimiento y soporte</h2>
+<ul><li>Actualizaciones de WordPress y plugins con respaldo manual previo y verificación posterior. Hoy hay 4 actualizaciones de plugins de Hostinger disponibles.</li>
+<li>Soporte de incidentes: críticos en 4 horas hábiles; solución o contingencia en 24 horas.</li>
+<li>Garantía de 4 meses desde la puesta en producción para corregir errores.</li></ul></section>
+
+<section id="pend"><h2>12. Pendientes técnicos</h2>
+<ul><li>Conexión del Portal con Integra (API) y definición de la pasarela de pagos.</li>
+<li>Línea definitiva de WhatsApp y plan productivo de HalconBot (el de pruebas vence el 22 de octubre de 2026).</li>
+<li>Analítica (Analytics, Search Console, Tag Manager) con el dominio definitivo.</li>
+<li>Restauración de prueba documentada; actualización de esta documentación al salir al aire.</li></ul></section>
+</div>
+<footer><div class="wrap">Documentación elaborada por We Rock · versión 1.0 · 15 de octubre de 2026. Complementa el <a href="informe-entrega.html">informe de entrega</a>.</div></footer>
+</body></html>
